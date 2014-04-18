@@ -22,3 +22,7 @@ Route::get('/index', function () {
 Route::post('/index', function () {
 	return View::make('pages.index');
 });
+
+Route::get('/logout', function () {
+	return Redirect::to('/');
+});
