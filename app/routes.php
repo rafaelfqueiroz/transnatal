@@ -14,3 +14,11 @@
 Route::get('/', function() {
 	return View::make('pages.login');
 });
+
+Route::get('/index', function () {
+	return View::make('pages.index');
+});
+
+Route::post('/index', function () {
+	return View::make('pages.index');
+});
