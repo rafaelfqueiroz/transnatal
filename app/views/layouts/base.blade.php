@@ -1,4 +1,3 @@
-<!Doctype>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -21,10 +20,8 @@
     <!-- Theme style -->
     {{ HTML::style('assets/AdminLTE/css/AdminLTE.css') }}
 	<title>Transnatal Manager</title>
-
 </head>
-<body>
-	
+<body class=@yield('bg-body')>
 	@yield('content')
 	<!-- jQuery 2.0.2 -->
 	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js') }}
@@ -53,6 +50,6 @@
     <!-- AdminLTE App -->
     {{ HTML::script('assets/AdminLTE/js/AdminLTE/app.js') }}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    {{ HTML::script('assets/AdminLTE/js/AdminLTE/dashboard.js) }}
+    {{ HTML::script('assets/AdminLTE/js/AdminLTE/dashboard.js') }}
 </body>
 </html>

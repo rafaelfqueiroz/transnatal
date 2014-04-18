@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('base');
+Route::get('/', function() {
+	return View::make('pages.login');
 });
