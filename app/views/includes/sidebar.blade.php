@@ -5,7 +5,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                            {{HTML::image('assets/AdminLTE/img/avatar3.png', 'User Image', array('class' => 'img-circle'))}}
                         </div>
                         <div class="pull-left info">
                             <p>Hello, Jane</p>
@@ -32,12 +32,12 @@
                         </li>
                         <li>
                             <a href="pages/widgets.html">
-                                <i class="fa fa-th"></i> <span>Viagens</span> <small class="badge pull-right bg-green">new</small>
+                                <i class="fa fa-road"></i> <span>Viagens</span> <small class="badge pull-right bg-green">new</small>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-bar-chart-o"></i>
+                                <i class="fa fa-th-large"></i>
                                 <span>Transportes</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -49,7 +49,7 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-laptop"></i>
+                                <i class="fa fa-truck"></i>
                                 <span>Veículos</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -63,7 +63,7 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-edit"></i> <span>Clientes</span>
+                                <i class="fa fa-users"></i> <span>Clientes</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -84,25 +84,25 @@
                         </li>
                         <li>
                             <a href="pages/calendar.html">
-                                <i class="fa fa-calendar"></i> <span>Items</span>
+                                <i class="fa fa-gift"></i> <span>Items</span>
                                 <small class="badge pull-right bg-red">3</small>
                             </a>
                         </li>
                         <li>
                             <a href="pages/mailbox.html">
-                                <i class="fa fa-envelope"></i> <span>Funcionários</span>
+                                <i class="fa fa-users"></i> <span>Funcionários</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
                         </li>
                         <li>
                             <a href="pages/mailbox.html">
-                                <i class="fa fa-envelope"></i> <span>Motoristas</span>
+                                <i class="fa fa-circle-o"></i> <span>Motoristas</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-folder"></i> <span>Usuários</span>
+                                <i class="fa fa-user"></i> <span>Usuários</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">

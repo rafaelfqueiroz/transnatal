@@ -15,14 +15,18 @@ Route::get('/', function() {
 	return View::make('pages.login');
 });
 
-Route::get('/index', function () {
+Route::get('/index', function() {
 	return View::make('pages.index');
 });
 
-Route::post('/index', function () {
+Route::post('/index', function() {
 	return View::make('pages.index');
 });
 
-Route::get('/logout', function () {
+Route::get('/logout', function() {
 	return Redirect::to('/');
+});
+
+Route::get('/profile', function() {
+	return View::make('pages.profile');
 });
