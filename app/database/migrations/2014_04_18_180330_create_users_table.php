@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateChatUsersTable extends Migration {
+class CreateUsersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,10 @@ class CreateChatUsersTable extends Migration {
 	{
         Schema::create('users', function(Blueprint $t) {
             $t->increments('id');
-			$t->string('name');
+			$t->string('username');
+			$t->string('password');
+			$t->string('email');
+			$t->foreign('employee_id')->references('id')->on('employees');
 			$t->timestamps();
         });
 	}
