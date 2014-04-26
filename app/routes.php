@@ -11,22 +11,12 @@
 |
 */
 
-Route::get('/', function() {
-	return View::make('pages.login');
-});
+Route::get('/', 'AuthController@getLogin');
 
-Route::get('/index', function() {
-	return View::make('pages.index');
-});
+Route::post('/auth', 'AuthController@postLogin');
 
-Route::post('/index', function() {
-	return View::make('pages.index');
-});
+Route::get('/index', 'HomeController@index');
 
-Route::get('/logout', function() {
-	return Redirect::to('/');
-});
+Route::get('/logout', 'AuthController@logout');
 
-Route::get('/profile', function() {
-	return View::make('pages.profile');
-});
+Route::get('/profile', 'UsersController@getProfile');
