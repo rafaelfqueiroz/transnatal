@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'transnatal',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => '915111',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

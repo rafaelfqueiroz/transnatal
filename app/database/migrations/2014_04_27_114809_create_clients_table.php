@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateClientsTable extends Migration {
 
@@ -12,7 +12,7 @@ class CreateClientsTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('clients', function(Blueprint $t) {
+		Schema::create('clients', function(Blueprint $t) {
             $t->increments('id');
 			$t->string('name');
 			$t->string('rg', 11);
@@ -20,11 +20,11 @@ class CreateClientsTable extends Migration {
 			$t->date('birthday');
 			$t->string('home_phone');
 			$t->string('cel_phone');
-			$t->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
+			$t->integer('address_id')->unsigned();
+			$t->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade')->onUpdate('cascade');
 			$t->timestamps();
         });
 	}
-
 
 	/**
 	 * Reverse the migrations.
@@ -33,7 +33,7 @@ class CreateClientsTable extends Migration {
 	 */
 	public function down()
 	{
-	    Schema::drop('clients');
+		Schema::drop('clients');
 	}
 
 }

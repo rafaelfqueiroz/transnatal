@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateEmployeesTable extends Migration {
 
@@ -12,7 +12,7 @@ class CreateEmployeesTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('employees', function(Blueprint $t) {
+		Schema::create('employees', function(Blueprint $t) {
             $t->increments('id');
 			$t->string('name');
 			$t->dateTime('admission_date');
@@ -29,11 +29,11 @@ class CreateEmployeesTable extends Migration {
 			$t->string('license_number');
 			$t->string('license_category');
 			$t->string('license_pamcard');
-			$t->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
+			$t->integer('address_id')->unsigned();
+			$t->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade')->onUpdate('cascade');
 			$t->timestamps();
         });
 	}
-
 
 	/**
 	 * Reverse the migrations.
@@ -42,7 +42,7 @@ class CreateEmployeesTable extends Migration {
 	 */
 	public function down()
 	{
-	    Schema::drop('employees');
+		Schema::drop('employees');
 	}
 
 }
