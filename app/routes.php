@@ -20,3 +20,5 @@ Route::get('/index', 'HomeController@index');
 Route::get('/logout', 'AuthController@logout');
 
 Route::get('/profile', 'UsersController@getProfile');
+
+Route::get('/employees/register', 'EmployeesController@register');

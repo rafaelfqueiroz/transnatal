@@ -19,6 +19,9 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <!-- Theme style -->
     {{ HTML::style('assets/AdminLTE/css/AdminLTE.css') }}
+    <!-- App style -->
+    {{ HTML::style('assets/css/app.css') }}
+
 	<title>Transnatal Manager</title>
 </head>
 <body class=@yield('bg-body')>
