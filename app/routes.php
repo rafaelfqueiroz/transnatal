@@ -22,3 +22,7 @@ Route::get('/logout', 'AuthController@logout');
 Route::get('/profile', 'UsersController@getProfile');
 
 Route::get('/employees/register', 'EmployeesController@register');
+
+Route::get('/users/register', 'UsersController@register');
+
+ROute::get('/clients/register', 'ClientsController@register');

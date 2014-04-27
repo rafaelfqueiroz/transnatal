@@ -71,7 +71,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
+                                <li><a href="{{Url::to('clients/register')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                             </ul>
                         </li>
@@ -91,7 +91,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
+                                <li><a href="{{Url::to('users/register')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                             </ul>
                         </li>

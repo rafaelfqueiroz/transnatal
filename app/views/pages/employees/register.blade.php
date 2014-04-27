@@ -46,7 +46,7 @@
 	            						<div class="form-group">
 	            							<div class="row">
 		            							<div class="col-xs-6">
-	            									<label for="employeeHomePhone">Telefone residencial</label>
+	            									<label for="employeeHomePhone">Telefone fixo</label>
 	            							    	<input id="employeeHomePhone" name="homePhone" type="text" class="form-control" placeholder="(##) ####-####" required>
 	            							    </div>
 	            							    <div class="col-xs-6">
@@ -169,8 +169,10 @@
                 			</div> <!-- col-md-6 -->
                 			<div class="col-md-10">
 	                			<div class="box">
-	                				<div class="form-group">
-	                					<input type="submit" class="btn btn-success btn-lg col-xs-12" value="Cadastrar funcionário">
+	                				<div class="box-body">
+	                					<div class="form-group">
+	                						<input type="submit" class="btn btn-success btn-lg btn-block" value="Cadastrar funcionário">
+	                					</div>
 	                				</div>
 	                			</div>
 	                		</div>

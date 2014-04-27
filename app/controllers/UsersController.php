@@ -11,4 +11,9 @@ class UsersController extends BaseController {
 	{
 		return Redirect::to('index');
 	}
+
+	public function register() 
+	{
+		return View::make('pages.users.register');
+	}
 }
