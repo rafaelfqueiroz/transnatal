@@ -38,4 +38,38 @@ abstract class Validator{
 	{
 		return $this->errors;
 	}
+
+	/**
+	Substitui as regreas padrão com as que estão na varável $new_rules.
+	**/
+	public function setRules($new_rules)
+	{
+		$this->rules = $new_rules;
+	}
+
+	/**
+	Altera o valor de $rules na posição de $key
+	ou adiciona caso não exista.
+	**/
+	public function addORChangeRule($key, $rule)
+	{
+		$this->rules[$key] = $rule;
+	}
+
+	/**
+	Substitui as mensagens padrão com as que estão na varável $new_messages.
+	**/
+	public function setMessages($new_messages)
+	{
+		$this->messages = $new_messages;
+	}
+
+	/**
+	Altera o valor de $messages na posição de $key
+	ou adiciona caso não exista.
+	**/
+	public function addORChangeMessages($key, $message)
+	{
+		$this->messages[$key] = $message;
+	}
 }
