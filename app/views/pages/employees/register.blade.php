@@ -55,11 +55,11 @@
 						            							<div class="row">
 							            							<div class="col-xs-6">
 						            									<label for="employeeHomePhone">Telefone fixo</label>
-						            							    	<input id="employeeHomePhone" name="homePhone" type="text" class="form-control" placeholder="(##) ####-####" required>
+						            							    	<input id="employeeHomePhone" name="home_phone" type="text" class="form-control" placeholder="(##) ####-####" required>
 						            							    </div>
 						            							    <div class="col-xs-6">
 						            									<label for="employeeCelPhone">Telefone celular</label>
-						            							    	<input id="employeeCelPhone" name="celPhone" type="text" class="form-control" placeholder="(##) ####-####" required>
+						            							    	<input id="employeeCelPhone" name="cel_phone" type="text" class="form-control" placeholder="(##) ####-####" required>
 						            							    </div>
 					            							    </div>
 						            						</div>
@@ -67,11 +67,11 @@
 						            							<div class="row">
 							            							<div class="col-xs-6">
 						            									<label for="admissionDate">Data de admissão</label>
-						            							    	<input id="admissionDate" name="admissionDate" type="date" class="form-control" required>
+						            							    	<input id="admissionDate" name="admission_date" type="date" class="form-control" required>
 						            							    </div>
 						            							    <div class="col-xs-6">
 						            									<label for="resignationDate">Data de demissão</label>
-						            							    	<input id="resignationDate" name="resignationDate" type="date" class="form-control">
+						            							    	<input id="resignationDate" name="resignation_date" type="date" class="form-control">
 						            							    </div>
 					            							    </div>
 						            						</div>
@@ -83,16 +83,16 @@
 						            						<div class="form-group">
 						            							<div class="row">
 						            								<div class="col-xs-5">
-						            									<label>Número da carteira</label>
-						            									<input type="text" class="form-control">
+						            									<label for="employeeLicenseNumber">Número da carteira</label>
+						            									<input id="employeeLicenseNumber" type="text" name="license_number" class="form-control">
 						            								</div>
 						            								<div class="col-xs-2">
-						            									<label>Categoria</label>
-						            									<input type="text" class="form-control">
+						            									<label for="employeeLicenseCategory">Categoria</label>
+						            									<input id="employeeLicenseCategory" type="text" name="license_category" class="form-control">
 						            								</div>
 						            								<div class="col-xs-5">
-						            									<label>Número PAMCARD</label>
-						            									<input type="text" class="form-control">
+						            									<label for="employeeLicensePamcard">Número PAMCARD</label>
+						            									<input id="employeeLicensePamcard" type="text" name="license_pamcard" class="form-control">
 						            								</div>
 						            							</div>
 						            						</div>
@@ -104,20 +104,20 @@
 						            						<div class="form-group">
 						            							<div class="row">
 							            							<div class="col-xs-5">
-						            									<label for="employeeHomePhone">Número da conta</label>
-						            							    	<input id="employeeHomePhone" name="homePhone" type="text" class="form-control" required>
+						            									<label for="employeeBankAccount">Número da conta</label>
+						            							    	<input id="employeeBankAccount" name="bank_account" type="text" class="form-control" required>
 						            							    </div>
 						            							    <div class="col-xs-5">
-						            									<label for="employeeCelPhone">Agência</label>
-						            							    	<input id="employeeCelPhone" name="celPhone" type="text" class="form-control" required>
+						            									<label for="employeeBankAgency">Agência</label>
+						            							    	<input id="employeeBankAgency" name="bank_agency" type="text" class="form-control" required>
 						            							    </div>
 						            							    <div class="col-xs-2">
-						            									<label for="employeeCelPhone">Operação</label>
-						            							    	<input id="employeeCelPhone" name="celPhone" type="text" class="form-control" required>
+						            									<label for="employeeBankOp">Operação</label>
+						            							    	<input id="employeeBankOp" name="bank_op" type="text" class="form-control" required>
 						            							    </div>
 						            							    <div class="col-xs-12">
-						            									<label for="employeeCelPhone">Nome do banco</label>
-						            							    	<input id="employeeCelPhone" name="celPhone" type="text" class="form-control" required>
+						            									<label for="employeeBankName">Nome do banco</label>
+						            							    	<input id="employeeBankName" name="bank_name" type="text" class="form-control" required>
 						            							    </div>
 					            							    </div>
 						            						</div>
