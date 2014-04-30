@@ -1,7 +1,19 @@
 <?php
-	class ClientsController extends BaseController {
+use Transnatal\Interfaces\ClientRepositoryInterface;
+use Transnatal\Services\Validation\ClientValidator;
 
-	public function __constructor()	{}
+class ClientsController extends BaseController {
+
+	private $validator;
+	private $addressValidator;
+	private $clientRepository;
+
+	public function __construct($validator, $clientRepository, $addressValidator)
+	{
+		$this->validator = $validator;
+		$this->clientRepository = $clientRepository;
+		$this->addressValidator = $addressValidator;
+	}
 
 	public function register()
 	{

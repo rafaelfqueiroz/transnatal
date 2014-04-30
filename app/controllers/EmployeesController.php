@@ -7,13 +7,13 @@ use Transnatal\Services\Validation\EmployeeValidation;
 	
 		private $validator;
 		private $employeeRepository;
-		private $addressRepository;
+		private $addressValidator;
 
-		public function __constructor($validator, $employeeRepository, $addressRepository)
+		public function __construct($validator, $employeeRepository, $addressValidator)
 		{
 			$this->validator = $validator;
+			$this->addressValidator = $addressValidator;
 			$this->employeeRepository = $employeeRepository;
-			$this->addressRepository = $addressRepository;
 		}
 
 		/** 
