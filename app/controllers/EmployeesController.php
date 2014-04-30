@@ -1,9 +1,19 @@
-<?php 
+<?php
+
+use Transnatal\Interfaces\EmployeeRepositoryInterface;
+use Transnatal\Services\Validation\EmployeeValidation;
+
 	class EmployeesController extends BaseController {
 	
-		public function __constructor()
+		private $validator;
+		private $employeeRepository;
+		private $addressRepository;
+
+		public function __constructor($validator, $employeeRepository, $addressRepository)
 		{
-			//to do
+			$this->validator = $validator;
+			$this->employeeRepository = $employeeRepository;
+			$this->addressRepository = $addressRepository;
 		}
 
 		/** 

@@ -28,10 +28,10 @@
 	            			<div class="box-body">
 	            				<div class="form-group">
 	            					<label for="username">Nome de usuário (Login)</label>
-	            					<input id="username" class="form-control" type="text" placeholder="Insira o seu nome de usuário">
+	            					<input id="username" name="username" class="form-control" type="text" placeholder="Insira o seu nome de usuário">
 	            				</div>
 	            				<div class="form-group">
-	            					<label for="employee">Escolha um funcionário</label>
+	            					<label for="employee_id">Escolha um funcionário</label>
 	            					<select class="form-control">
 	            						<option>1</option>
 	            						<option>2</option>
@@ -60,7 +60,7 @@
 		            					</div>
 		            					<div class="col-xs-6">
 		            						<label for="confirmPassword">Confirmação de senha</label>
-	            							<input id="confirmPassword" name="confirmPassword" type="password" class="form-control"  placeholder="Insira o sua senha novamente para confirmar">
+	            							<input id="confirmPassword" name="password_confirmation" type="password" class="form-control"  placeholder="Insira o sua senha novamente para confirmar">
 		            					</div>
 	            					</div>
 	            				</div>

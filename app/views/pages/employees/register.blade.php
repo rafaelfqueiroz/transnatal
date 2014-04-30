@@ -132,44 +132,44 @@
 						            				</div>
 						            				<div class="box-body">
 				            							<div class="form-group">
-				            								<label for="employeeName">Logradouro</label>
-				            							    <input id="employeeName" type="text" class="form-control" placeholder="Insira o nome da rua/avenida">
+				            								<label for="employeeAddressStreet">Logradouro</label>
+				            							    <input id="employeeAddressStreet" type="text" name="street" class="form-control" placeholder="Insira o nome da rua/avenida">
 					            						</div>
 					            						<div class="form-group">
 					            							<div class="row">
 					            								<div class="col-xs-3">
-				            										<label for="employeeName">Número</label>
-				            							    		<input id="employeeName" type="number" class="form-control" placeholder="Insira o número residencial">
+				            										<label for="employeeAddressNumber">Número</label>
+				            							    		<input id="employeeAddressNumber" type="number" name="number" class="form-control" placeholder="Insira o número residencial">
 				            							    	</div>
 				            							    	<div class="col-xs-3">
-				            							    		<label for="addressCep">CEP</label>
-					            							    	<input id="addressCep" type="text" class="form-control" placeholder="#####-###">
+				            							    		<label for="employeeAddressCep">CEP</label>
+					            							    	<input id="employeeAddressCep" type="text" name="cep" class="form-control" placeholder="#####-###">
 				            							    	</div>
 				            							    	<div class="col-xs-6">
-				            							    		<label for="employeeName">Bairro</label>
-				            							    		<input id="employeeName" type="text" class="form-control" placeholder="Insira o nome do bairo em que mora">
+				            							    		<label for="employeeAddressNeighborhood">Bairro</label>
+				            							    		<input id="employeeAddressNeighborhood" type="text" name="neighborhood" class="form-control" placeholder="Insira o nome do bairo em que mora">
 				            							    	</div>
 				            							    </div>
 					            						</div>
 					            						<div class="form-group">
 					            							<div class="row">
 					            								<div class="col-xs-9">
-				            										<label for="addressCity">Cidade</label>
-				            							    		<input id="addressCity" type="text" class="form-control" placeholder="Insira o nome da cidade em que mora">
+				            										<label for="employeeAddressCity">Cidade</label>
+				            							    		<input id="EmployeeAddressCity" type="text" name="city" class="form-control" placeholder="Insira o nome da cidade em que mora">
 				            							    	</div>
 				            							    	<div class="col-xs-3">
-				            							    		<label for="employeeName">Estado</label>
-				            							    		<input id="employeeName" type="text" class="form-control" placeholder="Insira o nome do funcionário">
+				            							    		<label for="employeeAddressState">Estado</label>
+				            							    		<input id="employeeAddressState" type="text" name="state" class="form-control" placeholder="Insira o nome do funcionário">
 				            							    	</div>
 				            							    </div>
 					            						</div>
 					            						<div class="form-group">
-				            								<label for="addressComplement">Complemento</label>
-				            							    <input id="addressComplement" type="text" class="form-control" placeholder="Insira um complemento para seu endereço">
+				            								<label for="employeeAddressComplement">Complemento</label>
+				            							    <input id="employeeAddressComplement" type="text" name="complement" class="form-control" placeholder="Insira um complemento para seu endereço">
 					            						</div>
 					            						<div class="form-group">
-				            								<label for="addressReference">Referência</label>
-				            							    <input id="addressReference" type="text" class="form-control" placeholder="Insira uma referência para seu endereço">
+				            								<label for="employeeAddressReference">Referência</label>
+				            							    <input id="employeeAddressReference" type="text" name="reference" class="form-control" placeholder="Insira uma referência para seu endereço">
 					            						</div>
 					            					</div> <!-- box-body -->
 					                			</div> <!-- box -->

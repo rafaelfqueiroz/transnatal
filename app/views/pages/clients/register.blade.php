@@ -49,12 +49,12 @@
             					<div class="form-group">
 	            							<div class="row">
 		            							<div class="col-xs-6">
-	            									<label for="employeeHomePhone">Telefone fixo</label>
-	            							    	<input id="employeeHomePhone" name="homePhone" type="text" class="form-control" placeholder="(##) ####-####" required>
+	            									<label for="clientHomePhone">Telefone fixo</label>
+	            							    	<input id="clientHomePhone" name="home_phone" type="text" class="form-control" placeholder="(##) ####-####" required>
 	            							    </div>
 	            							    <div class="col-xs-6">
 	            									<label for="employeeCelPhone">Telefone celular</label>
-	            							    	<input id="employeeCelPhone" name="celPhone" type="text" class="form-control" placeholder="(##) ####-####" required>
+	            							    	<input id="employeeCelPhone" name="cel_phone" type="text" class="form-control" placeholder="(##) ####-####" required>
 	            							    </div>
             							    </div>
 	            						</div>
