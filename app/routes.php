@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', 'AuthController@getLogin');
 
-Route::post('/auth', 'AuthController@postLogin');
+//<======== GET REQUESTS ========>
+
+
+Route::get('/', 'AuthController@getLogin');
 
 Route::get('/index', 'HomeController@index');
 
@@ -26,3 +28,17 @@ Route::get('/employees/register', 'EmployeesController@register');
 Route::get('/users/register', 'UsersController@register');
 
 ROute::get('/clients/register', 'ClientsController@register');
+
+//<======== END OF GET REGUESTS ========>
+
+//<======== POST REQUESTS ========>
+
+Route::post('/auth', 'AuthController@postLogin');
+
+Route::post('/clients/store', 'ClientsController@store');
+
+Route::post('/employees/store', 'EmployeesController@store');
+
+Route::post('/users/store', 'UsersController@store');
+
+//<======== END OF POST REQUESTS ========>

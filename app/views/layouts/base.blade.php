@@ -1,28 +1,31 @@
 <html>
 <head>
-	<meta charset="UTF-8">
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- bootstrap 3.0.2 -->
-    {{ HTML::style('assets/AdminLTE/css/bootstrap.min.css') }}
-    <!-- font Awesome -->
-    {{ HTML::style('assets/AdminLTE/css/font-awesome.min.css') }}
-    <!-- Ionicons -->
-    {{ HTML::style('assets/AdminLTE/css/ionicons.min.css') }}
-    <!-- Morris chart -->
-    {{ HTML::style('assets/AdminLTE/css/morris/morris.css') }}
-    <!-- jvectormap -->
-    {{ HTML::style('assets/AdminLTE/css/jvectormap/jquery-jvectormap-1.2.2.css') }}
-    <!-- fullCalendar -->
-    {{ HTML::style('assets/AdminLTE/css/fullcalendar/fullcalendar.css') }}
-    <!-- Daterange picker -->
-    {{ HTML::style('assets/AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}
-    <!-- bootstrap wysihtml5 - text editor -->
-    <!-- Theme style -->
-    {{ HTML::style('assets/AdminLTE/css/AdminLTE.css') }}
-    <!-- App style -->
-    {{ HTML::style('assets/css/app.css') }}
+    
+    	<meta charset="UTF-8">
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        {{ HTML::style('assets/AdminLTE/css/bootstrap.min.css') }}
+        <!-- font Awesome -->
+        {{ HTML::style('assets/AdminLTE/css/font-awesome.min.css') }}
+        <!-- Ionicons -->
+        {{ HTML::style('assets/AdminLTE/css/ionicons.min.css') }}
+        <!-- Morris chart -->
+        {{ HTML::style('assets/AdminLTE/css/morris/morris.css') }}
+        <!-- jvectormap -->
+        {{ HTML::style('assets/AdminLTE/css/jvectormap/jquery-jvectormap-1.2.2.css') }}
+        <!-- fullCalendar -->
+        {{ HTML::style('assets/AdminLTE/css/fullcalendar/fullcalendar.css') }}
+        <!-- Daterange picker -->
+        {{ HTML::style('assets/AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}
+        <!-- bootstrap wysihtml5 - text editor -->
+        <!-- Theme style -->
+        {{ HTML::style('assets/AdminLTE/css/AdminLTE.css') }}
+        <!-- App style -->
+        {{ HTML::style('assets/css/app.css') }}
+        @yield('stylesheets')
 
-	<title>Transnatal Manager</title>
+    	<title>Transnatal Manager</title>
+        
 </head>
 <body class=@yield('bg-body')>
 	@yield('content')
@@ -54,5 +57,7 @@
     {{ HTML::script('assets/AdminLTE/js/AdminLTE/app.js') }}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     {{ HTML::script('assets/AdminLTE/js/AdminLTE/dashboard.js') }}
+    
+    @yield('scripts')
 </body>
 </html>

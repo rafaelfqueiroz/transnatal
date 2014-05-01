@@ -2,6 +2,9 @@
 	@section('bg-body')
 		"skin-blue"
 	@stop
+	@section('stylesheets')
+        {{ HTML::style('assets/vendor/datepicker/css/datepicker.css') }}
+    @stop
 @section('content')
 @include('includes.header')
 	<div class="wrapper row-offcanvas row-offcanvas-left">
@@ -14,12 +17,12 @@
                         <small>Formulário de cadastro</small>
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="{{Url::to('index')"><i class="fa fa-home"></i> Início</a></li>
+                        <li><a href="{{Url::to('index')}}"><i class="fa fa-home"></i> Início</a></li>
                         <li class="active">Formulário</li>
                     </ol>
                 </section>
                 <section class="content">
-                	<form role="form">
+                	<form role="form" method="post" action="">
                 		<div class="row">
                 			<div class="col-md-10">
                 				<div class="box">
@@ -67,11 +70,11 @@
 						            							<div class="row">
 							            							<div class="col-xs-6">
 						            									<label for="admissionDate">Data de admissão</label>
-						            							    	<input id="admissionDate" name="admission_date" type="date" class="form-control" required>
+						            							    	<input id="admissionDate" name="admission_date" type="text" class="form-control datepicker" data-date-format="dd/mm/yyyy" placeholder="Clique aqui para escolher uma data (dia/mes/ano)" required>
 						            							    </div>
 						            							    <div class="col-xs-6">
 						            									<label for="resignationDate">Data de demissão</label>
-						            							    	<input id="resignationDate" name="resignation_date" type="date" class="form-control">
+						            							    	<input id="resignationDate" name="resignation_date" type="text" class="form-control datepicker" data-date-format="dd/mm/yyyy" placeholder="Clique aqui para escolher uma data (dia/mes/ano)">
 						            							    </div>
 					            							    </div>
 						            						</div>
@@ -188,3 +191,9 @@
             	</section><!-- /.content -->
         	</aside><!-- /.right-side -->
 	</div><!-- ./wrapper -->
+	@section('scripts')
+        {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
+        <script type="text/javascript">
+        	$('.datepicker').datepicker();
+        </script>
+    @stop
