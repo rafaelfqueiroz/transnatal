@@ -16,6 +16,25 @@ class UsersController extends BaseController {
 		$this->employeeValidator = $employeeValidator;
 	}
 
+	public function store()
+	{
+		if (!$this->validator->validate(Input::all()) && !$this->employeeValidator->validate(Input::all()))
+		{
+			return Redirect::back()->with('errors', $this->validate->getErrors()->withInput());
+		}
+		else
+		{
+			if ($this->userRepository->save(Input::all()))
+			{
+				return Redirect::to('users/register')->with('messages', 'Usuário criado com sucesso.');
+			}
+			else
+			{
+				return Redirect::back()->('errors', 'Erro ao tentar criar usuário, por favor tente novamente.')->withInput();
+			}
+		}
+	}
+
 	public function getProfile()
 	{
 		return View::make('pages.users.profile');

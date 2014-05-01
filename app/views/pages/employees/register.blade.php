@@ -143,7 +143,7 @@
 				            							    	</div>
 				            							    	<div class="col-xs-3">
 				            							    		<label for="employeeAddressCep">CEP</label>
-					            							    	<input id="employeeAddressCep" type="text" name="cep" class="form-control" placeholder="#####-###">
+					            							    	<input id="employeeAddressCep" type="text" name="zip_code" class="form-control" placeholder="#####-###">
 				            							    	</div>
 				            							    	<div class="col-xs-6">
 				            							    		<label for="employeeAddressNeighborhood">Bairro</label>
