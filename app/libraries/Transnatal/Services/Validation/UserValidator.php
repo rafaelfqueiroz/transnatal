@@ -1,5 +1,5 @@
 <?php
-namespace Transnatal\Validation;
+namespace Transnatal\Services\Validation;
 
 class UserValidator extends Validator {
 

@@ -1,13 +1,13 @@
 <?php
-namespace Transnatal\Validation;
-use Validator;
+namespace Transnatal\Services\Validation;
+use Validator as V;
 
-abstract class Validator{
+abstract class Validator {
 
 	protected $messages = [
 	'required' => 'Preencha o campo :atribute.',
 	'size' => 'O campo :atribute deve ter menos que :size caracteres.',
-	'numeric' => 'O campo :atribute deve conter apenas números.'
+	'numeric' => 'O campo :atribute deve conter apenas números.',
 	'min' => 'O campo :atribute deve conter no mínimo :min caracteres.',
 	'max' => 'O campo :atribute deve conter no máximo :min caracteres.',
 	'email' => 'Preencha o email no formato correto',
@@ -25,7 +25,7 @@ abstract class Validator{
 
 	public function validate($input)
 	{
-		$valodator = Validator::make($input, $rules);
+		$valodator = V::make($input, $rules);
 		if ($validator->fails())
 		{
 			$this->errors = $validator->messages();

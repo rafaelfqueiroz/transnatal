@@ -1,5 +1,7 @@
 <?php
-namespace Transnatal\Repositories
+namespace Transnatal\Repositories;
+
+use Transnatal\Interfaces\ClientRepositoryInterface;
 
 use Client;
 
@@ -38,7 +40,7 @@ class DbClientRepository implements ClientRepositoryInterface {
 		$client->address->complement = $input['complement'];
 		$client->address->reference = $input['reference'];
 
-		$client->address->save()
+		$client->address->save();
 		$client->save();
 
 		return $client;
