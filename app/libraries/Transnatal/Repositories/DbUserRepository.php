@@ -1,6 +1,7 @@
 <?php
-namespace Transnatal\Repositories
+namespace Transnatal\Repositories;
 
+use Transnatal\Interfaces\UserRepositoryInterface;
 use User;
 
 class DbUserRepository implements UserRepositoryInterface {

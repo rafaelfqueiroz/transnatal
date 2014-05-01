@@ -1,24 +1,22 @@
 <?php
 
-use Transnatal\Interfaces\UsersRepositoryInterface;
+use Transnatal\Interfaces\UserRepositoryInterface;
 use Transnatal\Services\Validation\UserValidator;
 
 class UsersController extends BaseController {
 
 	private $validator;
-	private $employeeValidator;
 	private $userRepository;
 
-	public function __construct($validator, $userRepository, $employeeValidator)
+	public function __construct(UserValidator $validator, UserRepositoryInterface $userRepository)
 	{
 		$this->validator = $validator;
 		$this->userRepository = $userRepository;
-		$this->employeeValidator = $employeeValidator;
 	}
 
 	public function store()
 	{
-		if (!$this->validator->validate(Input::all()) && !$this->employeeValidator->validate(Input::all()))
+		if (!$this->validator->validate(Input::all()))
 		{
 			return Redirect::back()->with('errors', $this->validate->getErrors()->withInput());
 		}
@@ -30,7 +28,7 @@ class UsersController extends BaseController {
 			}
 			else
 			{
-				return Redirect::back()->('errors', 'Erro ao tentar criar usuário, por favor tente novamente.')->withInput();
+				return Redirect::back()->with('errors', 'Erro ao tentar criar usuário, por favor tente novamente.')->withInput();
 			}
 		}
 	}

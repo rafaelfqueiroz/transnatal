@@ -1,5 +1,5 @@
 <?php
-namespace Transnatal\Repositories
+namespace Transnatal\Repositories;
 
 use Address;
 

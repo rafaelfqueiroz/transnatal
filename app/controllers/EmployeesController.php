@@ -1,7 +1,8 @@
 <?php
 
 use Transnatal\Interfaces\EmployeeRepositoryInterface;
-use Transnatal\Services\Validation\EmployeeValidation;
+use Transnatal\Services\Validation\EmployeeValidator;
+use Transnatal\Services\Validation\AddressValidator;
 
 	class EmployeesController extends BaseController {
 	
@@ -9,7 +10,7 @@ use Transnatal\Services\Validation\EmployeeValidation;
 		private $employeeRepository;
 		private $addressValidator;
 
-		public function __construct($validator, $employeeRepository, $addressValidator)
+		public function __construct(EmployeeValidator $validator, EmployeeRepositoryInterface $employeeRepository, AddressValidator $addressValidator)
 		{
 			$this->validator = $validator;
 			$this->addressValidator = $addressValidator;

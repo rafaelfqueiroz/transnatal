@@ -1,6 +1,7 @@
 <?php
-namespace Transnatal\Repositories
+namespace Transnatal\Repositories;
 
+use Transnatal\Interfaces\EmployeeRepositoryInterface;
 use Employee;
 
 class DbEmployeeRepository implements EmployeeRepositoryInterface {
