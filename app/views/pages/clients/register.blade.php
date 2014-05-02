@@ -79,44 +79,72 @@
                                                     </div>
                                                     <div class="box-body">
                                                         <div class="form-group">
-                                                            <label for="employeeAddressStreet">Logradouro</label>
-                                                            <input id="employeeAddressStreet" type="text" name="street" class="form-control" placeholder="Insira o nome da rua/avenida">
+                                                            <label for="clientAddressStreet">Logradouro</label>
+                                                            <input id="clientAddressStreet" type="text" name="street" class="form-control" placeholder="Insira o nome da rua/avenida">
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-xs-3">
-                                                                    <label for="employeeAddressNumber">Número</label>
-                                                                    <input id="employeeAddressNumber" type="number" name="number" class="form-control" placeholder="Insira o número residencial">
+                                                                    <label for="clientAddressNumber">Número</label>
+                                                                    <input id="clientAddressNumber" type="number" name="number" class="form-control" placeholder="Insira o número residencial">
                                                                 </div>
                                                                 <div class="col-xs-3">
-                                                                    <label for="employeeAddressCep">CEP</label>
-                                                                    <input id="employeeAddressCep" type="text" name="zip_code" class="form-control" placeholder="#####-###">
+                                                                    <label for="clientAddressCep">CEP</label>
+                                                                    <input id="clientAddressCep" type="text" name="zip_code" class="form-control" placeholder="#####-###">
                                                                 </div>
                                                                 <div class="col-xs-6">
-                                                                    <label for="employeeAddressNeighborhood">Bairro</label>
-                                                                    <input id="employeeAddressNeighborhood" type="text" name="neighborhood" class="form-control" placeholder="Insira o nome do bairo em que mora">
+                                                                    <label for="clientAddressNeighborhood">Bairro</label>
+                                                                    <input id="clientAddressNeighborhood" type="text" name="neighborhood" class="form-control" placeholder="Insira o nome do bairo em que mora">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-xs-9">
-                                                                    <label for="employeeAddressCity">Cidade</label>
-                                                                    <input id="EmployeeAddressCity" type="text" name="city" class="form-control" placeholder="Insira o nome da cidade em que mora">
+                                                                    <label for="clientAddressCity">Cidade</label>
+                                                                    <input id="clientAddressCity" type="text" name="city" class="form-control" placeholder="Insira o nome da cidade em que mora">
                                                                 </div>
                                                                 <div class="col-xs-3">
-                                                                    <label for="employeeAddressState">Estado</label>
-                                                                    <input id="employeeAddressState" type="text" name="state" class="form-control" placeholder="Insira o nome do funcionário">
+                                                                    <label for="clientAddressState">Estado</label>
+                                                                    <select id="clientAddressState" type="text" name="state" class="form-control" >
+                                                                        <option>AC</option>
+                                                                        <option>AL</option>
+                                                                        <option>AP</option>
+                                                                        <option>AM</option>
+                                                                        <option>BA</option>
+                                                                        <option>CE</option>
+                                                                        <option>DF</option>
+                                                                        <option>ES</option>
+                                                                        <option>GO</option>
+                                                                        <option>MA</option>
+                                                                        <option>MT</option>
+                                                                        <option>MS</option>
+                                                                        <option>MG</option>
+                                                                        <option>PA</option>
+                                                                        <option>PB</option>
+                                                                        <option>PR</option>
+                                                                        <option>PE</option>
+                                                                        <option>PI</option>
+                                                                        <option>RJ</option>
+                                                                        <option>RN</option>
+                                                                        <option>RS</option>
+                                                                        <option>RO</option>
+                                                                        <option>RR</option>
+                                                                        <option>SC</option>
+                                                                        <option>SP</option>
+                                                                        <option>SE</option>
+                                                                        <option>TO</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="employeeAddressComplement">Complemento</label>
-                                                            <input id="employeeAddressComplement" type="text" name="complement" class="form-control" placeholder="Insira um complemento para seu endereço">
+                                                            <label for="clientAddressComplement">Complemento</label>
+                                                            <input id="clientAddressComplement" type="text" name="complement" class="form-control" placeholder="Insira um complemento para seu endereço">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="employeeAddressReference">Referência</label>
-                                                            <input id="employeeAddressReference" type="text" name="reference" class="form-control" placeholder="Insira uma referência para seu endereço">
+                                                            <label for="clientAddressReference">Referência</label>
+                                                            <input id="clientAddressReference" type="text" name="reference" class="form-control" placeholder="Insira uma referência para seu endereço">
                                                         </div>
                                                     </div> <!-- box-body -->
                                                 </div> <!-- box -->
@@ -140,4 +168,10 @@
         <script type="text/javascript">
             $('.datepicker').datepicker();
         </script>
+
+        <!-- jquery.mask.js -->
+        {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
+        
+        <!-- clients-form-mask.js -->
+        {{ HTML::script('assets/js/clients-form-mask.js') }}
     @stop
