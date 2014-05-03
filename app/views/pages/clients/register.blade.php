@@ -22,7 +22,7 @@
                 </ol>
             </section>
             <section class="content">
-            	<form role="form" method="post" action="">
+            	{{ Form::open(['role' => 'form', 'action' => 'ClientsController@store']) }}
                     <div class="row">
                 		<div class="col-md-10">
                 			<div class="box">
@@ -38,34 +38,34 @@
                                                 </div>
                                                 <div class="box-body">
                                 					<div class="form-group">
-                                						<label for="clientName">Nome</label>
-                                						<input id="clientName" name="name" type="text" class="form-control" placeholder="Insira o nome do cliente">
+                                                        {{ Form::label('clientName', 'Nome')}}
+                                                        {{ Form::text('name', null, ['id' => 'clientName' , 'class' => 'form-control', 'placeholder' => 'Insira o nome completo do cliente', 'required' => 'required']) }}
                                 					</div>
                                 					<div class="form-group">
-                                						<label for="clientBirthday">Data de Nascimento</label>
-                                						<input id="clientBirthday" name="birthday" type="text" class="form-control datepicker date-mask" data-date-format="dd/mm/yyyy" placeholder="Clique aqui para escolher uma data (dia/mes/ano)">
+                                                        {{ Form::label('clientBirthday', 'Data de Nascimento')}}
+                                                        {{ Form::text('birthday', null, ['id' => 'clientBirthday' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
                                 					</div>
                                 					<div class="form-group">
                                 						<div class="row">
                                 							<div class="col-xs-6">
-                                								<label for="clientRg">RG</label>
-                                								<input id="clientRg" name="rg" type="text" class="form-control rg-mask" placeholder="###.###.###">
+                                                                {{ Form::label('clientRg', 'RG')}}
+                                                                {{ Form::text('rg', null, ['id' => 'clientRg' , 'class' => 'form-control rg-mask', 'placeholder' => '###.###.###', 'required' => 'required']) }}
                                 							</div>
                                 							<div class="col-xs-6">
-                                								<label for="clientCic">CIC</label>
-                                								<input id="clientCic" name="cic" type="text" class="form-control" placeholder="###.###.###-##">
+                                                                {{ Form::label('clientCic', 'CIC')}}
+                                                                {{ Form::text('cic', null, ['id' => 'clientCic' , 'class' => 'form-control', 'placeholder' => '###.###.###-##', 'required' => 'required']) }}
                                 							</div>
                                 						</div>
                                 					</div>
                                 					<div class="form-group">
             	            							<div class="row">
             		            							<div class="col-xs-6">
-            	            									<label for="clientHomePhone">Telefone fixo</label>
-            	            							    	<input id="clientHomePhone" name="home_phone" type="text" class="form-control phone-mask" placeholder="(##) ####-####" required>
+                                                                {{ Form::label('clientHomePhone', 'Telefone fixo')}}
+                                                                {{ Form::text('home_phone', null, ['id' => 'clientHomePhone' , 'class' => 'form-control phone-mask', 'placeholder' => '(##) ####-####', 'required' => 'required']) }}
             	            							    </div>
             	            							    <div class="col-xs-6">
-            	            									<label for="employeeCelPhone">Telefone celular</label>
-            	            							    	<input id="employeeCelPhone" name="cel_phone" type="text" class="form-control phone-mask" placeholder="(##) ####-####" required>
+                                                                {{ Form::label('clientCelPhone', 'Telefone celular')}}
+                                                                {{ Form::text('cel_phone', null, ['id' => 'clientCelPhone' , 'class' => 'form-control phone-mask', 'placeholder' => '(##) ####-####', 'required' => 'required']) }}
             	            							    </div>
                         							    </div>
             	            						</div>
@@ -79,72 +79,72 @@
                                                     </div>
                                                     <div class="box-body">
                                                         <div class="form-group">
-                                                            <label for="clientAddressStreet">Logradouro</label>
-                                                            <input id="clientAddressStreet" type="text" name="street" class="form-control" placeholder="Insira o nome da rua/avenida">
+                                                            {{ Form::label('clientAddressStreet', 'Logradouro')}}
+                                                            {{ Form::text('street', null, ['id' => 'clientAddressStreet' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida', 'required' => 'required']) }}
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-xs-3">
-                                                                    <label for="clientAddressNumber">Número</label>
-                                                                    <input id="clientAddressNumber" type="number" name="number" class="form-control" placeholder="Insira o número residencial">
+                                                                    {{ Form::label('clientAddressNumber', 'Número')}}
+                                                                    {{ Form::text('number', null, ['id' => 'clientAddressNumber' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial', 'required' => 'required']) }}
                                                                 </div>
                                                                 <div class="col-xs-3">
-                                                                    <label for="clientAddressCep">CEP</label>
-                                                                    <input id="clientAddressCep" type="text" name="zip_code" class="form-control zip-code-mask" placeholder="#####-###">
+                                                                    {{ Form::label('clientAddressCep', 'CEP')}}
+                                                                    {{ Form::text('zip_code', null, ['id' => 'clientAddressCep' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###', 'required' => 'required']) }}
                                                                 </div>
                                                                 <div class="col-xs-6">
-                                                                    <label for="clientAddressNeighborhood">Bairro</label>
-                                                                    <input id="clientAddressNeighborhood" type="text" name="neighborhood" class="form-control" placeholder="Insira o nome do bairo em que mora">
+                                                                    {{ Form::label('clientAddressNeighborhood', 'Bairro')}}
+                                                                    {{ Form::text('neighborhood', null, ['id' => 'clientAddressNeighborhood' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora', 'required' => 'required']) }}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-xs-9">
-                                                                    <label for="clientAddressCity">Cidade</label>
-                                                                    <input id="clientAddressCity" type="text" name="city" class="form-control" placeholder="Insira o nome da cidade em que mora">
+                                                                    {{ Form::label('clientAddressCity', 'Cidade')}}
+                                                                    {{ Form::text('city', null, ['id' => 'clientAddressCity' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora', 'required' => 'required']) }}
                                                                 </div>
                                                                 <div class="col-xs-3">
-                                                                    <label for="clientAddressState">Estado</label>
-                                                                    <select id="clientAddressState" type="text" name="state" class="form-control" >
-                                                                        <option>AC</option>
-                                                                        <option>AL</option>
-                                                                        <option>AP</option>
-                                                                        <option>AM</option>
-                                                                        <option>BA</option>
-                                                                        <option>CE</option>
-                                                                        <option>DF</option>
-                                                                        <option>ES</option>
-                                                                        <option>GO</option>
-                                                                        <option>MA</option>
-                                                                        <option>MT</option>
-                                                                        <option>MS</option>
-                                                                        <option>MG</option>
-                                                                        <option>PA</option>
-                                                                        <option>PB</option>
-                                                                        <option>PR</option>
-                                                                        <option>PE</option>
-                                                                        <option>PI</option>
-                                                                        <option>RJ</option>
-                                                                        <option>RN</option>
-                                                                        <option>RS</option>
-                                                                        <option>RO</option>
-                                                                        <option>RR</option>
-                                                                        <option>SC</option>
-                                                                        <option>SP</option>
-                                                                        <option>SE</option>
-                                                                        <option>TO</option>
-                                                                    </select>
+                                                                    {{ Form::label('clientAddressState', 'Estado')}}
+                                                                    {{ Form::select('state', [
+                                                                        'AC' => 'AC',
+                                                                        'AL' => 'AL',
+                                                                        'AP' => 'AP',
+                                                                        'AM' => 'AM',
+                                                                        'BA' => 'BA',
+                                                                        'CE' => 'CE',
+                                                                        'DF' => 'DF',
+                                                                        'ES' => 'ES',
+                                                                        'GO' => 'GO',
+                                                                        'MA' => 'MA',
+                                                                        'MT' => 'MT',
+                                                                        'MS' => 'MS',
+                                                                        'MG' => 'MG',
+                                                                        'PA' => 'PA',
+                                                                        'PB' => 'PB',
+                                                                        'PR' => 'PR',
+                                                                        'PE' => 'PE',
+                                                                        'PI' => 'PI',
+                                                                        'RJ' => 'RJ',
+                                                                        'RN' => 'RN',
+                                                                        'RS' => 'RS',
+                                                                        'RO' => 'RO',
+                                                                        'RR' => 'RR',
+                                                                        'SC' => 'SC',
+                                                                        'SP' => 'SP',
+                                                                        'SE' => 'SE',
+                                                                        'TO' => 'TO'
+                                                                    ] , null, ['id' => 'clientAddressState', 'class' => 'form-control']) }}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="clientAddressComplement">Complemento</label>
-                                                            <input id="clientAddressComplement" type="text" name="complement" class="form-control" placeholder="Insira um complemento para seu endereço">
+                                                            {{ Form::label('clientAddressComplement', 'Complemento')}}
+                                                            {{ Form::text('complement', null, ['id' => 'clientAddressComplement' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="clientAddressReference">Referência</label>
-                                                            <input id="clientAddressReference" type="text" name="reference" class="form-control" placeholder="Insira uma referência para seu endereço">
+                                                            {{ Form::label('clientAddressReference', 'Referência')}}
+                                                            {{ Form::text('reference', null, ['id' => 'clientAddressReference' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
                                                         </div>
                                                     </div> <!-- box-body -->
                                                 </div> <!-- box -->
@@ -153,13 +153,13 @@
                                 </div>  <!-- .box-body -->
                 				<div class="box-footer">
                 					<div class="form-group">
-                						<input type="submit" class="btn btn-success btn-lg btn-block" value="Cadastrar cliente">
+                                        {{ Form::submit('Cadastrar cliente', ['class' => 'btn btn-success btn-lg btn-block']) }}
                 					</div>
                 				</div>
                 			</div>
                 		</div>
                     </div>
-            	</form>
+            	{{ Form::close() }}
         	</section><!-- /.content -->
     	</aside><!-- /.right-side -->
     </div><!-- ./wrapper -->

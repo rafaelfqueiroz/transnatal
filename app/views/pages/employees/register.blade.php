@@ -22,7 +22,7 @@
                     </ol>
                 </section>
                 <section class="content">
-                	<form role="form" method="post" action="">
+                	{{ Form::open(['role' => 'form', 'action' => 'EmployeesController@store']) }}
                 		<div class="row">
                 			<div class="col-md-10">
                 				<div class="box">
@@ -39,43 +39,42 @@
 							            				</div>
 							            				<div class="box-body">
 					            							<div class="form-group">
-					            								<label for="employeeName">Nome</label>
-					            							    <input id="employeeName" name="name" type="text" class="form-control" placeholder="Insira o nome do funcionário" required>
+					            								{{ Form::label('employeeName', 'Nome')}}
+					            								{{ Form::text('name', null, ['id' => 'employeeName' , 'class' => 'form-control', 'placeholder' => 'Insira o nome completo do funcionário', 'required' => 'required']) }}
 						            						</div>
 						            						<div class="form-group">
 						            							<div class="row">
 							            							<div class="col-xs-6">
-						            									<label for="employeeRg">RG</label>
-						            							    	<input id="employeeRg" name="rg" type="text" class="form-control rg-mask" placeholder="###.###.###" required>
+							            								{{ Form::label('employeeRg', 'RG')}}
+						            									{{ Form::text('rg', null, ['id' => 'employeeRg' , 'class' => 'form-control rg-mask', 'placeholder' => '###.###.###', 'required' => 'required']) }}
 						            							    </div>
 						            							    <div class="col-xs-6">
-						            									<label for="employeeCpf">CPF</label>
-						            							    	<input id="employeeCpf" name="cpf" type="text" class="form-control cpf-mask" placeholder="###.###.###-##" required>
-						            							    	<!-- placeholder="###.###.###-##" -->
+						            							    	{{ Form::label('employeeCpf', 'CPF')}}
+						            							    	{{ Form::text('cpf', null, ['id' => 'employeeCpf' , 'class' => 'form-control cpf-mask', 'placeholder' => '###.###.###-##', 'required' => 'required']) }}
 						            							    </div>
 					            							    </div>
 						            						</div>
 						            						<div class="form-group">
 						            							<div class="row">
 							            							<div class="col-xs-6">
-						            									<label for="employeeHomePhone">Telefone fixo</label>
-						            							    	<input id="employeeHomePhone" name="home_phone" type="text" class="form-control phone-mask" placeholder="(##) ####-####" required>
+							            								{{ Form::label('employeeHomePhone', 'Telefone fixo')}}
+							            								{{ Form::text('home_phone', null, ['id' => 'employeeHomePhone' , 'class' => 'form-control phone-mask', 'placeholder' => '(##) ####-####', 'required' => 'required']) }}
 						            							    </div>
 						            							    <div class="col-xs-6">
-						            									<label for="employeeCelPhone">Telefone celular</label>
-						            							    	<input id="employeeCelPhone" name="cel_phone" type="text" class="form-control phone-mask" placeholder="(##) ####-####" required>
+						            							    	{{ Form::label('employeeCelPhone', 'Telefone celular')}}
+						            							    	{{ Form::text('cel_phone', null, ['id' => 'employeeCelPhone' , 'class' => 'form-control phone-mask', 'placeholder' => '(##) ####-####', 'required' => 'required']) }}
 						            							    </div>
 					            							    </div>
 						            						</div>
 						            						<div class="form-group">
 						            							<div class="row">
 							            							<div class="col-xs-6">
-						            									<label for="admissionDate">Data de admissão</label>
-						            							    	<input id="admissionDate" name="admission_date" type="text" class="form-control datepicker" data-date-format="dd/mm/yyyy" placeholder="Clique aqui para escolher uma data (dia/mes/ano)" required>
+							            								{{ Form::label('admissionDate', 'Data de admissão')}}
+							            								{{ Form::text('admission_date', null, ['id' => 'admissionDate' , 'class' => 'form-control datepicker','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
 						            							    </div>
 						            							    <div class="col-xs-6">
-						            									<label for="resignationDate">Data de demissão</label>
-						            							    	<input id="resignationDate" name="resignation_date" type="text" class="form-control datepicker" data-date-format="dd/mm/yyyy" placeholder="Clique aqui para escolher uma data (dia/mes/ano)">
+						            							    	{{ Form::label('resignationDate', 'Data de demissão')}}
+						            							    	{{ Form::text('resignation_date', null, ['id' => 'resignationDate' , 'class' => 'form-control datepicker','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
 						            							    </div>
 					            							    </div>
 						            						</div>
@@ -87,16 +86,16 @@
 						            						<div class="form-group">
 						            							<div class="row">
 						            								<div class="col-xs-5">
-						            									<label for="employeeLicenseNumber">Número da carteira</label>
-						            									<input id="employeeLicenseNumber" type="text" name="license_number" class="form-control">
+						            									{{ Form::label('employeeLicenseNumber', 'Número da carteira')}}
+						            									{{ Form::text('license_number', null, ['id' => 'employeeLicenseNumber' , 'class' => 'form-control', 'required' => 'required']) }}
 						            								</div>
 						            								<div class="col-xs-2">
-						            									<label for="employeeLicenseCategory">Categoria</label>
-						            									<input id="employeeLicenseCategory" type="text" name="license_category" class="form-control">
+						            									{{ Form::label('employeeLicenseCategory', 'Categoria')}}
+						            									{{ Form::text('license_category', null, ['id' => 'employeeLicenseCategory' , 'class' => 'form-control', 'required' => 'required']) }}
 						            								</div>
 						            								<div class="col-xs-5">
-						            									<label for="employeeLicensePamcard">Número PAMCARD</label>
-						            									<input id="employeeLicensePamcard" type="text" name="license_pamcard" class="form-control">
+						            									{{ Form::label('employeeLicensePamcard', 'Número PAMCARD')}}
+						            									{{ Form::text('license_pamcard', null, ['id' => 'employeeLicensePamcard' , 'class' => 'form-control', 'required' => 'required']) }}
 						            								</div>
 						            							</div>
 						            						</div>
@@ -108,20 +107,20 @@
 						            						<div class="form-group">
 						            							<div class="row">
 							            							<div class="col-xs-5">
-						            									<label for="employeeBankAccount">Número da conta</label>
-						            							    	<input id="employeeBankAccount" name="bank_account" type="text" class="form-control" required>
+							            								{{ Form::label('employeeBankAccount', 'Número da conta')}}
+							            								{{ Form::text('bank_account', null, ['id' => 'employeeBankAccount' , 'class' => 'form-control', 'required' => 'required']) }}
 						            							    </div>
 						            							    <div class="col-xs-5">
-						            									<label for="employeeBankAgency">Agência</label>
-						            							    	<input id="employeeBankAgency" name="bank_agency" type="text" class="form-control" required>
+						            							    	{{ Form::label('employeeBankAgency', 'Agência')}}
+						            							    	{{ Form::text('bank_agency', null, ['id' => 'employeeBankAgency' , 'class' => 'form-control', 'required' => 'required']) }}
 						            							    </div>
 						            							    <div class="col-xs-2">
-						            									<label for="employeeBankOp">Operação</label>
-						            							    	<input id="employeeBankOp" name="bank_op" type="text" class="form-control" required>
+						            							    	{{ Form::label('employeeBankOp', 'Operação')}}
+						            							    	{{ Form::text('bank_op', null, ['id' => 'employeeBankOp' , 'class' => 'form-control', 'required' => 'required']) }}
 						            							    </div>
 						            							    <div class="col-xs-12">
-						            									<label for="employeeBankName">Nome do banco</label>
-						            							    	<input id="employeeBankName" name="bank_name" type="text" class="form-control" required>
+						            							    	{{ Form::label('employeeBankName', 'Nome do banco')}}
+						            							    	{{ Form::text('bank_name', null, ['id' => 'employeeBankName' , 'class' => 'form-control', 'required' => 'required']) }}
 						            							    </div>
 					            							    </div>
 						            						</div>
@@ -136,72 +135,72 @@
 						            				</div>
 						            				<div class="box-body">
 				            							<div class="form-group">
-				            								<label for="employeeAddressStreet">Logradouro</label>
-				            							    <input id="employeeAddressStreet" type="text" name="street" class="form-control" placeholder="Insira o nome da rua/avenida">
+				            								{{ Form::label('employeeAddressStreet', 'Logradouro')}}
+				            							    {{ Form::text('street', null, ['id' => 'employeeAddressStreet' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida', 'required' => 'required']) }}
 					            						</div>
 					            						<div class="form-group">
 					            							<div class="row">
 					            								<div class="col-xs-3">
-				            										<label for="employeeAddressNumber">Número</label>
-				            							    		<input id="employeeAddressNumber" type="number" name="number" class="form-control" placeholder="Insira o número residencial">
+					            									{{ Form::label('employeeAddressNumber', 'Número')}}
+				            							    		{{ Form::text('number', null, ['id' => 'employeeAddressNumber' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial', 'required' => 'required']) }}
 				            							    	</div>
 				            							    	<div class="col-xs-3">
-				            							    		<label for="employeeAddressCep">CEP</label>
-					            							    	<input id="employeeAddressCep" type="text" name="zip_code zip-code-mask" class="form-control" placeholder="#####-###">
+				            							    		{{ Form::label('employeeAddressCep', 'CEP')}}
+				            							    		{{ Form::text('zip_code', null, ['id' => 'employeeAddressCep' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###', 'required' => 'required']) }}
 				            							    	</div>
 				            							    	<div class="col-xs-6">
-				            							    		<label for="employeeAddressNeighborhood">Bairro</label>
-				            							    		<input id="employeeAddressNeighborhood" type="text" name="neighborhood" class="form-control" placeholder="Insira o nome do bairo em que mora">
+				            							    		{{ Form::label('employeeAddressNeighborhood', 'Bairro')}}
+				            							    		{{ Form::text('neighborhood', null, ['id' => 'employeeAddressNeighborhood' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora', 'required' => 'required']) }}
 				            							    	</div>
 				            							    </div>
 					            						</div>
 					            						<div class="form-group">
 					            							<div class="row">
 					            								<div class="col-xs-9">
-				            										<label for="employeeAddressCity">Cidade</label>
-				            							    		<input id="EmployeeAddressCity" type="text" name="city" class="form-control" placeholder="Insira o nome da cidade em que mora">
+				            										{{ Form::label('employeeAddressCity', 'Cidade')}}
+				            										{{ Form::text('city', null, ['id' => 'EmployeeAddressCity' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora', 'required' => 'required']) }}
 				            							    	</div>
 				            							    	<div class="col-xs-3">
-				            							    		<label for="employeeAddressState">Estado</label>
-				            							    		<select id="employeeAddressState" type="text" name="state" class="form-control">
-				            							    			<option>AC</option>
-                                                                        <option>AL</option>
-                                                                        <option>AP</option>
-                                                                        <option>AM</option>
-                                                                        <option>BA</option>
-                                                                        <option>CE</option>
-                                                                        <option>DF</option>
-                                                                        <option>ES</option>
-                                                                        <option>GO</option>
-                                                                        <option>MA</option>
-                                                                        <option>MT</option>
-                                                                        <option>MS</option>
-                                                                        <option>MG</option>
-                                                                        <option>PA</option>
-                                                                        <option>PB</option>
-                                                                        <option>PR</option>
-                                                                        <option>PE</option>
-                                                                        <option>PI</option>
-                                                                        <option>RJ</option>
-                                                                        <option>RN</option>
-                                                                        <option>RS</option>
-                                                                        <option>RO</option>
-                                                                        <option>RR</option>
-                                                                        <option>SC</option>
-                                                                        <option>SP</option>
-                                                                        <option>SE</option>
-                                                                        <option>TO</option>
-				            							    		</select>
+				            							    		{{ Form::label('employeeAddressState', 'Estado')}}
+				            							    		{{ Form::select('state', [
+				            							    			'AC' => 'AC',
+				            							    			'AL' => 'AL',
+				            							    			'AP' => 'AP',
+				            							    			'AM' => 'AM',
+				            							    			'BA' => 'BA',
+				            							    			'CE' => 'CE',
+				            							    			'DF' => 'DF',
+				            							    			'ES' => 'ES',
+				            							    			'GO' => 'GO',
+				            							    			'MA' => 'MA',
+				            							    			'MT' => 'MT',
+				            							    			'MS' => 'MS',
+				            							    			'MG' => 'MG',
+				            							    			'PA' => 'PA',
+				            							    			'PB' => 'PB',
+				            							    			'PR' => 'PR',
+				            							    			'PE' => 'PE',
+				            							    			'PI' => 'PI',
+				            							    			'RJ' => 'RJ',
+				            							    			'RN' => 'RN',
+				            							    			'RS' => 'RS',
+				            							    			'RO' => 'RO',
+				            							    			'RR' => 'RR',
+				            							    			'SC' => 'SC',
+				            							    			'SP' => 'SP',
+				            							    			'SE' => 'SE',
+				            							    			'TO' => 'TO'
+				            							    		] , null, ['id' => 'employeeAddressState', 'class' => 'form-control']) }}
 				            							    	</div>
 				            							    </div>
 					            						</div>
 					            						<div class="form-group">
-				            								<label for="employeeAddressComplement">Complemento</label>
-				            							    <input id="employeeAddressComplement" type="text" name="complement" class="form-control" placeholder="Insira um complemento para seu endereço">
+					            							{{ Form::label('employeeAddressComplement', 'Complemento')}}
+				            								{{ Form::text('complement', null, ['id' => 'employeeAddressComplement' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
 					            						</div>
 					            						<div class="form-group">
-				            								<label for="employeeAddressReference">Referência</label>
-				            							    <input id="employeeAddressReference" type="text" name="reference" class="form-control" placeholder="Insira uma referência para seu endereço">
+					            							{{ Form::label('employeeAddressReference', 'Referência')}}
+					            							{{ Form::text('reference', null, ['id' => 'employeeAddressReference' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
 					            						</div>
 					            					</div> <!-- box-body -->
 					                			</div> <!-- box -->
@@ -210,13 +209,13 @@
 			                		</div> <!-- .box-body -->
 		                			<div class="box-footer">
 	                					<div class="form-group">
-	                						<input type="submit" class="btn btn-success btn-lg btn-block" value="Cadastrar funcionário">
+	                						{{ Form::submit('Cadastrar funcionário', ['class' => 'btn btn-success btn-lg btn-block']) }}
 	                					</div>
 			                		</div>
 	                			</div> <!-- .box -->
 	                		</div> <!-- .col-md-12 -->
                 		</div><!-- .row -->
-                	</form>
+                	{{ Form::close() }}
             	</section><!-- /.content -->
         	</aside><!-- /.right-side -->
 	</div><!-- ./wrapper -->
