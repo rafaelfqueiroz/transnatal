@@ -33,11 +33,16 @@
 	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js') }}
     <!-- jQuery UI 1.10.3 -->
     {{ HTML::script('assets/AdminLTE/js/jquery-ui-1.10.3.min.js') }}
+
     <!-- Bootstrap -->
     {{ HTML::script('assets/AdminLTE/js/bootstrap.min.js') }}
-    <!-- Morris.js charts -->
-    {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js') }}
-    {{ HTML::script('assets/AdminLTE/js/plugins/morris/morris.min.js') }}
+
+    <!-- jquery.mask.js -->
+    {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
+
+    <!-- form-mask.js -->
+    {{ HTML::script('assets/js/form-mask.js') }}
+
     <!-- Sparkline -->
     {{ HTML::script('assets/AdminLTE/js/plugins/sparkline/jquery.sparkline.min.js') }}
     <!-- jvectormap -->
@@ -57,7 +62,11 @@
     {{ HTML::script('assets/AdminLTE/js/AdminLTE/app.js') }}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     {{ HTML::script('assets/AdminLTE/js/AdminLTE/dashboard.js') }}
-    
+
+    <!-- Morris.js charts -->
+    {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js') }}
+    {{ HTML::script('assets/AdminLTE/js/plugins/morris/morris.min.js') }}
+
     @yield('scripts')
 </body>
 </html>

@@ -43,17 +43,17 @@
                                 					</div>
                                 					<div class="form-group">
                                 						<label for="clientBirthday">Data de Nascimento</label>
-                                						<input id="clientBirthday" name="birthday" type="text" class="form-control datepicker" data-date-format="dd/mm/yyyy" placeholder="Clique aqui para escolher uma data (dia/mes/ano)">
+                                						<input id="clientBirthday" name="birthday" type="text" class="form-control datepicker date-mask" data-date-format="dd/mm/yyyy" placeholder="Clique aqui para escolher uma data (dia/mes/ano)">
                                 					</div>
                                 					<div class="form-group">
                                 						<div class="row">
                                 							<div class="col-xs-6">
                                 								<label for="clientRg">RG</label>
-                                								<input id="clientRg" name="rg" type="text" class="form-control">
+                                								<input id="clientRg" name="rg" type="text" class="form-control rg-mask" placeholder="###.###.###">
                                 							</div>
                                 							<div class="col-xs-6">
                                 								<label for="clientCic">CIC</label>
-                                								<input id="clientCic" name="cic" type="text" class="form-control">
+                                								<input id="clientCic" name="cic" type="text" class="form-control" placeholder="###.###.###-##">
                                 							</div>
                                 						</div>
                                 					</div>
@@ -61,11 +61,11 @@
             	            							<div class="row">
             		            							<div class="col-xs-6">
             	            									<label for="clientHomePhone">Telefone fixo</label>
-            	            							    	<input id="clientHomePhone" name="home_phone" type="text" class="form-control" placeholder="(##) ####-####" required>
+            	            							    	<input id="clientHomePhone" name="home_phone" type="text" class="form-control phone-mask" placeholder="(##) ####-####" required>
             	            							    </div>
             	            							    <div class="col-xs-6">
             	            									<label for="employeeCelPhone">Telefone celular</label>
-            	            							    	<input id="employeeCelPhone" name="cel_phone" type="text" class="form-control" placeholder="(##) ####-####" required>
+            	            							    	<input id="employeeCelPhone" name="cel_phone" type="text" class="form-control phone-mask" placeholder="(##) ####-####" required>
             	            							    </div>
                         							    </div>
             	            						</div>
@@ -90,7 +90,7 @@
                                                                 </div>
                                                                 <div class="col-xs-3">
                                                                     <label for="clientAddressCep">CEP</label>
-                                                                    <input id="clientAddressCep" type="text" name="zip_code" class="form-control" placeholder="#####-###">
+                                                                    <input id="clientAddressCep" type="text" name="zip_code" class="form-control zip-code-mask" placeholder="#####-###">
                                                                 </div>
                                                                 <div class="col-xs-6">
                                                                     <label for="clientAddressNeighborhood">Bairro</label>
@@ -164,14 +164,11 @@
     	</aside><!-- /.right-side -->
     </div><!-- ./wrapper -->
     @section('scripts')
+        {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
+
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
+
         <script type="text/javascript">
             $('.datepicker').datepicker();
         </script>
-
-        <!-- jquery.mask.js -->
-        {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
-        
-        <!-- clients-form-mask.js -->
-        {{ HTML::script('assets/js/clients-form-mask.js') }}
     @stop
