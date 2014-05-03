@@ -4,6 +4,7 @@ namespace Transnatal\Repositories;
 use Transnatal\Interfaces\ClientRepositoryInterface;
 
 use Client;
+use Address;
 
 class DbClientRepository implements ClientRepositoryInterface {
 
@@ -31,18 +32,22 @@ class DbClientRepository implements ClientRepositoryInterface {
 		$client->birthday = $input['birthday'];
 		$client->home_phone = $input['home_phone'];
 		$client->cel_phone = $input['cel_phone'];
-		$client->address->street = $input['street'];
-		$client->address->number = $input['number'];
-		$client->address->zip_code = $input['zip_code'];
-		$client->address->neighborhood = $input['neighborhood'];
-		$client->address->city = $input['city'];
-		$client->address->state = $input['state'];
-		$client->address->complement = $input['complement'];
-		$client->address->reference = $input['reference'];
 
-		$client->address->save();
+		$address = new Address();
+		$address->street = $input['street'];
+		$address->number = $input['number'];
+		$address->zip_code = $input['zip_code'];
+		$address->neighborhood = $input['neighborhood'];
+		$address->city = $input['city'];
+		$address->state = $input['state'];
+		$address->complement = $input['complement'];
+		$address->reference = $input['reference'];
+
+		$address->save();
+
+		$client->address_id = $address->id;
 		$client->save();
-
+		
 		return $client;
 	}
 

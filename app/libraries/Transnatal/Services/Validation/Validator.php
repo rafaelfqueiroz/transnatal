@@ -25,7 +25,7 @@ abstract class Validator {
 
 	public function validate($input)
 	{
-		$valodator = V::make($input, $rules);
+		$validator = V::make($input, $this->rules);
 		if ($validator->fails())
 		{
 			$this->errors = $validator->messages();
