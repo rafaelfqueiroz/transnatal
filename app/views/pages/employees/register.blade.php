@@ -70,11 +70,15 @@
 						            							<div class="row">
 							            							<div class="col-xs-6">
 							            								{{ Form::label('admissionDate', 'Data de admissão')}}
-							            								{{ Form::text('admission_date', null, ['id' => 'admissionDate' , 'class' => 'form-control datepicker','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
+							            								{{ Form::text('admission_date', null, ['id' => 'admissionDate' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
 						            							    </div>
 						            							    <div class="col-xs-6">
 						            							    	{{ Form::label('resignationDate', 'Data de demissão')}}
-						            							    	{{ Form::text('resignation_date', null, ['id' => 'resignationDate' , 'class' => 'form-control datepicker','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
+						            							    	{{ Form::text('resignation_date', null, ['id' => 'resignationDate' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
+						            							    </div>
+						            							    <div class="col-xs-12">
+						            							    	{{ Form::label('birthday', 'Data de nascimento')}}
+						            							    	{{ Form::text('birthday', null, ['id' => 'birthday' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
 						            							    </div>
 					            							    </div>
 						            						</div>
