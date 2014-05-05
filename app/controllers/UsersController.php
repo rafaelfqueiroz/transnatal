@@ -53,7 +53,7 @@ class UsersController extends BaseController {
 		$employees = array();
 
 		foreach ($employees_bd as $key => $employee) {
-			$employees[$key] = $employee->name;
+			$employees[$employee->id] = $employee->name;
 		}
 		return View::make('pages.users.register')->with('employees', $employees);
 	}

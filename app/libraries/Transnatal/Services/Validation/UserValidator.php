@@ -9,7 +9,6 @@ class UserValidator extends Validator {
 		 'username' => 'required',
 		 'password' => 'required',
 		 'email' => 'required',
-		 'home_phone' => 'required',
 		 'employee_id' => 'required'
 		];		
 	}
