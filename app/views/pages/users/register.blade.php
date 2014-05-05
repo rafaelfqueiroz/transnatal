@@ -1,10 +1,10 @@
 @extends('layouts.base')
-	@section('bg-body')
-		"skin-blue"
-	@stop
+    @section('bg-body')
+        "skin-blue"
+    @stop
 @section('content')
 @include('includes.header')
-	<div class="wrapper row-offcanvas row-offcanvas-left">
+    <div class="wrapper row-offcanvas row-offcanvas-left">
         @include('includes.sidebar')
         <aside class="right-side">
             <!-- Content Header (Page header) -->
@@ -19,65 +19,47 @@
                 </ol>
             </section>
             <section class="content">
-            	<form role="form" method="post" action="">
-            		<div class="col-md-6">
-	            		<div class="box">
-	            			<div class="box-header">
-	            				<h3 class="box-title">Cadastro de usuário</h3>
-	            			</div>
-	            			<div class="box-body">
-	            				<div class="form-group">
-	            					<label for="username">Nome de usuário (Login)</label>
-	            					<input id="username" name="username" class="form-control" type="text" placeholder="Insira o seu nome de usuário">
-	            				</div>
-	            				<div class="form-group">
-	            					<label for="employee_id">Escolha um funcionário</label>
-	            					<select class="form-control">
-	            						<option>1</option>
-	            						<option>2</option>
-	            						<option>3</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            						<option>4</option>
-	            					</select>
-	            				</div>
-	            				<div class="form-group">
-	            					<div class="row">
-	            						<div class="col-xs-6">
-		            						<label for="password">Senha</label>
-		            						<input id="password" name="password" type="password" class="form-control"  placeholder="Insira o sua senha">
-		            					</div>
-		            					<div class="col-xs-6">
-		            						<label for="confirmPassword">Confirmação de senha</label>
-	            							<input id="confirmPassword" name="password_confirmation" type="password" class="form-control"  placeholder="Insira o sua senha novamente para confirmar">
-		            					</div>
-	            					</div>
-	            				</div>
-	            				<div class="form-group">
-	            					<label for="email">E-mail</label>
-	            					<input id="email" name="email" type="email" class="form-control" placeholder="Insira seu email">
-	            				</div>
-	            				
-	            			</div>
-	            			<div class="box-footer">
-	            				<div class="form-group">
-	            						<input type="submit" class="btn btn-success btn-lg btn-block" value="Cadastrar usuário">
-	            				</div>
-	            			</div>
-	            		</div>
-	            	</div>
-            	</form>
-        	</section><!-- /.content -->
-    	</aside><!-- /.right-side -->
+                {{ Form::open(['role' => 'form', 'action' => 'UsersController@store']) }}
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Cadastro de usuário</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    {{ Form::label('username', 'Nome de usuário (Login)')}}
+                                    {{ Form::text('username', null, ['id' => 'username' , 'class' => 'form-control', 'placeholder' => 'Insira o seu nome de usuário', 'required' => 'required']) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::label('employee_id', 'Escolha um funcionário')}}
+                                    {{ Form::select('state', $employees, null, ['id' => 'employee_id', 'class' => 'form-control'])}}
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            {{ Form::label('password', 'Senha')}}
+                                            {{ Form::password('password', ['id' => 'password' , 'class' => 'form-control', 'placeholder' => 'Insira o sua senha', 'required' => 'required']) }}
+                                        </div>
+                                        <div class="col-xs-6">
+                                            {{ Form::label('confirmPassword', 'Confirmação de senha')}}
+                                            {{ Form::password('password_confirmation', ['id' => 'confirmPassword' , 'class' => 'form-control', 'placeholder' => 'Insira o sua senha novamente para confirmar', 'required' => 'required']) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::label('email', 'E-mail')}}
+                                    {{ Form::email('email', null, ['id' => 'email' , 'class' => 'form-control', 'placeholder' => 'Insira seu email', 'required' => 'required']) }}
+                                </div>
+                                
+                            </div>
+                            <div class="box-footer">
+                                <div class="form-group">
+                                    {{ Form::submit('Cadastrar usuário', ['class' => 'btn btn-success btn-lg btn-block']) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{ Form::close() }}
+            </section><!-- /.content -->
+        </aside><!-- /.right-side -->
     </div><!-- ./wrapper -->
