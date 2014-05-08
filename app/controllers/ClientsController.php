@@ -39,4 +39,9 @@ class ClientsController extends BaseController {
 	{
 		return View::make('pages.clients.register');
 	}
+
+	public function lister()
+	{
+		return View::make('pages.clients.list')->with('clients', $this->clientRepository->all());
+	}
 }

@@ -57,4 +57,9 @@ class UsersController extends BaseController {
 		}
 		return View::make('pages.users.register')->with('employees', $employees);
 	}
+
+	public function lister()
+	{
+		return View::make('pages.users.list')->with('users', $this->userRepository->all());
+	}
 }

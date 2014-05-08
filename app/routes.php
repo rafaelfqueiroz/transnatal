@@ -23,11 +23,18 @@ Route::get('/logout', 'AuthController@logout');
 
 Route::get('/profile', 'UsersController@getProfile');
 
-Route::get('/employees/register', 'EmployeesController@register');
-
 Route::get('/users/register', 'UsersController@register');
 
-ROute::get('/clients/register', 'ClientsController@register');
+Route::get('/users/list', 'UsersController@lister');
+
+Route::get('/employees/register', 'EmployeesController@register');
+
+Route::get('/employees/list', 'EmployeesController@lister');
+
+Route::get('/clients/register', 'ClientsController@register');
+
+Route::get('/clients/list', 'ClientsController@lister');
+
 
 //<======== END OF GET REGUESTS ========>
 

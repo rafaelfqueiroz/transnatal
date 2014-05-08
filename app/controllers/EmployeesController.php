@@ -44,5 +44,10 @@ use Transnatal\Services\Validation\AddressValidator;
 			return View::make('pages.employees.register');
 		}
 
+		public function lister()
+		{
+			return View::make('pages.employees.list')->with('employees', $this->employeeRepository->all());
+		}
+
 	}
 ?>
