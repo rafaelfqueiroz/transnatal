@@ -2,6 +2,9 @@
 	@section('bg-body')
 		"skin-blue"
 	@stop
+    @section('stylesheets')
+        {{ HTML::style('assets/AdminLTE/css/dataTables/dataTables.bootstrap.css') }}
+    @stop
 @section('content')
 @include('includes.header')
 	<div class="wrapper row-offcanvas row-offcanvas-left">
@@ -62,3 +65,13 @@
         	</section><!-- /.content -->
     	</aside><!-- /.right-side -->
     </div><!-- ./wrapper -->
+    @section('scripts')
+        {{ HTML::script('assets/AdminLTE/js/plugins/datatables/jquery.dataTables.js') }}
+        {{ HTML::script('assets/AdminLTE/js/plugins/datatables/dataTables.bootstrap.js') }}
+        <script type="text/javascript">
+            $(function() {
+                $('#example1').dataTable({});
+            });
+        </script>
+        
+    @stop
