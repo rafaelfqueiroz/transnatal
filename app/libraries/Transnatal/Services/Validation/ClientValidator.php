@@ -11,8 +11,7 @@ class ClientValidator extends Validator {
 		 'cic' => 'required',
 		 'birthday' => 'required',
 		 'home_phone' => 'required',
-		 'cel_phone' => 'required',
-		 'address_id' => 'required'
+		 'cel_phone' => 'required'
 		];		
 	}
 }
