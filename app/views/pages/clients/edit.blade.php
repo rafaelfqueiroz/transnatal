@@ -2,32 +2,29 @@
 	@section('bg-body')
 		"skin-blue"
 	@stop
-    @section('stylesheets')
-        {{ HTML::style('assets/vendor/datepicker/css/datepicker.css') }}
-    @stop
 @section('content')
 @include('includes.header')
 	<div class="wrapper row-offcanvas row-offcanvas-left">
-        @include('includes.sidebar')
-        <aside class="right-side">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    Clientes
-                    <small>Formulário de cadastro</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-home"></i> Início</a></li>
-                    <li class="active">Formulário</li>
-                </ol>
-            </section>
-            <section class="content">
-            	{{ Form::open(['role' => 'form', 'action' => 'ClientsController@store']) }}
+            @include('includes.sidebar')
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Clientes
+                        <small>Formulário de atualização</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-home"></i> Início</a></li>
+                        <li class="active">Formulário</li>
+                    </ol>
+                </section>
+                <section class="content">
+                	{{ Form::open(['role' => 'form', 'route' => ['clients.update', $client->id], 'method' => 'PUT']) }}
                     <div class="row">
                 		<div class="col-md-10">
                 			<div class="box">
                 				<div class="box-header">
-                					<h3 class="box-title">Cadastro de clientes</h3>
+                					<h3 class="box-title">Atualização de clientes</h3>
                 				</div>
                 				<div class="box-body">
                                     <div class="row">
@@ -153,22 +150,13 @@
                                 </div>  <!-- .box-body -->
                 				<div class="box-footer">
                 					<div class="form-group">
-                                        {{ Form::submit('Cadastrar cliente', ['class' => 'btn btn-success btn-lg btn-block']) }}
+                                        {{ Form::submit('Atualizar cliente', ['class' => 'btn btn-success btn-lg btn-block']) }}
                 					</div>
                 				</div>
                 			</div>
                 		</div>
                     </div>
             	{{ Form::close() }}
-        	</section><!-- /.content -->
-    	</aside><!-- /.right-side -->
-    </div><!-- ./wrapper -->
-    @section('scripts')
-        {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
-
-        {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
-
-        <script type="text/javascript">
-            $('.datepicker').datepicker();
-        </script>
-    @stop
+            	</section><!-- /.content -->
+        	</aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->

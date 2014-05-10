@@ -23,18 +23,6 @@ Route::get('/logout', 'AuthController@logout');
 
 Route::get('/profile', 'UsersController@getProfile');
 
-Route::get('/users/register', 'UsersController@register');
-
-Route::get('/users/list', 'UsersController@lister');
-
-Route::get('/employees/register', 'EmployeesController@register');
-
-Route::get('/employees/list', 'EmployeesController@lister');
-
-Route::get('/clients/register', 'ClientsController@register');
-
-Route::get('/clients/list', 'ClientsController@lister');
-
 
 //<======== END OF GET REGUESTS ========>
 
@@ -42,10 +30,8 @@ Route::get('/clients/list', 'ClientsController@lister');
 
 Route::post('/auth', 'AuthController@postLogin');
 
-Route::post('/clients/store', 'ClientsController@store');
-
-Route::post('/employees/store', 'EmployeesController@store');
-
-Route::post('/users/store', 'UsersController@store');
-
 //<======== END OF POST REQUESTS ========>
+
+Route::resource('users', 'UsersController');
+Route::resource('clients', 'ClientsController');
+Route::resource('employees', 'EmployeesController');

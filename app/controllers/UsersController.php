@@ -17,6 +17,23 @@ class UsersController extends BaseController {
 		$this->employeeRepository = $employeeRepository;
 	}
 
+	public function index()
+	{
+		return View::make('pages.users.index')->with('users', $this->userRepository->all());
+	}
+
+	public function create() 
+	{
+		$employees_bd = $this->employeeRepository->all();
+
+		$employees = array();
+
+		foreach ($employees_bd as $key => $employee) {
+			$employees[$employee->id] = $employee->name;
+		}
+		return View::make('pages.users.create')->with('employees', $employees);
+	}
+
 	public function store()
 	{
 		if (!$this->validator->validate(Input::all()))
@@ -27,7 +44,7 @@ class UsersController extends BaseController {
 		{
 			if ($this->userRepository->save(Input::all()))
 			{
-				return Redirect::to('users/register')->with('messages', 'Usuário criado com sucesso.');
+				return Redirect::to('users.create')->with('messages', 'Usuário criado com sucesso.');
 			}
 			else
 			{
@@ -44,22 +61,5 @@ class UsersController extends BaseController {
 	public function postProfile()
 	{
 		return Redirect::to('index');
-	}
-
-	public function register() 
-	{
-		$employees_bd = $this->employeeRepository->all();
-
-		$employees = array();
-
-		foreach ($employees_bd as $key => $employee) {
-			$employees[$employee->id] = $employee->name;
-		}
-		return View::make('pages.users.register')->with('employees', $employees);
-	}
-
-	public function lister()
-	{
-		return View::make('pages.users.list')->with('users', $this->userRepository->all());
 	}
 }

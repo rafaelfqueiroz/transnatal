@@ -19,7 +19,7 @@
                 </ol>
             </section>
             <section class="content">
-                {{ Form::open(['role' => 'form', 'action' => 'UsersController@store']) }}
+                {{ Form::open(['role' => 'form', 'route' => 'users.store']) }}
                     <div class="col-md-6">
                         <div class="box">
                             <div class="box-header">

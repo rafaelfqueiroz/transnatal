@@ -17,6 +17,30 @@ use Transnatal\Services\Validation\AddressValidator;
 			$this->employeeRepository = $employeeRepository;
 		}
 
+		public function index()
+		{
+			return View::make('pages.employees.index')->with('employees', $this->employeeRepository->all());
+		}
+
+		/** 
+			@return page with form to register an Employee
+		**/
+		public function create()
+		{
+			return View::make('pages.employees.create');
+		}
+
+		public function edit($id)
+		{
+			$bd_employee = $this->employeeRepository->find($id);
+			return View::make('pages.employees.edit')->with('employee', $bd_employee);
+		}
+
+		public function show($id)
+		{
+			return View::make('pages.employees.index');
+		}
+
 		public function store()
 		{
 			if ($this->validator->validate(Input::all()) && $this->addressValidator->validate(Input::all()))
@@ -27,7 +51,7 @@ use Transnatal\Services\Validation\AddressValidator;
 			{
 				if ($this->employeeRepository->save(Input::all()))
 				{
-					return Redirect::to('employees/register')->with('messages', 'Funcionário cadastrado com sucesso.');
+					return Redirect::to('employees.create')->with('messages', 'Funcionário cadastrado com sucesso.');
 				}
 				else
 				{
@@ -35,18 +59,31 @@ use Transnatal\Services\Validation\AddressValidator;
 				}
 			}
 		}
+		
 
-		/** 
-			@return page with form to register an Employee
-		**/
-		public function register()
+		public function update()
 		{
-			return View::make('pages.employees.register');
+			if ($this->validator->validate(Input::all()))
+			{
+				return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
+			}
+			else
+			{
+				if ($this->employeeRepository->update($id, Input::all()))
+				{
+					return Redirect::to('employees.index')->with('messages', 'Informações do funcionários alteradas com sucesso.');
+				}
+				else
+				{
+					return Redirect::back()->with('errors', 'Erro ao tentar alterar as informações do funcionário, por favor tente novamente.')->withInput();
+				}
+			}
 		}
 
-		public function lister()
+		public function delete($id)
 		{
-			return View::make('pages.employees.list')->with('employees', $this->employeeRepository->all());
+			$this->employeeRepository->delete($id);
+			return Redirect::to('employees.index')->with('messages', 'Funcionário removido com sucesso.');
 		}
 
 	}

@@ -71,8 +71,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{Url::to('clients/register')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
-                                <li><a href="{{Url::to('clients/list')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
+                                <li><a href="{{route('clients.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
+                                <li><a href="{{route('clients.index')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                             </ul>
                         </li>
                          <li class="treeview">
@@ -81,8 +81,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{URL::to('employees/register')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
-                                <li><a href="{{URL::to('employees/list')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
+                                <li><a href="{{route('employees.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
+                                <li><a href="{{route('employees.index')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -91,8 +91,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{Url::to('users/register')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
-                                <li><a href="{{Url::to('users/list')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
+                                <li><a href="{{route('users.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
+                                <li><a href="{{route('users.index')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                             </ul>
                         </li>
                     </ul>

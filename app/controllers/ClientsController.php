@@ -16,6 +16,27 @@ class ClientsController extends BaseController {
 		$this->addressValidator = $addressValidator;
 	}
 
+	public function index()
+	{
+		return View::make('pages.clients.index')->with('clients', $this->clientRepository->all());
+	}
+
+	public function create()
+	{
+		return View::make('pages.clients.create');
+	}
+
+	public function edit($id)
+	{
+		$bd_client = $this->clientRepository->find($id);
+		return View::make('pages.clients.edit')->with('client', $bd_client);
+	}
+
+	public function show($id)
+	{
+		return Redirect::back();
+	}
+
 	public function store()
 	{
 		if (!$this->validator->validate(Input::all()) && $this->addressValidator->validate(Input::all()))
@@ -26,7 +47,7 @@ class ClientsController extends BaseController {
 		{
 			if ($this->clientRepository->save(Input::all()))
 			{
-				return Redirect::to('clients/register')->with('messages', 'Cliente cadastrado com sucesso.');
+				return Redirect::to('pages.clients.create')->with('messages', 'Cliente cadastrado com sucesso.');
 			}
 			else
 			{
@@ -35,13 +56,28 @@ class ClientsController extends BaseController {
 		}
 	}
 
-	public function register()
+	public function update($id)
 	{
-		return View::make('pages.clients.register');
+		if (!$this->validator->validate(Input::all()))
+		{
+			return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
+		}
+		else
+		{
+			if ($this->clientRepository->update($id, Input::all()))
+			{
+				return Redirect::to('pages.clients.index')->with('messages', 'Informações do cliente alteradas com sucesso.');
+			}
+			else
+			{
+				return Redirect::back()->with('errors', 'Erro ao tentar alterar informações do cliente, por favor tente novamente')->withInput();
+			}
+		}
 	}
 
-	public function lister()
+	public function destroy($id)
 	{
-		return View::make('pages.clients.list')->with('clients', $this->clientRepository->all());
+		$this->clientRepository->delete($id);
+		return Redirect::to('pages.clients.index')->with('messages', 'Cliente removido com sucesso.');
 	}
 }
