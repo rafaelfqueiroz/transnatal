@@ -43,7 +43,7 @@ use Transnatal\Services\Validation\AddressValidator;
 
 		public function store()
 		{
-			if ($this->validator->validate(Input::all()) && $this->addressValidator->validate(Input::all()))
+			if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
 			{
 				return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
 			}
@@ -51,7 +51,7 @@ use Transnatal\Services\Validation\AddressValidator;
 			{
 				if ($this->employeeRepository->save(Input::all()))
 				{
-					return Redirect::to('employees.create')->with('messages', 'Funcionário cadastrado com sucesso.');
+					return Redirect::route('employees.create')->with('messages', 'Funcionário cadastrado com sucesso.');
 				}
 				else
 				{
@@ -61,9 +61,9 @@ use Transnatal\Services\Validation\AddressValidator;
 		}
 		
 
-		public function update()
+		public function update($id)
 		{
-			if ($this->validator->validate(Input::all()))
+			if (!$this->validator->validate(Input::all()))
 			{
 				return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
 			}
@@ -71,7 +71,7 @@ use Transnatal\Services\Validation\AddressValidator;
 			{
 				if ($this->employeeRepository->update($id, Input::all()))
 				{
-					return Redirect::to('employees.index')->with('messages', 'Informações do funcionários alteradas com sucesso.');
+					return Redirect::route('employees.index')->with('messages', 'Informações do funcionários alteradas com sucesso.');
 				}
 				else
 				{
@@ -83,7 +83,7 @@ use Transnatal\Services\Validation\AddressValidator;
 		public function delete($id)
 		{
 			$this->employeeRepository->delete($id);
-			return Redirect::to('employees.index')->with('messages', 'Funcionário removido com sucesso.');
+			return Redirect::route('employees.index')->with('messages', 'Funcionário removido com sucesso.');
 		}
 
 	}

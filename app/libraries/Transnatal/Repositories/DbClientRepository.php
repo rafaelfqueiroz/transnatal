@@ -10,7 +10,7 @@ class DbClientRepository implements ClientRepositoryInterface {
 
 	public function find($id)
 	{
-		return Client::where('id', $id)->get();
+		return Client::findOrFail($id);
 	}
 
 	public function get_first()
@@ -71,8 +71,10 @@ class DbClientRepository implements ClientRepositoryInterface {
 		$bd_client->address->complement = $input['complement'];
 		$bd_client->address->reference = $input['reference'];
 
+		$bd_client->address->save();
+		$bd_client->address->touch();
+		
 		$bd_client->save();
-
 		$bd_client->touch();
 
 		return $bd_client;

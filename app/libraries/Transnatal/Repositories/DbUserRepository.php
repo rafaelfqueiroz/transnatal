@@ -8,7 +8,7 @@ class DbUserRepository implements UserRepositoryInterface {
 
 	public function find($id)
 	{
-		return User::where('id', $id)->get();
+		return User::findOrFail($id);
 	}
 
 	public function get_first()

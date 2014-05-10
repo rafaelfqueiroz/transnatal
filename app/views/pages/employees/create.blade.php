@@ -40,17 +40,20 @@
                                                         <div class="box-body">
                                                             <div class="form-group">
                                                                 {{ Form::label('employeeName', 'Nome')}}
-                                                                {{ Form::text('name', null, ['id' => 'employeeName' , 'class' => 'form-control', 'placeholder' => 'Insira o nome completo do funcionário', 'required' => 'required']) }}
+                                                                {{ Form::text('name', null, ['id' => 'employeeName' , 'class' => 'form-control', 'placeholder' => 'Insira o nome completo do funcionário']) }}
+                                                                {{ $errors->first('name', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="row">
                                                                     <div class="col-xs-6">
                                                                         {{ Form::label('employeeRg', 'RG')}}
-                                                                        {{ Form::text('rg', null, ['id' => 'employeeRg' , 'class' => 'form-control rg-mask', 'placeholder' => '###.###.###', 'required' => 'required']) }}
+                                                                        {{ Form::text('rg', null, ['id' => 'employeeRg' , 'class' => 'form-control rg-mask', 'placeholder' => '###.###.###']) }}
+                                                                        {{ $errors->first('rg', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-6">
                                                                         {{ Form::label('employeeCpf', 'CPF')}}
-                                                                        {{ Form::text('cpf', null, ['id' => 'employeeCpf' , 'class' => 'form-control cpf-mask', 'placeholder' => '###.###.###-##', 'required' => 'required']) }}
+                                                                        {{ Form::text('cpf', null, ['id' => 'employeeCpf' , 'class' => 'form-control cpf-mask', 'placeholder' => '###.###.###-##']) }}
+                                                                        {{ $errors->first('cpf', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -58,11 +61,13 @@
                                                                 <div class="row">
                                                                     <div class="col-xs-6">
                                                                         {{ Form::label('employeeHomePhone', 'Telefone fixo')}}
-                                                                        {{ Form::text('home_phone', null, ['id' => 'employeeHomePhone' , 'class' => 'form-control phone-mask', 'placeholder' => '(##) ####-####', 'required' => 'required']) }}
+                                                                        {{ Form::text('home_phone', null, ['id' => 'employeeHomePhone' , 'class' => 'form-control phone-mask', 'placeholder' => '(##) ####-####']) }}
+                                                                        {{ $errors->first('home_phone', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-6">
                                                                         {{ Form::label('employeeCelPhone', 'Telefone celular')}}
-                                                                        {{ Form::text('cel_phone', null, ['id' => 'employeeCelPhone' , 'class' => 'form-control phone-mask', 'placeholder' => '(##) ####-####', 'required' => 'required']) }}
+                                                                        {{ Form::text('cel_phone', null, ['id' => 'employeeCelPhone' , 'class' => 'form-control phone-mask', 'placeholder' => '(##) ####-####']) }}
+                                                                        {{ $errors->first('cel_phone', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -70,15 +75,18 @@
                                                                 <div class="row">
                                                                     <div class="col-xs-6">
                                                                         {{ Form::label('admissionDate', 'Data de admissão')}}
-                                                                        {{ Form::text('admission_date', null, ['id' => 'admissionDate' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
+                                                                        {{ Form::text('admission_date', null, ['id' => 'admissionDate' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                                        {{ $errors->first('admission_date', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-6">
                                                                         {{ Form::label('resignationDate', 'Data de demissão')}}
-                                                                        {{ Form::text('resignation_date', null, ['id' => 'resignationDate' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
+                                                                        {{ Form::text('resignation_date', null, ['id' => 'resignationDate' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                                        {{ $errors->first('resignation_date', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-12">
                                                                         {{ Form::label('birthday', 'Data de nascimento')}}
-                                                                        {{ Form::text('birthday', null, ['id' => 'birthday' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)', 'required' => 'required']) }}
+                                                                        {{ Form::text('birthday', null, ['id' => 'birthday' , 'class' => 'form-control datepicker','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                                        {{ $errors->first('birthday', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -91,15 +99,18 @@
                                                                 <div class="row">
                                                                     <div class="col-xs-5">
                                                                         {{ Form::label('employeeLicenseNumber', 'Número da carteira')}}
-                                                                        {{ Form::text('license_number', null, ['id' => 'employeeLicenseNumber' , 'class' => 'form-control', 'required' => 'required']) }}
+                                                                        {{ Form::text('license_number', null, ['id' => 'employeeLicenseNumber' , 'class' => 'form-control']) }}
+                                                                        {{ $errors->first('license_number', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-2">
                                                                         {{ Form::label('employeeLicenseCategory', 'Categoria')}}
-                                                                        {{ Form::text('license_category', null, ['id' => 'employeeLicenseCategory' , 'class' => 'form-control', 'required' => 'required']) }}
+                                                                        {{ Form::text('license_category', null, ['id' => 'employeeLicenseCategory' , 'class' => 'form-control']) }}
+                                                                        {{ $errors->first('license_category', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-5">
                                                                         {{ Form::label('employeeLicensePamcard', 'Número PAMCARD')}}
-                                                                        {{ Form::text('license_pamcard', null, ['id' => 'employeeLicensePamcard' , 'class' => 'form-control', 'required' => 'required']) }}
+                                                                        {{ Form::text('license_pamcard', null, ['id' => 'employeeLicensePamcard' , 'class' => 'form-control']) }}
+                                                                        {{ $errors->first('license_pamcard', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -112,19 +123,23 @@
                                                                 <div class="row">
                                                                     <div class="col-xs-5">
                                                                         {{ Form::label('employeeBankAccount', 'Número da conta')}}
-                                                                        {{ Form::text('bank_account', null, ['id' => 'employeeBankAccount' , 'class' => 'form-control', 'required' => 'required']) }}
+                                                                        {{ Form::text('bank_account', null, ['id' => 'employeeBankAccount' , 'class' => 'form-control']) }}
+                                                                        {{ $errors->first('bank_account', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-5">
                                                                         {{ Form::label('employeeBankAgency', 'Agência')}}
-                                                                        {{ Form::text('bank_agency', null, ['id' => 'employeeBankAgency' , 'class' => 'form-control', 'required' => 'required']) }}
+                                                                        {{ Form::text('bank_agency', null, ['id' => 'employeeBankAgency' , 'class' => 'form-control']) }}
+                                                                        {{ $errors->first('bank_agency', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-2">
                                                                         {{ Form::label('employeeBankOp', 'Operação')}}
-                                                                        {{ Form::text('bank_op', null, ['id' => 'employeeBankOp' , 'class' => 'form-control', 'required' => 'required']) }}
+                                                                        {{ Form::text('bank_op', null, ['id' => 'employeeBankOp' , 'class' => 'form-control']) }}
+                                                                        {{ $errors->first('bank_op', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-12">
                                                                         {{ Form::label('employeeBankName', 'Nome do banco')}}
-                                                                        {{ Form::text('bank_name', null, ['id' => 'employeeBankName' , 'class' => 'form-control', 'required' => 'required']) }}
+                                                                        {{ Form::text('bank_name', null, ['id' => 'employeeBankName' , 'class' => 'form-control']) }}
+                                                                        {{ $errors->first('bank_name', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -140,21 +155,25 @@
                                                     <div class="box-body">
                                                         <div class="form-group">
                                                             {{ Form::label('employeeAddressStreet', 'Logradouro')}}
-                                                            {{ Form::text('street', null, ['id' => 'employeeAddressStreet' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida', 'required' => 'required']) }}
+                                                            {{ Form::text('street', null, ['id' => 'employeeAddressStreet' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida']) }}
+                                                            {{ $errors->first('street', '<p class="text-red">:message</p>') }}
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-xs-3">
                                                                     {{ Form::label('employeeAddressNumber', 'Número')}}
-                                                                    {{ Form::text('number', null, ['id' => 'employeeAddressNumber' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial', 'required' => 'required']) }}
+                                                                    {{ Form::text('number', null, ['id' => 'employeeAddressNumber' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial']) }}
+                                                                    {{ $errors->first('number', '<p class="text-red">:message</p>') }}
                                                                 </div>
                                                                 <div class="col-xs-3">
                                                                     {{ Form::label('employeeAddressCep', 'CEP')}}
-                                                                    {{ Form::text('zip_code', null, ['id' => 'employeeAddressCep' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###', 'required' => 'required']) }}
+                                                                    {{ Form::text('zip_code', null, ['id' => 'employeeAddressCep' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###']) }}
+                                                                    {{ $errors->first('zip_code', '<p class="text-red">:message</p>') }}
                                                                 </div>
                                                                 <div class="col-xs-6">
                                                                     {{ Form::label('employeeAddressNeighborhood', 'Bairro')}}
-                                                                    {{ Form::text('neighborhood', null, ['id' => 'employeeAddressNeighborhood' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora', 'required' => 'required']) }}
+                                                                    {{ Form::text('neighborhood', null, ['id' => 'employeeAddressNeighborhood' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora']) }}
+                                                                    {{ $errors->first('neighborhood', '<p class="text-red">:message</p>') }}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -162,7 +181,8 @@
                                                             <div class="row">
                                                                 <div class="col-xs-9">
                                                                     {{ Form::label('employeeAddressCity', 'Cidade')}}
-                                                                    {{ Form::text('city', null, ['id' => 'EmployeeAddressCity' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora', 'required' => 'required']) }}
+                                                                    {{ Form::text('city', null, ['id' => 'EmployeeAddressCity' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora']) }}
+                                                                    {{ $errors->first('city', '<p class="text-red">:message</p>') }}
                                                                 </div>
                                                                 <div class="col-xs-3">
                                                                     {{ Form::label('employeeAddressState', 'Estado')}}
@@ -201,10 +221,12 @@
                                                         <div class="form-group">
                                                             {{ Form::label('employeeAddressComplement', 'Complemento')}}
                                                             {{ Form::text('complement', null, ['id' => 'employeeAddressComplement' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
+                                                            {{ $errors->first('complement', '<p class="text-red">:message</p>') }}
                                                         </div>
                                                         <div class="form-group">
                                                             {{ Form::label('employeeAddressReference', 'Referência')}}
                                                             {{ Form::text('reference', null, ['id' => 'employeeAddressReference' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
+                                                            {{ $errors->first('reference', '<p class="text-red">:message</p>') }}
                                                         </div>
                                                     </div> <!-- box-body -->
                                                 </div> <!-- box -->
@@ -225,6 +247,7 @@
     </div><!-- ./wrapper -->
     @section('scripts')
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
+        
         <script type="text/javascript">
             $('.datepicker').datepicker();
         </script>

@@ -9,7 +9,7 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 
 	public function find($id)
 	{
-		return Employee::where('id', $id)->get();
+		return Employee::findOrFail($id);
 	}
 
 	public function get_first()
@@ -88,6 +88,10 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 		$bd_employee->address->state = $input['state'];
 		$bd_employee->address->complement = $input['complement'];
 		$bd_employee->address->reference = $input['reference'];
+
+
+		$bd_employee->address->save();
+		$bd_employee->address->touch();
 
 		$bd_employee->save();
 		$bd_employee->touch();

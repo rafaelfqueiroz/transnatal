@@ -47,7 +47,7 @@ class ClientsController extends BaseController {
 		{
 			if ($this->clientRepository->save(Input::all()))
 			{
-				return Redirect::to('pages.clients.create')->with('messages', 'Cliente cadastrado com sucesso.');
+				return Redirect::route('clients.create')->with('messages', 'Cliente cadastrado com sucesso.');
 			}
 			else
 			{
@@ -66,7 +66,7 @@ class ClientsController extends BaseController {
 		{
 			if ($this->clientRepository->update($id, Input::all()))
 			{
-				return Redirect::to('pages.clients.index')->with('messages', 'Informações do cliente alteradas com sucesso.');
+				return Redirect::route('clients.index')->with('messages', 'Informações do cliente alteradas com sucesso.');
 			}
 			else
 			{
@@ -78,6 +78,6 @@ class ClientsController extends BaseController {
 	public function destroy($id)
 	{
 		$this->clientRepository->delete($id);
-		return Redirect::to('pages.clients.index')->with('messages', 'Cliente removido com sucesso.');
+		return Redirect::route('clients.index')->with('messages', 'Cliente removido com sucesso.');
 	}
 }
