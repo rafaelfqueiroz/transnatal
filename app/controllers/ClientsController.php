@@ -39,9 +39,13 @@ class ClientsController extends BaseController {
 
 	public function store()
 	{
-		if (!$this->validator->validate(Input::all()) && $this->addressValidator->validate(Input::all()))
+		if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
 		{
-			return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
+			$errors = $this->validator->getErrors();
+			$addressErrors = $this->addressValidator->getErrors();
+			
+			$errors->merge($addressErrors);
+			return Redirect::back()->with('errors', $errors)->withInput();
 		}
 		else
 		{
@@ -58,9 +62,13 @@ class ClientsController extends BaseController {
 
 	public function update($id)
 	{
-		if (!$this->validator->validate(Input::all()))
+		if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
 		{
-			return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
+			$errors = $this->validator->getErrors();
+			$addressErrors = $this->addressValidator->getErrors();
+			
+			$errors->merge($addressErrors);
+			return Redirect::back()->with('errors', $errors)->withInput();
 		}
 		else
 		{

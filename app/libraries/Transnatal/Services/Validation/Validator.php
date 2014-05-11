@@ -8,6 +8,8 @@ abstract class Validator {
 
 	protected $errors;
 
+	protected $messages;
+
 	public function getRules()
 	{
 		return $this->rules;
@@ -15,7 +17,7 @@ abstract class Validator {
 
 	public function validate($input)
 	{
-		$validator = V::make($input, $this->rules);
+		$validator = V::make($input, $this->rules, $this->messages);
 		if ($validator->fails())
 		{
 			$this->errors = $validator->messages();

@@ -45,7 +45,10 @@ use Transnatal\Services\Validation\AddressValidator;
 		{
 			if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
 			{
-				return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
+				$errors = $this->validator->getErrors();
+				$addressErrors = $this->addressValidator->getErrors();
+				$errors->merge($addressErrors);
+				return Redirect::back()->with('errors', $errors)->withInput();
 			}
 			else
 			{
@@ -63,9 +66,12 @@ use Transnatal\Services\Validation\AddressValidator;
 
 		public function update($id)
 		{
-			if (!$this->validator->validate(Input::all()))
+			if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
 			{
-				return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
+				$errors = $this->validator->getErrors();
+				$addressErrors = $this->addressValidator->getErrors();
+				$errors->merge($addressErrors);
+				return Redirect::back()->with('errors', $errors)->withInput();
 			}
 			else
 			{
