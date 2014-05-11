@@ -14,11 +14,34 @@ class VehiclesController extends BaseController {
 		$this->vehicleRepository = $vehicleRepository;
 	}
 
+	public function index()
+	{
+		return View::make('pages.vehicles.index')->with('vehicles', $this->vehicleRepository->all());
+	}
+
+	public function create()
+	{
+		return View::make('pages.vehicles.create');
+	}
+	
+	public function edit($id)
+	{
+		$bd_vehicle = $this->vehicleRepository->find($id);
+		return View::make('pages.vehicles.edit')->with('vehicle', $bd_vehicle);
+	}
+
+	public function show($id)
+	{
+		return Redirect::back();
+	}
+
 	public function store()
 	{
 		if (!$this->validator->validate(Input::all()))
 		{
-			return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
+			$errors = $this->validator->getErrors();
+
+			return Redirect::back()->with('errors', $errors)->withInput();
 		}
 		else
 		{
@@ -33,14 +56,31 @@ class VehiclesController extends BaseController {
 		}
 	}
 
-	public function create()
+
+	public function update($id)
 	{
-		return View::make('pages.vehicles.register');
+		if (!$this->validator->validate(Input::all()))
+		{
+			$errors = $this->validator->getErrors();
+			
+			return Redirect::back()->with('errors', $errors)->withInput();
+		}
+		else
+		{
+			if ($this->vehicleRepository->update($id, Input::all()))
+			{
+				return Redirect::route('vehicles.index')->with('messages', 'Informações do veículo alteradas com sucesso.');
+			}
+			else
+			{
+				return Redirect::back()->with('errors', 'Erro ao tentar alterar informações do veículo, por favor tente novamente')->withInput();
+			}
+		}
 	}
 
-	public function index()
+	public function destroy($id)
 	{
-		return View::make('pages.vehicles.list')->with('vehicles', $this->vehicleRepository->all());
+		$this->vehicleRepository->delete($id);
+		return Redirect::route('vehicles.index')->with('messages', 'Veículo removido com sucesso.');
 	}
-
 }

@@ -8,7 +8,7 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
 
 	public function find($id)
 	{
-		return Vehicle::where('id', $id)->get();
+		return Vehicle::findOrFail($id);
 	}
 
 	public function get_first()
@@ -42,11 +42,26 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
 
 	public function update($id, $input)
 	{
+		$bd_vehicle = $this->find($id);
 
+		$bd_vehicle->manufacture_year = $input['manufacture_year'];
+        $bd_vehicle->model_year = $input['model_year'];
+        $bd_vehicle->vehicle_plate = $input['vehicle_plate'];
+        $bd_vehicle->vehicle_chassis = $input['vehicle_chassis'];
+        $bd_vehicle->owner = $input['owner'];
+        $bd_vehicle->license_plate = $input['license_plate'];
+        $bd_vehicle->renavam = $input['renavam'];
+        $bd_vehicle->vehicle_type = $input['vehicle_type'];
+        $bd_vehicle->brand_model = $input['brand_model'];
+        $bd_vehicle->color = $input['color'];
+		
+		$bd_vehicle->save();
+
+		return $bd_vehicle;
 	}
 
 	public function delete($id)
 	{
-		
+		Vehicle::destroy($id);
 	}
 }

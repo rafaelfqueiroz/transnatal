@@ -42,6 +42,7 @@
                                             <th>Tipo</th>
                                             <th>Marca/Modelo</th>
                                             <th>Cor</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,6 +59,10 @@
                                                     <td>{{$vehicle->vehicle_type}}</td>
                                                     <td>{{$vehicle->brand_model}}</td>
                                                     <td>{{$vehicle->color}}</td>
+                                                    <td>
+                                                        <a href="{{route('vehicles.edit', [$vehicle->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar este veículo">Editar</a>
+                                                        <a href="{{route('vehicles.destroy', [$vehicle->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para remover este veículo">Remover</a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
