@@ -35,3 +35,5 @@ Route::post('/auth', 'AuthController@postLogin');
 Route::resource('users', 'UsersController');
 Route::resource('clients', 'ClientsController');
 Route::resource('employees', 'EmployeesController');
+Route::resource('vehicles', 'VehiclesController');
+Route::resource('travels', 'TravelsController');
