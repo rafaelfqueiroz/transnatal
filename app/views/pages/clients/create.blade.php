@@ -44,7 +44,7 @@
                                 					</div>
                                 					<div class="form-group">
                                                         {{ Form::label('clientBirthday', 'Data de Nascimento')}}
-                                                        {{ Form::text('birthday', null, ['id' => 'clientBirthday' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                        {{ Form::text('birthday', null, ['id' => 'clientBirthday' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                                         {{ $errors->first('birthday', '<p class="text-red">:message</p>') }}
                                 					</div>
                                 					<div class="form-group">

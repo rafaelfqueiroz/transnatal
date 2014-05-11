@@ -10,12 +10,23 @@ class DbClientRepository implements ClientRepositoryInterface {
 
 	public function find($id)
 	{
-		return Client::findOrFail($id);
+		$client = Client::findOrFail($id);
+		if ($client)
+		{
+			$client->birthday = format_date($client->birthday);
+		}
+		return $client;
 	}
 
 	public function get_first()
 	{
-		return Client::first();
+		$client = Client::first();
+		if ($client)
+		{
+			$client->birthday = format_date($client->birthday);
+		}
+
+		return $client;
 	}
 
 	public function all()
@@ -29,7 +40,7 @@ class DbClientRepository implements ClientRepositoryInterface {
 		$client->name = $input['name'];
 		$client->rg = $input['rg'];
 		$client->cic = $input['cic'];
-		$client->birthday = $input['birthday'];
+		$client->birthday = format_date($input['birthday'], true);
 		$client->home_phone = $input['home_phone'];
 		$client->cel_phone = $input['cel_phone'];
 
@@ -58,7 +69,7 @@ class DbClientRepository implements ClientRepositoryInterface {
 		$bd_client->name = $input['name'];
 		$bd_client->rg = $input['rg'];
 		$bd_client->cic = $input['cic'];
-		$bd_client->birthday = $input['birthday'];
+		$bd_client->birthday = format_date($input['birthday'], true);
 		$bd_client->home_phone = $input['home_phone'];
 		$bd_client->cel_phone = $input['cel_phone'];
 

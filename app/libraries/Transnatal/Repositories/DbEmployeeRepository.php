@@ -9,12 +9,26 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 
 	public function find($id)
 	{
-		return Employee::findOrFail($id);
+		$employee = Employee::findOrFail($id);
+		if ($employee)
+		{
+			$employee->birthday = format_date($employee->birthday);
+			$employee->admission_date = format_date($employee->admission_date);
+			$employee->resignation_date = format_date($employee->resignation_date);
+		}
+		return $employee;
 	}
 
 	public function get_first()
 	{
-		return Employee::first();
+		$employee = Employee::first();
+		if ($employee)
+		{
+			$employee->birthday = format_date($employee->birthday);
+			$employee->admission_date = format_date($employee->admission_date);
+			$employee->resignation_date = format_date($employee->resignation_date);
+		}
+		return $employee;
 	}
 
 	public function all()
@@ -27,11 +41,11 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 		$employee = new Employee();
 
 		$employee->name = $input['name'];
-		$employee->admission_date = $input['admission_date'];
-		$employee->resignation_date = $input['resignation_date'];
+		$employee->admission_date = format_date($input['admission_date'], true);
+		$employee->resignation_date = format_date($input['resignation_date'], true);
 		$employee->rg = $input['rg'];
 		$employee->cpf = $input['cpf'];
-		$employee->birthday = $input['birthday'];
+		$employee->birthday = format_date($input['birthday'], true);
 		$employee->home_phone = $input['home_phone'];
 		$employee->cel_phone = $input['cel_phone'];
 		$employee->bank_account = $input['bank_account'];
@@ -65,11 +79,11 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 		$bd_employee = $this->find($id);
 
 		$bd_employee->name = $input['name'];
-		$bd_employee->admission_date = $input['admission_date'];
-		$bd_employee->resignation_date = $input['resignation_date'];
+		$bd_employee->admission_date = format_date($input['admission_date'], true);
+		$bd_employee->resignation_date = format_date($input['resignation_date'], true);
 		$bd_employee->rg = $input['rg'];
 		$bd_employee->cpf = $input['cpf'];
-		$bd_employee->birthday = $input['birthday'];
+		$bd_employee->birthday = format_date($input['birthday'], true);
 		$bd_employee->home_phone = $input['home_phone'];
 		$bd_employee->cel_phone = $input['cel_phone'];
 		$bd_employee->bank_account = $input['bank_account'];

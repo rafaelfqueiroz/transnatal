@@ -49,8 +49,8 @@
                                                     <td>{{$employee->name}}</td>
                                                     <td>{{$employee->rg}}</td>
                                                     <td>{{$employee->cpf}}</td>
-                                                    <td>{{$employee->admission_date}}</td>
-                                                    <td>{{$employee->resignation_date}}</td>
+                                                    <td>{{format_date($employee->admission_date, false)}}</td>
+                                                    <td>{{format_date($employee->resignation_date)}}</td>
                                                     <td>{{$employee->home_phone}}</td>
                                                     <td>{{$employee->cel_phone}}</td>
                                                     <td>
