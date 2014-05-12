@@ -2,6 +2,7 @@
 namespace Transnatal\Repositories;
 
 use Transnatal\Interfaces\UserRepositoryInterface;
+use Hash;
 use User;
 
 class DbUserRepository implements UserRepositoryInterface {
@@ -26,7 +27,7 @@ class DbUserRepository implements UserRepositoryInterface {
 		$user =new User();
 
 		$user->username = $input['username'];
-		$user->password = $input['password'];
+		$user->password = Hash::make($input['password']);
 		$user->email = $input['email'];
 		$user->employee_id = $input['employee_id'];
 

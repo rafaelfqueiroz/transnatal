@@ -44,7 +44,7 @@ class UsersController extends BaseController {
 		{
 			if ($this->userRepository->save(Input::all()))
 			{
-				return Redirect::to('users.create')->with('messages', 'Usuário criado com sucesso.');
+				return Redirect::route('users.create')->with('messages', 'Usuário criado com sucesso.');
 			}
 			else
 			{

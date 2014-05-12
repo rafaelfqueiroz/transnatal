@@ -11,29 +11,17 @@
 |
 */
 
+Route::get('login', ['as' => 'sessions.login', 'uses' => 'SessionsController@create', 'before' => 'guest']);
+Route::get('logout', ['as' => 'sessions.logout', 'uses' => 'SessionsController@destroy']);
+Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
 
-//<======== GET REQUESTS ========>
-
-
-Route::get('/', 'AuthController@getLogin');
-
-Route::get('/index', 'HomeController@index');
-
-Route::get('/logout', 'AuthController@logout');
-
-Route::get('/profile', 'UsersController@getProfile');
-
-
-//<======== END OF GET REGUESTS ========>
-
-//<======== POST REQUESTS ========>
-
-Route::post('/auth', 'AuthController@postLogin');
-
-//<======== END OF POST REQUESTS ========>
-
-Route::resource('users', 'UsersController');
-Route::resource('clients', 'ClientsController');
-Route::resource('employees', 'EmployeesController');
-Route::resource('vehicles', 'VehiclesController');
-Route::resource('travels', 'TravelsController');
+Route::group(['before' => 'auth'], function()
+{
+	Route::get('/index', 'HomeController@index');
+	Route::get('/profile', 'UsersController@getProfile');
+	Route::resource('users', 'UsersController');
+	Route::resource('clients', 'ClientsController');
+	Route::resource('employees', 'EmployeesController');
+	Route::resource('vehicles', 'VehiclesController');
+	Route::resource('travels', 'TravelsController');
+});
