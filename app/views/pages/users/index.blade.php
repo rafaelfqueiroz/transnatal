@@ -25,7 +25,7 @@
 	        	<div class="col-md-10">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Listagem de clientes</h3>
+                            <h3 class="box-title">Listagem de usuários</h3>
                         </div>
                         <div class="box-body table-responsive">
                             <div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
