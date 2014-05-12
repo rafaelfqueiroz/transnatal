@@ -9,7 +9,10 @@ class AuthController extends BaseController {
 
 	public function postLogin()
 	{
-		return Redirect::to('index');
+		if (Auth::attempt(array('email' => $email, 'password' => $password)))
+		{
+			return Redirect::intended('index');
+		}
 	}
 
 	public function logout()
