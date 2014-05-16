@@ -39,7 +39,6 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 	public function save($input)
 	{
 		$employee = new Employee();
-
 		$employee->name = $input['name'];
 		$employee->admission_date = format_date($input['admission_date'], true);
 		$employee->resignation_date = format_date($input['resignation_date'], true);

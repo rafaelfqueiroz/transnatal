@@ -4,6 +4,8 @@
     @stop
     @section('stylesheets')
         {{ HTML::style('assets/AdminLTE/css/dataTables/dataTables.bootstrap.css') }}
+        {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.core.css') }}
+        {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.default.css') }}
     @stop
 @section('content')
 @include('includes.header')
@@ -50,8 +52,8 @@
                                                     <td>{{$client->home_phone}}</td>
                                                     <td>{{$client->cel_phone}}</td>
                                                     <td>
-                                                            <a href="{{route('clients.edit', [$client->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar este cliente">Editar</a>
-                                                            <a href="{{route('clients.destroy', [$client->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para remover este cliente">Remover</a>
+                                                        <a href="{{route('clients.edit', [$client->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar este cliente">Editar</a>
+                                                        <a href="{{route('clients.destroy', [$client->id])}}" class="btn btn-primary btn-xs deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover este cliente">Remover</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -70,10 +72,20 @@
     @section('scripts')
         {{ HTML::script('assets/AdminLTE/js/plugins/datatables/jquery.dataTables.js') }}
         {{ HTML::script('assets/AdminLTE/js/plugins/datatables/dataTables.bootstrap.js') }}
+        {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
+        {{ HTML::script('assets/js/deleterequest.js') }}
         <script type="text/javascript">
             $(function() {
                 $('#example1').dataTable({});
+
+                alertify.set({
+                    labels: {
+                        ok : "Sim",
+                        cancel : "Não"
+                    }
+                });
             });
         </script>
+        {{ HTML::script('assets/js/deleterequest.js') }}
         
     @stop

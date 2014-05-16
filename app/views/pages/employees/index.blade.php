@@ -55,7 +55,9 @@
                                                     <td>{{$employee->cel_phone}}</td>
                                                     <td>
                                                         <a href="{{route('employees.edit', [$employee->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar este funcionário">Editar</a>
-                                                        <a href="{{route('employees.destroy', [$employee->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para remover este funcionário">Remover</a>
+                                                        {{Form::open(['method' => 'DELETE', 'route' => ['employees.destroy', $employee->id]])}}
+                                                            {{ Form::submit('Remover', ['class' => 'btn btn-primary btn-xs', 'data-toggle' => 'tooltip', 'data-original-title' => 'Clique para remover este funcionário']) }}
+                                                        {{Form::close()}}
                                                     </td>
                                                 </tr>
                                             @endforeach
