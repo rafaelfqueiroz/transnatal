@@ -79,3 +79,19 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+App::missing(function($exception)
+{
+	if (Auth::check())
+	{
+		return Redirect::to('index');
+	}
+	else
+	{
+		print_r("isso");
+		die();
+		return Redirect::to('login');
+	}
+    
+});

@@ -26,8 +26,14 @@ class SessionsController extends BaseController {
             'password'  => $input['password']
         ]);
 
-        if ($attempt) return Redirect::intended('/index')->with('flash_message', 'Você efetuou login com sucesso!');
-        return Redirect::back()->with('flash_error', 'Dados de login inválidos');
+        if ($attempt)
+        {
+            return Redirect::intended('/index')->with('flash_message', 'Você efetuou login com sucesso!');  
+        }
+        else
+        {
+            return Redirect::back()->with('flash_error', 'Dados de login inválidos');
+        }
     }
 
     /**
