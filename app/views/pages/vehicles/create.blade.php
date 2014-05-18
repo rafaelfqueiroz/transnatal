@@ -35,6 +35,10 @@
                                     {{ $errors->first('owner', '<p class="text-red">:message</p>') }}
                                 </div>
                                 <div class="form-group">
+                                    {{ Form::label('driver', 'Escolha um motorista')}}
+                                    {{ Form::select('driver', $employees, null, ['id' => 'driver', 'class' => 'form-control'])}}
+                                </div>
+                                <div class="form-group">
                                     {{ Form::label('vehicle_chassis', 'Chassi')}}
                                     {{ Form::text('vehicle_chassis', null, ['id' => 'vehicle_chassis', 'class' => 'form-control', 'placeholder' => 'Informe o chassi do veículo'])}}
                                     {{ $errors->first('vehicle_chassis', '<p class="text-red">:message</p>') }}

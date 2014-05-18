@@ -21,6 +21,11 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
 		return Vehicle::all();
 	}
 
+	public function allRented()
+	{
+		return Vehicle::where('driver', null)->get();
+	}
+
 	public function save($input)
 	{
 		$vehicle = new Vehicle();
@@ -34,6 +39,8 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
         $vehicle->vehicle_type = $input['vehicle_type'];
         $vehicle->brand_model = $input['brand_model'];
         $vehicle->color = $input['color'];
+        if($input['driver'] > 0)
+        	$vehicle->driver = $input['driver'];
 
 		$vehicle->save();
 
@@ -54,6 +61,8 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
         $bd_vehicle->vehicle_type = $input['vehicle_type'];
         $bd_vehicle->brand_model = $input['brand_model'];
         $bd_vehicle->color = $input['color'];
+        if($input['driver'] > 0)
+        	$bd_vehicle->driver = $input['driver'];
 		
 		$bd_vehicle->save();
 
