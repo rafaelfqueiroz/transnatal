@@ -1,5 +1,7 @@
 <?php
 
+use Transnatal\Interfaces\NewsRepositoryInterface;
+
 class HomeController extends BaseController {
 
 	/*
@@ -14,10 +16,16 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+	private $newsRepository;
+
+	public function __construct(NewsRepositoryInterface $newsRepository)
+	{
+		$this->newsRepository = $newsRepository;
+	}
 
 	public function index()
 	{
-		return View::make('pages.index');
+		return View::make('pages.index')->with('news', $this->newsRepository->allAvaliable());
 	}
 
 }

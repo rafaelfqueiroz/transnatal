@@ -32,6 +32,17 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
+                                <i class="fa fa-list-alt"></i>
+                                <span>Notícias</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{route('news.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
+                                <li><a href="{{route('news.index')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
                                 <i class="fa fa-road"></i>
                                 <span>Viagens</span>
                                 <i class="fa fa-angle-left pull-right"></i>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddServiceOrdersTable extends Migration {
+class AddCreateServiceOrdersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -49,5 +49,4 @@ class AddServiceOrdersTable extends Migration {
 	{
 		Schema::drop('service_orders');
 	}
-
 }

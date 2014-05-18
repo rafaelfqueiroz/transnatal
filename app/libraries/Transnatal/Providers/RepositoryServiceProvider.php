@@ -30,5 +30,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 
 		$this->app->bind('Transnatal\Interfaces\TravelRentedCarRepositoryInterface',
 			'Transnatal\Repositories\DbTravelRentedCarRepository');
+
+		$this->app->bind('Transnatal\Interfaces\NewsRepositoryInterface',
+			'Transnatal\Repositories\DbNewsRepository');
 	}
 }

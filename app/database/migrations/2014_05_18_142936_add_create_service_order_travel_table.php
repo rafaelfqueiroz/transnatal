@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddServicesOrderTravelTable extends Migration {
+class AddCreateServiceOrderTravelTable extends Migration {
 
 	/**
 	 * Run the migrations.
