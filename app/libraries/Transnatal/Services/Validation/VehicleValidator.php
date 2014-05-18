@@ -15,7 +15,7 @@ class VehicleValidator extends Validator {
 		 'renavam' => 'required',
 		 'vehicle_type' => 'required',
 		 'brand_model' => 'required',
-		 'color' => 'required',
+		 'color' => 'required'
 		];
 
 		$this->messages = [

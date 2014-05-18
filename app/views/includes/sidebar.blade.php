@@ -38,7 +38,9 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="{{route('travels.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
+                                <li><a href="{{route('travels-rented-car.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar com Carro Alugado</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Listar</a></li>
+                                <li><a href="{{route('travels-rented-car.index')}}"><i class="fa fa-angle-double-right"></i> Listar Viagem com Carro Alugado</a></li>
                             </ul>
                         </li>
                         <li class="treeview">

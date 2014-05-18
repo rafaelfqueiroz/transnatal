@@ -24,6 +24,8 @@ class CreateVehiclesTable extends Migration {
             $t->string('vehicle_type');
             $t->string('brand_model');
             $t->string('color');
+            $t->integer('driver')->unsigned()->nullable();
+            $t->foreign('driver')->references('id')->on('employees')->onDelete('cascade')->onUpdate('cascade');
 			$t->timestamps();
         });
 	}

@@ -2,16 +2,19 @@
 
 use Transnatal\Interfaces\VehicleRepositoryInterface;
 use Transnatal\Services\Validation\VehicleValidator;
+use Transnatal\Interfaces\EmployeeRepositoryInterface;
 
 class VehiclesController extends BaseController {
 
 	private $validator;
 	private $vehicleRepository;
+	private $employeeRepository;
 
-	public function __construct(VehicleValidator $validator, VehicleRepositoryInterface $vehicleRepository)
+	public function __construct(VehicleValidator $validator, VehicleRepositoryInterface $vehicleRepository, EmployeeRepositoryInterface $employeeRepository)
 	{
 		$this->validator = $validator;
 		$this->vehicleRepository = $vehicleRepository;
+		$this->employeeRepository = $employeeRepository;
 	}
 
 	public function index()
@@ -21,7 +24,13 @@ class VehiclesController extends BaseController {
 
 	public function create()
 	{
-		return View::make('pages.vehicles.create');
+		$employees_bd = $this->employeeRepository->all();
+
+		$employees = array(null);
+		foreach ($employees_bd as $key => $employee) {
+			$employees[$employee->id] = $employee->name;
+		}
+		return View::make('pages.vehicles.create')->with('employees', $employees);
 	}
 	
 	public function edit($id)
