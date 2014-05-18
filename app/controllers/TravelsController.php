@@ -62,7 +62,7 @@ class TravelsController extends BaseController {
 		foreach ($vehicles_bd as $key => $vehicle) {
 			$vehicles[$vehicle->id] = $vehicle->brand_model;
 		}
-		return View::make('pages.travels.register')->with('employees', $employees)->with('vehicles', $vehicles);
+		return View::make('pages.travels.create')->with('employees', $employees)->with('vehicles', $vehicles);
 	}
 
 	public function index()

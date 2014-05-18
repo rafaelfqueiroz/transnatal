@@ -52,8 +52,8 @@
                                                     <td>{{$client->home_phone}}</td>
                                                     <td>{{$client->cel_phone}}</td>
                                                     <td>
-                                                        <a href="{{route('clients.edit', [$client->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar este cliente">Editar</a>
-                                                        <a href="{{route('clients.destroy', [$client->id])}}" class="btn btn-primary btn-xs deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover este cliente">Remover</a>
+                                                        <a href="{{route('clients.edit', [$client->id])}}" class="btn btn-primary btn-xs table-button" data-toggle="tooltip" title data-original-title="Clique para editar este cliente">Editar</a>
+                                                        <a href="{{route('clients.destroy', [$client->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover este cliente">Remover</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
