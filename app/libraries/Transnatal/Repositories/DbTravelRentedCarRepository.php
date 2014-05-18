@@ -32,11 +32,14 @@ class DbTravelRentedCarRepository implements TravelRentedCarRepositoryInterface 
 
 		$travelRentedCar->save();
 
-		$serviceOrderTravelRentedCar = new ServiceOrderTravelRentedCar();
-		$serviceOrderTravelRentedCar->so_number = $input['so_number'];
-		$serviceOrderTravelRentedCar->travel_rented_car_id = $travelRentedCar->id;
+		foreach ($input['so_number'] as $so) {
+			$serviceOrderTravelRentedCar = new ServiceOrderTravelRentedCar();
+			$serviceOrderTravelRentedCar->so_number = $so;
+			$serviceOrderTravelRentedCar->travel_rented_car_id = $travelRentedCar->id;
 
-		$serviceOrderTravelRentedCar->save();
+			$serviceOrderTravelRentedCar->save();
+			
+		}
 
 		return $travelRentedCar;
 	}

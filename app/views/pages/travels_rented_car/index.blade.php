@@ -48,7 +48,11 @@
                                                     <td>{{$travel_rented_car->travel_price}}</td>
                                                     <td>{{$travel_rented_car->price_paid}}</td>
                                                     <td>{{$travel_rented_car->price_to_pay}}</td>
-                                                    <td>{{$travel_rented_car->so_number}}</td>
+                                                    <td>
+                                                        @foreach ($travel_rented_car->serviceOrder as $so)
+                                                            {{$so->so_number}}<br/>
+                                                        @endforeach
+                                                    </td>
                                                     <td>
                                                         <a href="{{route('travels-rented-car.edit', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar esta viagem">Editar</a>
                                                         <a href="{{route('travels-rented-car.destroy', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para remover esta viagem">Remover</a>
