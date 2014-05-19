@@ -24,21 +24,23 @@ class DbTravelRentedCarRepository implements TravelRentedCarRepositoryInterface 
 
 	public function save($input)
 	{
-		$travelRentedCar = new TravelRentedCar();
-		$travelRentedCar->travel_price = $input['travel_price'];
-        $travelRentedCar->price_paid = $input['price_paid'];
-        $travelRentedCar->price_to_pay = $input['price_to_pay'];
-        $travelRentedCar->vehicle_id = $input['vehicle_id'];
+		if ($input['service_orders']) {
+			$travelRentedCar = new TravelRentedCar();
+			$travelRentedCar->travel_price = $input['travel_price'];
+	        $travelRentedCar->price_paid = $input['price_paid'];
+	        $travelRentedCar->price_to_pay = $input['price_to_pay'];
+	        $travelRentedCar->vehicle_id = $input['vehicle_id'];
 
-		$travelRentedCar->save();
+			$travelRentedCar->save();
 
-		foreach ($input['so_number'] as $so) {
-			$serviceOrderTravelRentedCar = new ServiceOrderTravelRentedCar();
-			$serviceOrderTravelRentedCar->so_number = $so;
-			$serviceOrderTravelRentedCar->travel_rented_car_id = $travelRentedCar->id;
-
-			$serviceOrderTravelRentedCar->save();
-			
+			//$travelServiceOrders = array();
+			foreach ($input['service_orders'] as $key => $value) {
+				$serviceOrderTravelRentedCar = new ServiceOrderTravelRentedCar();
+				$serviceOrderTravelRentedCar->so_number = $value['so_number'];
+				$serviceOrderTravelRentedCar->travel_rented_car_id = $travelRentedCar->id;
+				$serviceOrderTravelRentedCar->save();
+			}
+			//ServiceOrderTravelRentedCar::insert($travelServiceOrders);
 		}
 
 		return $travelRentedCar;

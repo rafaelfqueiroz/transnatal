@@ -6,11 +6,11 @@ class ServiceOrderTravelRentedCarValidator extends Validator {
 	public function __construct()
 	{
 		$this->rules = [
-		 'so_number' => 'required'
+		 'service_orders' => 'required'
 		];
 
 		$this->messages = [
-		 'so_number.required' => 'O campo Ordem de Serviço é necessário.'
+		 'service_orders.required' => 'O campo Ordem de Serviço é necessário.'
 		];
 	}
 }
