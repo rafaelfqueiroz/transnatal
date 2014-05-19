@@ -33,17 +33,19 @@ class TravelsController extends BaseController {
 	{
 		if (!$this->validator->validate(Input::all()))
 		{
-			return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
+			//return Redirect::route('travels.index')->with('messages', 'Viagem registrada com sucesso.');
+			return Response::json($this->validator->getErrors());
 		}
 		else
 		{
 			if ($this->travelRepository->save(Input::all()))
 			{
-				return Redirect::route('travels.index')->with('messages', 'Viagem registrada com sucesso.');
+				return Reponse::json('Viagem registrada com sucesso.');
 			}
 			else
 			{
-				return Redirect::back()->with('errors', 'Erro ao tentar registrar viagem, por favor tente novamente.')->withInput();
+				return Redirect::route('travels.index')->with('messages', 'Viagem registrada com sucesso.');
+				//return Redirect::back()->with('errors', 'Erro ao tentar registrar viagem, por favor tente novamente.')->withInput();
 			}
 		}
 	}

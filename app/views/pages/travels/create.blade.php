@@ -25,7 +25,7 @@
                 </ol>
             </section>
             <section class="content">
-                {{ Form::open(['role' => 'form', 'action' => 'TravelsController@store']) }}
+                {{ Form::open(['role' => 'form', 'route' => 'travels.store']) }}
                     <div class="row">
                         <div class="col-md-12">
                             <div class="box">
@@ -124,7 +124,7 @@
                                                                 {{ $errors->first('control_ordinance_from_mileage', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('arrival_km', 'Quilometragem de chegada')}}
+                                                                {{ Form::label('control_ordinance_from_date', 'Quilometragem de chegada')}}
                                                                 {{ Form::text('control_ordinance_from_date', null, ['id' => 'control_ordinance_from_date', 'class' => 'form-control pull-right datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
                                                                 {{ $errors->first('control_ordinance_from_date', '<p class="text-red">:message</p>') }}
                                                             </div>
@@ -150,9 +150,9 @@
                                                                     Comprovante de entrega OK?
                                                                 </div>
                                                                 <div class="col-xs-6">
-                                                                    {{Form::radio('receiptState', true, true, ['id' => 'receiptStateYes'])}}
+                                                                    {{Form::radio('document_receipt_arrive', true, true, ['id' => 'receiptStateYes'])}}
                                                                     {{Form::label('receiptStateYes', 'Sim')}}
-                                                                    {{Form::radio('receiptState', false, false, ['id' => 'receiptStateNo'])}}
+                                                                    {{Form::radio('document_receipt_arrive', false, false, ['id' => 'receiptStateNo'])}}
                                                                     {{Form::label('receiptStateNo', 'Não')}}
                                                                 </div>
                                                             </div>
@@ -163,9 +163,9 @@
                                                                     Outros documentos em ordem?
                                                                 </div>
                                                                 <div class="col-xs-6">
-                                                                    {{Form::radio('othersDocs', true, true, ['id' => 'othersDocsYes'])}}
+                                                                    {{Form::radio('all_documents_right', true, true, ['id' => 'othersDocsYes'])}}
                                                                     {{Form::label('othersDocsYes', 'Sim')}}
-                                                                    {{Form::radio('othersDocs', false, false, ['id' => 'othersDocsNo'])}}
+                                                                    {{Form::radio('all_documents_right', false, false, ['id' => 'othersDocsNo'])}}
                                                                     {{Form::label('othersDocsNo', 'Não')}}
                                                                 </div>
                                                             </div>
@@ -176,9 +176,9 @@
                                                                     Tacógrafo em ordem?
                                                                 </div>
                                                                 <div class="col-xs-6">
-                                                                    {{Form::radio('tacographSequence', true, true, ['id' => 'tacographSequenceYes'])}}
+                                                                    {{Form::radio('tachograph_right', true, true, ['id' => 'tacographSequenceYes'])}}
                                                                     {{Form::label('tacographSequenceYes', 'Sim')}}
-                                                                    {{Form::radio('tacographSequence', false, false, ['id' => 'tacographSequenceNo'])}}
+                                                                    {{Form::radio('tachograph_right', false, false, ['id' => 'tacographSequenceNo'])}}
                                                                     {{Form::label('tacographSequenceNo', 'Não')}}
                                                                 </div>
                                                             </div>
@@ -187,12 +187,12 @@
                                                     <div class="form-group">
                                                         <h3 class="box-title">Desempenho global</h3>
                                                         <div id="travel_performace" class="radio">
-                                                            {{Form::radio('travelPerformance', true, true, ['id' => 'travelPerformanceYes'])}}
+                                                            {{Form::radio('travel_performace', true, true, ['id' => 'travelPerformanceYes'])}}
                                                             {{Form::label('travelPerformanceYes', 'Bom')}}
-                                                            {{Form::radio('travelPerformance', false, false, ['id' => 'travelPerformanceNo'])}}
+                                                            {{Form::radio('travel_performace', false, false, ['id' => 'travelPerformanceNo'])}}
                                                             {{Form::label('travelPerformanceNo', 'Ruim')}}
                                                         </div>
-                                                        {{Form::textarea('travel_performance_reason', null, ['class' => 'form-control', 'placeholder' => 'Motivo', 'rows' => '3'])}}
+                                                        {{Form::textarea('travel_performace_reason', null, ['class' => 'form-control', 'placeholder' => 'Motivo', 'rows' => '3'])}}
                                                     </div>
                                                     <div class="form-group">
                                                         <h3 class="box-title">Diário de bordo</h3>
@@ -210,11 +210,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <textarea id="general_informations" class="form-control" rows="4" placeholder="Motivo" style="margin: 0px -1px 0px 0px; width: 455px; height: 98px;"></textarea>
+                                                        <textarea id="general_informations" name="general_informations" class="form-control" rows="4" placeholder="Motivo" style="margin: 0px -1px 0px 0px; width: 455px; height: 98px;"></textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         {{ Form::label('observation', 'Observação Geral da Viagem')}}
-                                                        <textarea id="observation" class="form-control" rows="4" placeholder="Insira uma observação para a viagem" style="margin: 0px -1px 0px 0px; width: 455px; height: 98px;"></textarea>
+                                                        <textarea id="observation" name="observation" class="form-control" rows="4" placeholder="Insira uma observação para a viagem" style="margin: 0px -1px 0px 0px; width: 455px; height: 98px;"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -408,6 +408,7 @@
 
         {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
+        {{ HTML::script('assets/vendor/jquery.form/jquery.form.js') }}
         {{ HTML::script('assets/js/route-travel-form.js') }}
         <script type="text/javascript">
             $(document).ready(function() {

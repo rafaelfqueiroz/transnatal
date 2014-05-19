@@ -89,8 +89,6 @@ App::missing(function($exception)
 	}
 	else
 	{
-		print_r("isso");
-		die();
 		return Redirect::to('login');
 	}
     
