@@ -119,24 +119,24 @@
                                                         <h3 class="box-title">Controle de portaria</h3>
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('control_ordinance_from_mileage', 'Quilometragem de saída')}}
+                                                                {{ Form::label('control_ordinance_from_mileage', 'Quilometragem de Saída')}}
                                                                 {{ Form::text('control_ordinance_from_mileage', null, ['id' => 'control_ordinance_from_mileage', 'class' => 'form-control', 'placeholder' => 'Quilometragem']) }}
                                                                 {{ $errors->first('control_ordinance_from_mileage', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('arrival_km', 'Quilometragem de chegada')}}
+                                                                {{ Form::label('control_ordinance_from_date', 'Data de Saída')}}
                                                                 {{ Form::text('control_ordinance_from_date', null, ['id' => 'control_ordinance_from_date', 'class' => 'form-control pull-right datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
                                                                 {{ $errors->first('control_ordinance_from_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('control_ordinance_to_mileage', 'Data de chegada')}}
+                                                                {{ Form::label('control_ordinance_to_mileage', 'Quilometragem de Chegada')}}
                                                                 {{ Form::text('control_ordinance_to_mileage', null, ['id' => 'control_ordinance_to_mileage', 'class' => 'form-control', 'placeholder' => 'Quilometragem']) }}
                                                                 {{ $errors->first('control_ordinance_to_mileage', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('control_ordinance_to_date', 'Data de saída')}}
+                                                                {{ Form::label('control_ordinance_to_date', 'Data de Caída')}}
                                                                 {{ Form::text('control_ordinance_to_date', null, ['id' => 'control_ordinance_to_date', 'class' => 'form-control pull-right datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
                                                                 {{ $errors->first('control_ordinance_to_date', '<p class="text-red">:message</p>') }}
                                                             </div>
@@ -413,7 +413,7 @@
             $(document).ready(function() {
                 $('form').on('submit', function(e) {
                     e.preventDefault(); // prevent native submit
-                    $(this).ajaxSubmit({
+                    $('form').ajaxSubmit({
                         type : 'POST',
                         data : {'routes': routes, 'advances': advances, 'costs': costs}
 

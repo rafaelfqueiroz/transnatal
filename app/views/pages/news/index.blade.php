@@ -66,7 +66,13 @@
         {{ HTML::script('assets/AdminLTE/js/plugins/datatables/dataTables.bootstrap.js') }}
         <script type="text/javascript">
             $(function() {
-                $('#example1').dataTable({});
+                $('#example1').dataTable({
+                    "aoColumns": [
+                        { "asSorting": [ "desc" ] },
+                        { "bSortable": false },
+                        { "bSortable": false }
+                    ]
+                });
             });
         </script>
         

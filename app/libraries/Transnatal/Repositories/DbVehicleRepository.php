@@ -18,7 +18,7 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
 
 	public function all()
 	{
-		return Vehicle::all();
+		return Vehicle::where('driver', '>', 0)->get();
 	}
 
 	public function allRented()

@@ -55,22 +55,30 @@ class TravelsRentedCarController extends BaseController {
 
 	public function store()
 	{
-		if (!$this->validator->validate(Input::all()) && !$this->serviceOrderTravelRentedCarValidator->validate(Input::all()))
+		$this->validator->validate(Input::all());
+		$this->serviceOrderTravelRentedCarValidator->validate(Input::all());
+
+		$validation = $this->validator->getErrors();
+		$serviceOrderTravelRentedCarErrors = $this->serviceOrderTravelRentedCarValidator->getErrors();
+
+		$errors = array();
+
+		if (! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
+		if (! is_null($serviceOrderTravelRentedCarErrors)) $errors = array_merge_recursive($errors, $serviceOrderTravelRentedCarErrors->getMessages());
+		
+		if ($errors)
 		{
-			$errors = $this->validator->getErrors();
-			$serviceOrderTravelRentedCarErrors = $this->serviceOrderTravelRentedCarValidator->getErrors();
-			$errors->merge($serviceOrderTravelRentedCarErrors);
-			return Redirect::back()->with('errors', $errors)->withInput();
+			return Response::json(['errors' => $errors]);
 		}
 		else
 		{
 			if ($this->travelRentedCarRepository->save(Input::all()))
 			{
-				return Redirect::route('travels-rented-car.create')->with('messages', 'Viagem cadastrada com sucesso.');
+				return Response::json(['messages' => 'Viagem cadastrada com sucesso.']);
 			}
 			else
 			{
-				return Redirect::back()->with('errors', 'Erro ao tentar cadastrar a viagem, por favor tente novamente.')->withInput();
+				return Response::json(['errors' => 'Erro ao tentar cadastrar a viagem, por favor tente novamente.']);
 			}
 		}
 	}
