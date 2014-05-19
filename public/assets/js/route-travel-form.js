@@ -101,7 +101,7 @@ function removeRow(button) {
 	} else if (type == '_new_foward') {
 		advances.splice(tdValue-1,1);
 	} else if (type == '_new_cost') {
-		advances.splice(tdValue-1,1);
+		costs.splice(tdValue-1,1);
 	}
 }
 
@@ -111,6 +111,6 @@ function addObjectInArray(obj, type) {
 	} else if (type == '_new_foward') {
 		advances.push(obj);
 	} else if (type == '_new_cost') {
-		advances.push(obj);
+		costs.push(obj);
 	}
 }

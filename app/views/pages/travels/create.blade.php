@@ -411,7 +411,6 @@
         {{ HTML::script('assets/js/route-travel-form.js') }}
         <script type="text/javascript">
             $(document).ready(function() {
-                $('form').ajaxForm();
                 $('form').on('submit', function(e) {
                     e.preventDefault(); // prevent native submit
                     $(this).ajaxSubmit({

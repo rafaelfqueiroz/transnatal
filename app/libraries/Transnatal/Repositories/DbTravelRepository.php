@@ -50,40 +50,58 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		$travel->employee_id = $input['employee_id'];
 
 		$travel->save();
+
+		if ($input['advances'])
+		{
+			$travelAdvances = array();
+			foreach ($input['advances'] as $key => $value) {
+				$travelAdvance = new TravelAdvance();
+				$travelAdvance->advance_local = $value['advance_local'];
+				$travelAdvance->advance_date = $value['advance_date'];
+				$travelAdvance->voucher_number = $value['voucher_number'];
+				$travelAdvance->from_date = $value['from_date'];
+				$travelAdvance->advance_value = $value['advance_value'];
+				$travelAdvance->travel_id = $travel->travel_id;
+				array_push($travelAdvances, $travelAdvance);
+			}
+			TravelAdvance::insert($travelAdvances);
+		}
 		
-		$travelAdvance = new TravelAdvance();
-		$travelAdvance->advance_local = $input['advance_local'];
-		$travelAdvance->advance_date = $input['advance_date'];
-		$travelAdvance->voucher_number = $input['voucher_number'];
-		$travelAdvance->from_date = $input['from_date'];
-		$travelAdvance->advance_value = $input['advance_value'];
-		$travelAdvance->travel_id = $travel->travel_id;
+		if ($input['costs'])
+		{
+			$travelCosts = array();
+			foreach ($input['costs'] as $key => $value) {
+				$travelCost = new TravelCost();
+				$travelCost->cost_date = $value['cost_date'];
+				$travelCost->cost_local = $value['cost_local'];
+				$travelCost->cost_descption = $value['cost_descption'];
+				$travelCost->cost_value = $value['cost_value'];
+				$travelCost->mileage = $value['mileage'];
+				$travelCost->liters = $value['liters'];
+				$travelCost->km_point_to_point = $value['km_point_to_point'];
+				$travelAdvance->travel_id = $travel->travel_id;
+				array_push($travelCosts, $travelCost);
+			}
+			TravelCost::insert($travelCosts);
+		}
 
-		$travelAdvance->save();
-
-		$travelCost = new TravelCost();
-		$travelCost->cost_date = $input['cost_date'];
-		$travelCost->cost_local = $input['cost_local'];
-		$travelCost->cost_descption = $input['cost_descption'];
-		$travelCost->cost_value = $input['cost_value'];
-		$travelCost->mileage = $input['mileage'];
-		$travelCost->liters = $input['liters'];
-		$travelCost->km_point_to_point = $input['km_point_to_point'];
-		$travelAdvance->travel_id = $travel->travel_id;
-
-		$travelCost->save();
-
-		$travelRoute = new TravelRoute();
-		$travelRoute->from = $input['from'];
-		$travelRoute->to = $input['to'];
-		$travelRoute->from_km = $input['from_km'];
-		$travelRoute->from_date = $input['from_date'];
-		$travelRoute->to_km = $input['to_km'];
-		$travelRoute->to_date = $input['to_date'];
-		$travelAdvance->travel_id = $travel->travel_id;
-
-		$travelRoute->save();
-
+		if ($input['routes'])
+		{
+			$travelRoutes = array();
+			foreach ($input['routes'] as $key => $value) {
+				$travelRoute = new TravelRoute();
+				$travelRoute->from = $value['from'];
+				$travelRoute->to = $value['to'];
+				$travelRoute->from_km = $value['from_km'];
+				$travelRoute->from_date = $value['from_date'];
+				$travelRoute->to_km = $value['to_km'];
+				$travelRoute->to_date = $value['to_date'];
+				$travelAdvance->travel_id = $travel->travel_id;
+				array_push($travelRoutes, $travelRoute);
+			}
+			TravelRoute::insert($travelRoutes);
+		}
+		
 		return $travel;
 	}
 

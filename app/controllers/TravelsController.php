@@ -31,7 +31,7 @@ class TravelsController extends BaseController {
 
 	public function store()
 	{
-		if (!$this->validator->validate(Input::all()) && $this->travelRouteValidator->validate(Input::all()) && $this->travelAdvanceValidator->validate(Input::all()) && $this->travelCostValidator->validate(Input::all()))
+		if (!$this->validator->validate(Input::all()))
 		{
 			return Redirect::back()->with('errors', $this->validator->getErrors())->withInput();
 		}
@@ -39,7 +39,7 @@ class TravelsController extends BaseController {
 		{
 			if ($this->travelRepository->save(Input::all()))
 			{
-				return Redirect::to('travels/register')->with('messages', 'Viagem registrada com sucesso.');
+				return Redirect::route('travels.index')->with('messages', 'Viagem registrada com sucesso.');
 			}
 			else
 			{

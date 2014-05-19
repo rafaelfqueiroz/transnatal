@@ -19,8 +19,22 @@ class TravelValidator extends Validator {
 		 'arrival_km' => 'required',
 		 'travel_performace' => 'required',
 		 'travel_performace_reason' => 'required',
-		 'vehicle_id' => 'required',
-		 'employee_id' => 'required'
-		];		
+		];
+
+		$this->messages = [
+		 'manifest_number.required' => 'required',
+		 'issue_date.required' => 'required',
+		 'to.required' => 'required',
+		 'control_ordinance_from_mileage.required' => 'required',
+		 'control_ordinance_from_date.required' => 'required',
+		 'control_ordinance_to_mileage.required' => 'required',
+		 'control_ordinance_to_date.required' => 'required',
+		 'out_suply_liters.required' => 'required',
+		 'out_km.required' => 'required',
+		 'arrival_suply_liters.required' => 'required',
+		 'arrival_km.required' => 'required',
+		 'travel_performace.required' => 'required',
+		 'travel_performace_reason.required' => 'required',
+		];
 	}
 }
