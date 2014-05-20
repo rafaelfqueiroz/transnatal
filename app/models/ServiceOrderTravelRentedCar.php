@@ -6,5 +6,5 @@
 		{
 			return $this->hasOne('TravelRentedCar');
 		}
-	}	
+	}
 ?>

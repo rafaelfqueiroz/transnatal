@@ -4,12 +4,12 @@
 
 		public function vehicle()
 		{
-			return $this->hasOne('Vehicle');
+			return $this->belongsTo('Vehicle');
 		}
 
 		public function employee()
 		{
-			return $this->hasOne('Employee');
+			return $this->belongsTo('Employee');
 		}
 
 		public function travelAdvances()
@@ -27,5 +27,9 @@
 			return $this->hasMany('TravelRoute');
 		}
 
+		public function delete()
+		{
+			return parent::delete();
+		}
 	}
 ?>

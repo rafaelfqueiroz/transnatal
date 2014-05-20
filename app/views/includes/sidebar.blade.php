@@ -50,7 +50,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="{{route('travels.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
                                 <li><a href="{{route('travels-rented-car.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar com Carro Alugado</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Listar</a></li>
+                                <li><a href="{{route('travels.index')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                                 <li><a href="{{route('travels-rented-car.index')}}"><i class="fa fa-angle-double-right"></i> Listar Viagem com Carro Alugado</a></li>
                             </ul>
                         </li>
@@ -61,7 +61,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Cadsatrar</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                             </ul>
                         </li>
@@ -74,8 +74,6 @@
                             <ul class="treeview-menu">
                                 <li><a href="{{route('vehicles.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
                                 <li><a href="{{route('vehicles.index')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Histórico</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Associar a um motorista</a></li>
                             </ul>
                         </li>
                         <li class="treeview">

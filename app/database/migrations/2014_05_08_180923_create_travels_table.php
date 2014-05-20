@@ -32,11 +32,9 @@ class CreateTravelsTable extends Migration {
             $t->date('control_ordinance_from_date');
             $t->integer('control_ordinance_to_mileage');
             $t->date('control_ordinance_to_date');
-            
             $t->boolean('document_receipt_arrive');
             $t->boolean('all_documents_right');
             $t->boolean('tachograph_right');
-
             $t->integer('vehicle_id')->unsigned();
 			$t->integer('employee_id')->unsigned();
 			$t->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade')->onUpdate('cascade');

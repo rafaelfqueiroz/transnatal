@@ -54,6 +54,6 @@ class DbNewsRepository implements NewsRepositoryInterface {
 
 	public function delete($id)
 	{
-		Vehicle::destroy($id);
+		News::destroy($id);
 	}
 }

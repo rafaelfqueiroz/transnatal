@@ -6,5 +6,10 @@
 		{
 			return $this->belongsTo('Employee');
 		}
+
+		public function delete()
+		{
+			return parent::delete();
+		}
 	}
 ?>

@@ -84,6 +84,6 @@ class NewsController extends BaseController {
 	public function destroy($id)
 	{
 		$this->newsRepository->delete($id);
-		return Redirect::route('news.index')->with('messages', 'Notícia removido com sucesso.');
+		return Redirect::route('news.index')->with('messages', 'Notícia removida com sucesso.');
 	}
 }

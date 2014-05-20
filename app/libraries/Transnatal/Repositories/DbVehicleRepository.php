@@ -18,6 +18,11 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
 
 	public function all()
 	{
+		return Vehicle::all();
+	}
+
+	public function allOwner()
+	{
 		return Vehicle::where('driver', '>', 0)->get();
 	}
 
@@ -61,6 +66,8 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
         $bd_vehicle->vehicle_type = $input['vehicle_type'];
         $bd_vehicle->brand_model = $input['brand_model'];
         $bd_vehicle->color = $input['color'];
+        if($input['driver'] == 0)
+        	$bd_vehicle->driver = null;
         if($input['driver'] > 0)
         	$bd_vehicle->driver = $input['driver'];
 		

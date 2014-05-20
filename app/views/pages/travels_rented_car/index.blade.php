@@ -4,6 +4,8 @@
     @stop
     @section('stylesheets')
         {{ HTML::style('assets/AdminLTE/css/dataTables/dataTables.bootstrap.css') }}
+        {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.core.css') }}
+        {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.default.css') }}
     @stop
 @section('content')
 @include('includes.header')
@@ -55,7 +57,7 @@
                                                     </td>
                                                     <td>
                                                         <a href="{{route('travels-rented-car.edit', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar esta viagem">Editar</a>
-                                                        <a href="{{route('travels-rented-car.destroy', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para remover esta viagem">Remover</a>
+                                                        <a href="{{route('travels-rented-car.destroy', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover esta viagem">Remover</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -74,9 +76,18 @@
     @section('scripts')
         {{ HTML::script('assets/AdminLTE/js/plugins/datatables/jquery.dataTables.js') }}
         {{ HTML::script('assets/AdminLTE/js/plugins/datatables/dataTables.bootstrap.js') }}
+        {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
+        {{ HTML::script('assets/js/deleterequest.js') }}
         <script type="text/javascript">
             $(function() {
                 $('#example1').dataTable({});
+
+                alertify.set({
+                    labels: {
+                        ok : "Sim",
+                        cancel : "Não"
+                    }
+                });
             });
         </script>
         

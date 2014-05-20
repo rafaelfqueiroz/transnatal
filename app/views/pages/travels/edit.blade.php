@@ -426,33 +426,8 @@
                     e.preventDefault(); // prevent native submit
                     $(this).ajaxSubmit({
                         type : 'POST',
-                        data : {'routes': routes, 'advances': advances, 'costs': costs},
-                        success : function(data) {
-                            if(data.errors) {
-                                var message = "";
-                                for(i in data.errors) {
-                                    message += '<li>' + data.errors[i] + '</li>';
-                                }
-                                console.log(message);
-                                alertify.alert(message);
-                            }
-                            if(data.messages) {
-                                window.location.reload();
-                            }
-                        },
-                        error : function(data) {
-                            if(data.errors) {
-                                var message = "";
-                                for(i in data.errors) {
-                                    message += '<li>' + data.errors[i] + '</li>';
-                                }
-                                console.log(message);
-                                alertify.alert(message);
-                            }
-                            if(data.messages) {
-                                window.location.reload();
-                            }
-                        }
+                        data : {'routes': routes, 'advances': advances, 'costs': costs}
+
                     });
                 });
             });

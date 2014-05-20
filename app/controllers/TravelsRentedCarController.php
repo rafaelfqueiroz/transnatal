@@ -83,15 +83,22 @@ class TravelsRentedCarController extends BaseController {
 		}
 	}
 
-
 	public function update($id)
 	{
-		if (!$this->validator->validate(Input::all()) && !$this->serviceOrderTravelRentedCarValidator->validate(Input::all()))
+		$this->validator->validate(Input::all());
+		$this->serviceOrderTravelRentedCarValidator->validate(Input::all());
+
+		$validation = $this->validator->getErrors();
+		$serviceOrderTravelRentedCarErrors = $this->serviceOrderTravelRentedCarValidator->getErrors();
+
+		$errors = array();
+
+		if (! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
+		if (! is_null($serviceOrderTravelRentedCarErrors)) $errors = array_merge_recursive($errors, $serviceOrderTravelRentedCarErrors->getMessages());
+		
+		if ($errors)
 		{
-			$errors = $this->validator->getErrors();
-			$serviceOrderTravelRentedCarErrors = $this->serviceOrderTravelRentedCarValidator->getErrors();
-			$errors->merge($serviceOrderTravelRentedCarErrors);
-			return Redirect::back()->with('errors', $errors)->withInput();
+			return Response::json(['errors' => $errors]);
 		}
 		else
 		{

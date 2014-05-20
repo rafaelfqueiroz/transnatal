@@ -11,5 +11,10 @@
 		{
 			return $this->hasMany('ServiceOrderTravelRentedCar');
 		}
+
+		public function delete()
+		{
+			return parent::delete();
+		}
 	}
 ?>

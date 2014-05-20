@@ -1,28 +1,28 @@
 @extends('layouts.base')
-	@section('bg-body')
-		"skin-blue"
-	@stop
+    @section('bg-body')
+        "skin-blue"
+    @stop
     @section('stylesheets')
         {{ HTML::style('assets/vendor/datepicker/css/datepicker.css') }}
     @stop
 @section('content')
 @include('includes.header')
-	<div class="wrapper row-offcanvas row-offcanvas-left">
-            @include('includes.sidebar')
-            <aside class="right-side">
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                        Veículos
-                        <small>Formulário de atualização</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-home"></i> Início</a></li>
-                        <li class="active">Formulário</li>
-                    </ol>
-                </section>
-                <section class="content">
-                	{{ Form::open(['role' => 'form', 'route' => ['vehicles.update', $vehicle->id], 'method' => 'PUT']) }}
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        @include('includes.sidebar')
+        <aside class="right-side">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Veículos
+                    <small>Formulário de ataulização</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-home"></i> Início</a></li>
+                    <li class="active">Formulário</li>
+                </ol>
+            </section>
+            <section class="content">
+                {{ Form::open(['role' => 'form', 'route' => ['vehicles.update', $vehicle->id], 'method' => 'PUT']) }}
                     <div class="col-md-6">
                         <div class="box">
                             <div class="box-header">
@@ -33,6 +33,10 @@
                                     {{ Form::label('owner', 'Proprietário')}}
                                     {{ Form::text('owner', $vehicle->owner, ['id' => 'owner' , 'class' => 'form-control', 'placeholder' => 'Insira o seu nome do proprietário do veículo']) }}
                                     {{ $errors->first('owner', '<p class="text-red">:message</p>') }}
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::label('driver', 'Escolha um motorista')}}
+                                    {{ Form::select('driver', $employees, $vehicle->driver, ['id' => 'driver', 'class' => 'form-control'])}}
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('vehicle_chassis', 'Chassi')}}

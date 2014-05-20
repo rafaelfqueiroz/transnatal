@@ -36,7 +36,15 @@ class VehiclesController extends BaseController {
 	public function edit($id)
 	{
 		$bd_vehicle = $this->vehicleRepository->find($id);
-		return View::make('pages.vehicles.edit')->with('vehicle', $bd_vehicle);
+		$employees_bd = $this->employeeRepository->all();
+
+		$employees = array(null);
+
+		foreach ($employees_bd as $key => $employee) {
+			$employees[$employee->id] = $employee->name;
+		}
+
+		return View::make('pages.vehicles.edit')->with('vehicle', $bd_vehicle)->with('employees', $employees);
 	}
 
 	public function show($id)

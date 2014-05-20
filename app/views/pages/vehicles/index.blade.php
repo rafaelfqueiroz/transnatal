@@ -4,6 +4,8 @@
     @stop
     @section('stylesheets')
         {{ HTML::style('assets/AdminLTE/css/dataTables/dataTables.bootstrap.css') }}
+        {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.core.css') }}
+        {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.default.css') }}
     @stop
 @section('content')
 @include('includes.header')
@@ -61,7 +63,7 @@
                                                     <td>{{$vehicle->color}}</td>
                                                     <td>
                                                         <a href="{{route('vehicles.edit', [$vehicle->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar este veículo">Editar</a>
-                                                        <a href="{{route('vehicles.destroy', [$vehicle->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para remover este veículo">Remover</a>
+                                                        <a href="{{route('vehicles.destroy', [$vehicle->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover este veículo">Remover</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -80,9 +82,18 @@
     @section('scripts')
         {{ HTML::script('assets/AdminLTE/js/plugins/datatables/jquery.dataTables.js') }}
         {{ HTML::script('assets/AdminLTE/js/plugins/datatables/dataTables.bootstrap.js') }}
+        {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
+        {{ HTML::script('assets/js/deleterequest.js') }}
         <script type="text/javascript">
             $(function() {
                 $('#example1').dataTable({});
+
+                alertify.set({
+                    labels: {
+                        ok : "Sim",
+                        cancel : "Não"
+                    }
+                });
             });
         </script>
         

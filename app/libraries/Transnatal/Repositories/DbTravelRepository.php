@@ -143,6 +143,6 @@ class DbTravelRepository implements TravelRepositoryInterface {
 
 	public function delete($id)
 	{
-		
+		Travel::destroy($id);
 	}
 }
