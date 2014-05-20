@@ -12,5 +12,11 @@
 		{
 			return $this->hasOne('User');
 		}
+
+		public function delete()
+		{
+			$this->address->delete();
+			return parent::delete();
+		}
 	}	
 ?>

@@ -6,16 +6,27 @@
 	*/
 	function format_date($date, $type = false)
 	{
-		if ($type)
+		if ($date)
 		{
-			list($day, $month, $year) = explode("/", $date);
-			return implode("-" , [$year, $month, $day]);
+			if ($date == '0000-00-00 00:00:00')
+			{
+				return '-----';
+			}
+			if ($type)
+			{
+				list($day, $month, $year) = explode("/", $date);
+				return implode("-" , [$year, $month, $day]);
+			}
+			else
+			{
+				$date_splited = explode(" ", $date);
+				list($year, $month, $day) = explode("-", $date_splited[0]);
+				return implode("/", [$day, $month, $year]);
+			}
 		}
 		else
 		{
-			$date_splited = explode(" ", $date);
-			list($year, $month, $day) = explode("-", $date_splited[0]);
-			return implode("/", [$day, $month, $year]);
+			return '-----';
 		}
 	}
 ?>

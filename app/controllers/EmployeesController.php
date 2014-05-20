@@ -86,7 +86,7 @@ use Transnatal\Services\Validation\AddressValidator;
 			}
 		}
 
-		public function delete($id)
+		public function destroy($id)
 		{
 			$this->employeeRepository->delete($id);
 			return Redirect::route('employees.index')->with('messages', 'Funcionário removido com sucesso.');

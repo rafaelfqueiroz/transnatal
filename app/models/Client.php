@@ -6,5 +6,11 @@
 		{
 			return $this->belongsTo('Address');
 		}
+
+		public function delete()
+		{
+			$this->address->delete();
+			return parent::delete();
+		}
 	}
 ?>
