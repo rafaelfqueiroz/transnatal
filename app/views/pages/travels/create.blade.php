@@ -77,12 +77,12 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('seal_number_from', 'Lacre de saída')}}
-                                                                {{ Form::text('seal_number_from', null, ['id' => 'seal_number_from' , 'class' => 'form-control', 'placeholder' => '10']) }}
+                                                                {{ Form::text('seal_number_from', null, ['id' => 'seal_number_from' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'yyyy-mm-dd']) }}
                                                                 {{ $errors->first('seal_number_from', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('seal_number_to', 'Lacre de chegada')}}
-                                                                {{ Form::text('seal_number_to', null, ['id' => 'seal_number_to' , 'class' => 'form-control', 'placeholder' => '10']) }}
+                                                                {{ Form::text('seal_number_to', null, ['id' => 'seal_number_to' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'yyyy-mm-dd']) }}
                                                                 {{ $errors->first('seal_number_to', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -119,25 +119,25 @@
                                                         <h3 class="box-title">Controle de portaria</h3>
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('control_ordinance_from_mileage', 'Quilometragem de Saída')}}
+                                                                {{ Form::label('control_ordinance_from_mileage', 'Quilometragem de saída')}}
                                                                 {{ Form::text('control_ordinance_from_mileage', null, ['id' => 'control_ordinance_from_mileage', 'class' => 'form-control', 'placeholder' => 'Quilometragem']) }}
                                                                 {{ $errors->first('control_ordinance_from_mileage', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('control_ordinance_from_date', 'Quilometragem de chegada')}}
-                                                                {{ Form::text('control_ordinance_from_date', null, ['id' => 'control_ordinance_from_date', 'class' => 'form-control pull-right datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::label('control_ordinance_from_date', 'Data de saída')}}
+                                                                {{ Form::text('control_ordinance_from_date', null, ['id' => 'control_ordinance_from_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
                                                                 {{ $errors->first('control_ordinance_from_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('control_ordinance_to_mileage', 'Quilometragem de Chegada')}}
+                                                                {{ Form::label('control_ordinance_to_mileage', 'Quilometragem de chegada')}}
                                                                 {{ Form::text('control_ordinance_to_mileage', null, ['id' => 'control_ordinance_to_mileage', 'class' => 'form-control', 'placeholder' => 'Quilometragem']) }}
                                                                 {{ $errors->first('control_ordinance_to_mileage', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('control_ordinance_to_date', 'Data de Caída')}}
-                                                                {{ Form::text('control_ordinance_to_date', null, ['id' => 'control_ordinance_to_date', 'class' => 'form-control pull-right datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::label('control_ordinance_to_date', 'Data de chegada')}}
+                                                                {{ Form::text('control_ordinance_to_date', null, ['id' => 'control_ordinance_to_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
                                                                 {{ $errors->first('control_ordinance_to_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -197,14 +197,11 @@
                                                     <div class="form-group">
                                                         <h3 class="box-title">Diário de bordo</h3>
                                                         <div class="row">
-                                                            <div class="col-xs-6">
-                                                                
-                                                            </div>
                                                             <div class="col-xs-1">
                                                                 {{ Form::label(null, 'Data')}}
                                                             </div>
                                                             <div class="col-xs-5 pull-right">
-                                                                {{ Form::text('general_informations_date', null, ['id' => 'general_informations_date' , 'class' => 'form-control pull-right datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::text('general_informations_date', null, ['id' => 'general_informations_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'yyyy-mm-dd']) }}
                                                                 {{ $errors->first('general_informations_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -242,16 +239,29 @@
                                                         </div>
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
-                                                                {{ Form::label('to', 'Quilometragem de saída')}}
+                                                                {{ Form::label('from_km', 'Quilometragem de saída')}}
                                                                 {{ Form::text('from_km', null, ['id' => 'from_km', 'class' => 'form-control', 'placeholder' => 'Quilometragem']) }}
                                                                 {{ $errors->first('from_km', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('from_date', 'Data de saída')}}
+                                                                {{ Form::text('from_date', null, ['id' => 'from_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
                                                                 {{ $errors->first('from_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
-                                                                {{ Form::label('to', 'Data de saída')}}
-                                                                {{ Form::text('from_date', null, ['id' => 'from_date', 'class' => 'form-control pull-right datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::label('to_km', 'Quilometragem de chegada')}}
+                                                                {{ Form::text('to_km', null, ['id' => 'to_km', 'class' => 'form-control', 'placeholder' => 'Quilometragem']) }}
+                                                                {{ $errors->first('to_km', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('to_date', 'Data de chegada')}}
+                                                                {{ Form::text('to_date', null, ['id' => 'to_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
                                                                 {{ $errors->first('from_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -291,14 +301,14 @@
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
                                                                 {{ Form::label('invoice_number', 'Nota Fiscal')}}
-                                                                {{ Form::text('invoice_number', null, ['id' => 'invoice_number' , 'class' => 'form-control', 'placeholder' => '111023']) }}
+                                                                {{ Form::text('invoice_number', null, ['id' => 'invoice_number' , 'class' => 'form-control', 'placeholder' => '######']) }}
                                                                 {{ $errors->first('invoice_number', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
                                                                 {{ Form::label('cost_value', 'Valor do vale')}}
-                                                                {{ Form::text('cost_value', null, ['id' => 'cost_value' , 'class' => 'form-control', 'placeholder' => '10']) }}
+                                                                {{ Form::text('cost_value', null, ['id' => 'cost_value' , 'class' => 'form-control', 'placeholder' => '##']) }}
                                                                 {{ $errors->first('cost_value', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -308,25 +318,25 @@
                                                         <div class="col-xs-4">
                                                             <div class="form-group">
                                                                 {{ Form::label('mileage', 'Quilometragem')}}
-                                                                {{ Form::text('mileage', null, ['id' => 'mileage' , 'class' => 'form-control', 'placeholder' => '111023']) }}
+                                                                {{ Form::text('mileage', null, ['id' => 'mileage' , 'class' => 'form-control', 'placeholder' => '#####']) }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <div class="form-group">
                                                                 {{ Form::label('liters', 'Litros')}}
-                                                                {{ Form::text('liters', null, ['id' => 'liters' , 'class' => 'form-control', 'placeholder' => '10']) }}
+                                                                {{ Form::text('liters', null, ['id' => 'liters' , 'class' => 'form-control', 'placeholder' => '##']) }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <div class="form-group">
                                                                 {{ Form::label('km_point_to_point', 'Km Ponto a Ponto')}}
-                                                                {{ Form::text('km_point_to_point', null, ['id' => 'km_point_to_point' , 'class' => 'form-control', 'placeholder' => '10']) }}
+                                                                {{ Form::text('km_point_to_point', null, ['id' => 'km_point_to_point' , 'class' => 'form-control', 'placeholder' => '##']) }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-12">
                                                             <div class="form-group">
                                                                 {{ Form::label('cost_description', 'Descrição')}}
-                                                                {{Form::textarea('travel_performance_reason', null, ['class' => 'form-control', 'placeholder' => 'Motivo', 'rows' => '3'])}}
+                                                                {{Form::textarea('cost_description', null, ['class' => 'form-control', 'placeholder' => 'Motivo', 'rows' => '3'])}}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-12">
@@ -365,14 +375,14 @@
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
                                                                 {{ Form::label('voucher_number', 'Número do vale')}}
-                                                                {{ Form::text('voucher_number', null, ['id' => 'voucher_number' , 'class' => 'form-control', 'placeholder' => '10']) }}
+                                                                {{ Form::text('voucher_number', null, ['id' => 'voucher_number' , 'class' => 'form-control', 'placeholder' => '##']) }}
                                                                 {{ $errors->first('voucher_number', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
                                                                 {{ Form::label('advance_value', 'Valor do vale')}}
-                                                                {{ Form::text('advance_value', null, ['id' => 'advance_value' , 'class' => 'form-control', 'placeholder' => '10']) }}
+                                                                {{ Form::text('advance_value', null, ['id' => 'advance_value' , 'class' => 'form-control', 'placeholder' => '##']) }}
                                                                 {{ $errors->first('advance_value', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -414,7 +424,7 @@
             $(document).ready(function() {
                 $('form').on('submit', function(e) {
                     e.preventDefault(); // prevent native submit
-                    $('form').ajaxSubmit({
+                    $(this).ajaxSubmit({
                         type : 'POST',
                         data : {'routes': routes, 'advances': advances, 'costs': costs}
 

@@ -7,7 +7,7 @@ $('.add-more').each(function() {
 	var button = $(this);
 	button.click(function(event){
 		var parentBox = $(this).parents('.box').get(0);
-		var inputs = $(parentBox).find(':input[type="text"]');
+		var inputs = $(parentBox).find(':input[type="text"], textarea');
 		var type = $(button).val();
 		if (validateInputs(inputs)) {
 			var obj;

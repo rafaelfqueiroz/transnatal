@@ -40,11 +40,12 @@ class TravelsController extends BaseController {
 		{
 			if ($this->travelRepository->save(Input::all()))
 			{
-				return Reponse::json('Viagem registrada com sucesso.');
+				return Response::json('Viagem registrada com sucesso.');
 			}
 			else
 			{
-				return Redirect::route('travels.index')->with('messages', 'Viagem registrada com sucesso.');
+				return Response::json('Erro ao tentar inserir viagem.');
+				//return Redirect::route('travels.index')->with('messages', 'Viagem registrada com sucesso.');
 				//return Redirect::back()->with('errors', 'Erro ao tentar registrar viagem, por favor tente novamente.')->withInput();
 			}
 		}

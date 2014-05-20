@@ -68,7 +68,7 @@ class DbTravelRepository implements TravelRepositoryInterface {
 					'mileage' =>  $value['mileage'],
 					'liters' =>  $value['liters'],
 					'km_point_to_point' =>  $value['km_point_to_point'],
-					'travel_id' =>  $travel->travel_id
+					'travel_id' =>  $travel->id
 				);
 				// $travelCost = new TravelCost();
 				// $travelCost->cost_date = $value['cost_date'];
@@ -89,15 +89,21 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		{
 			$travelAdvances = array();
 			foreach ($input['advances'] as $key => $value) {
-				$travelAdvance = new TravelAdvance();
-				$travelAdvance->advance_local = $value['advance_local'];
-				$travelAdvance->advance_date = $value['advance_date'];
-				$travelAdvance->voucher_number = $value['voucher_number'];
-				$travelAdvance->advance_value = $value['advance_value'];
-				$travelAdvance->travel_id = $travel->travel_id;
-				array_push($travelAdvances, $travelAdvance);
+				$advanceArray = array(
+				 'advance_local' => $value['advance_local'],
+				 'advance_date' => $value['advance_date'],
+				 'voucher_number' => $value['voucher_number'],
+				 'advance_value' => $value['advance_value'],
+				 'travel_id' => $travel->id
+				);
+				// $travelAdvance->advance_local = $value['advance_local'];
+				// $travelAdvance->advance_date = $value['advance_date'];
+				// $travelAdvance->voucher_number = $value['voucher_number'];
+				// $travelAdvance->advance_value = $value['advance_value'];
+				// $travelAdvance->travel_id = $travel->travel_id;
+				array_push($travelAdvances, $advanceArray);
 			}
-			TravelAdvance::saveMany($travelAdvances);
+			TravelAdvance::insert($travelAdvances);
 		}
 		
 		
@@ -106,17 +112,25 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		{
 			$travelRoutes = array();
 			foreach ($input['routes'] as $key => $value) {
-				$travelRoute = new TravelRoute();
-				$travelRoute->from = $value['from'];
-				$travelRoute->to = $value['to'];
-				$travelRoute->from_km = $value['from_km'];
-				$travelRoute->from_date = $value['from_date'];
-				$travelRoute->to_km = $value['to_km'];
-				$travelRoute->to_date = $value['to_date'];
-				$travelAdvance->travel_id = $travel->travel_id;
-				array_push($travelRoutes, $travelRoute);
+				$routeArray = array(
+				 'from' => $value['from'],
+				 'to' => $value['to'],
+				 'from_km' => $value['from_km'],
+				 'from_date' => $value['from_date'],
+				 'to_km' => $value['to_km'],
+				 'to_date' => $value['to_date'],
+				 'travel_id' => $travel->id
+				);
+				// $travelRoute->from = $value['from'];
+				// $travelRoute->to = $value['to'];
+				// $travelRoute->from_km = $value['from_km'];
+				// $travelRoute->from_date = $value['from_date'];
+				// $travelRoute->to_km = $value['to_km'];
+				// $travelRoute->to_date = $value['to_date'];
+				// $travelAdvance->travel_id = $travel->travel_id;
+				array_push($travelRoutes, $routeArray);
 			}
-			TravelRoute::saveMany($travelRoutes);
+			TravelRoute::insert($travelRoutes);
 		}
 
 		return $travel;
