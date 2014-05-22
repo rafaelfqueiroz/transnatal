@@ -250,6 +250,10 @@
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
         
         <script type="text/javascript">
-            $('.datepicker').datepicker();
+            $(document).ready(function() {
+                $('.datepicker').datepicker('hide');
+                $('#employeeName').trigger('click');
+                $('#employeeName').focus();
+            });
         </script>
     @stop
