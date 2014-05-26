@@ -46,7 +46,7 @@
                                                     <td>{{$news_one->news_date}}</td>
                                                     <td>{{$news_one->news_message}}</td>
                                                     <td>
-                                                        <a href="{{route('news.edit', [$news_one->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar esta notícia">Editar</a>
+                                                        <a href="{{route('news.edit', [$news_one->id])}}" class="btn btn-primary btn-xs table-button" data-toggle="tooltip" title data-original-title="Clique para editar esta notícia">Editar</a>
                                                         <a href="{{route('news.destroy', [$news_one->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover esta notícia">Remover</a>
                                                     </td>
                                                 </tr>

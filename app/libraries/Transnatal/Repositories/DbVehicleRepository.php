@@ -8,27 +8,34 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
 
 	public function find($id)
 	{
-		return Vehicle::findOrFail($id);
+		$vehicle = Vehicle::findOrFail($id);
+		$vehicle->license_plate = format_date($vehicle->license_plate);
+		return $vehicle;
 	}
 
 	public function get_first()
 	{
-		return Vehicle::first();
+		$vehicle = Vehicle::first();
+		$vehicle->license_plate = format_date($vehicle->license_plate);
+		return $vehicle;
 	}
 
 	public function all()
 	{
-		return Vehicle::all();
+		$vehicles = $this->convert_data_from_list(Vehicle::all());
+		return $vehicles;
 	}
 
 	public function allOwner()
 	{
-		return Vehicle::where('driver', '>', 0)->get();
+		$vehicles = $this->convert_data_from_list(Vehicle::where('driver', '>', 0)->get());
+		return $vehicles;
 	}
 
 	public function allRented()
 	{
-		return Vehicle::where('driver', null)->get();
+		$vehicles = $this->convert_data_from_list(Vehicle::where('driver', null)->get());
+		return $vehicles;
 	}
 
 	public function save($input)
@@ -39,7 +46,7 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
         $vehicle->vehicle_plate = $input['vehicle_plate'];
         $vehicle->vehicle_chassis = $input['vehicle_chassis'];
         $vehicle->owner = $input['owner'];
-        $vehicle->license_plate = $input['license_plate'];
+        $vehicle->license_plate = format_date($input['license_plate'], true);
         $vehicle->renavam = $input['renavam'];
         $vehicle->vehicle_type = $input['vehicle_type'];
         $vehicle->brand_model = $input['brand_model'];
@@ -61,7 +68,7 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
         $bd_vehicle->vehicle_plate = $input['vehicle_plate'];
         $bd_vehicle->vehicle_chassis = $input['vehicle_chassis'];
         $bd_vehicle->owner = $input['owner'];
-        $bd_vehicle->license_plate = $input['license_plate'];
+        $bd_vehicle->license_plate = format_date($input['license_plate'], true);
         $bd_vehicle->renavam = $input['renavam'];
         $bd_vehicle->vehicle_type = $input['vehicle_type'];
         $bd_vehicle->brand_model = $input['brand_model'];
@@ -79,5 +86,13 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
 	public function delete($id)
 	{
 		Vehicle::destroy($id);
+	}
+
+	private function convert_data_from_list($vehicles)
+	{
+		foreach ($vehicles as $key => $vehicle) {
+			$vehicle->license_plate = format_date($vehicle->license_plate);
+		}
+		return $vehicles;
 	}
 }

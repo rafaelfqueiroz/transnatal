@@ -53,8 +53,16 @@ class DbTravelRentedCarRepository implements TravelRentedCarRepositoryInterface 
         $bd_travelRentedCar->price_paid = $input['price_paid'];
         $bd_travelRentedCar->price_to_pay = $input['price_to_pay'];
         $bd_travelRentedCar->vehicle_id = $input['vehicle_id'];
-		
-		$bd_travelRentedCar->save();
+
+        $bd_travelRentedCar->save();
+
+        ServiceOrderTravelRentedCar::where('travel_rented_car_id', $bd_travelRentedCar->id)->delete();
+        foreach ($input['service_orders'] as $key => $value) {
+			$serviceOrderTravelRentedCar = new ServiceOrderTravelRentedCar();
+			$serviceOrderTravelRentedCar->so_number = $value['so_number'];
+			$serviceOrderTravelRentedCar->travel_rented_car_id = $bd_travelRentedCar->id;
+			$serviceOrderTravelRentedCar->save();
+		}
 
 		return $bd_travelRentedCar;
 	}

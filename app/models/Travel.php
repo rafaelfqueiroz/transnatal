@@ -12,23 +12,26 @@
 			return $this->belongsTo('Employee');
 		}
 
-		public function travelAdvances()
+		public function advances()
 		{
 			return $this->hasMany('TravelAdvance');
 		}
 
-		public function travelCost()
+		public function costs()
 		{
 			return $this->hasMany('TravelCost');
 		}
 
-		public function travelRoutes()
+		public function routes()
 		{
 			return $this->hasMany('TravelRoute');
 		}
 
 		public function delete()
 		{
+			$this->costs()->delete();
+			$this->advances()->delete();
+			$this->routes()->delete();
 			return parent::delete();
 		}
 	}

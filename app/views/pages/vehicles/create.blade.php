@@ -47,12 +47,12 @@
                                     <div class="row">
                                         <div class="col-xs-6">
                                             {{ Form::label('vehicle_plate', 'Placa')}}
-                                            {{ Form::text('vehicle_plate', null, ['id' => 'vehicle_plate' , 'class' => 'form-control', 'placeholder' => 'ZZZ-9999'])}}
+                                            {{ Form::text('vehicle_plate', null, ['id' => 'vehicle_plate' , 'class' => 'form-control plate-mask', 'placeholder' => 'ZZZ-9999'])}}
                                             {{ $errors->first('vehicle_plate', '<p class="text-red">:message</p>') }}
                                         </div>
                                         <div class="col-xs-6">
                                             {{ Form::label('license_plate', 'Data de Emplacamento')}}
-                                            {{ Form::text('license_plate', null, ['id' => 'license_plate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                            {{ Form::text('license_plate', null, ['id' => 'license_plate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                             {{ $errors->first('license_plate', '<p class="text-red">:message</p>') }}
                                         </div>
                                     </div>
@@ -113,7 +113,11 @@
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
 
         <script type="text/javascript">
-            $('.datepicker').datepicker();
+            $(document).ready(function(){
+                $('.datepicker').datepicker();
+                $('#owner').trigger('click');
+                $('#owner').focus();
+            });
         </script>
     @stop
                                         </div> <!-- .col-xs-6 -->

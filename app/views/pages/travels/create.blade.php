@@ -42,7 +42,7 @@
                                                 <div class="box-body">
                                                     <div class="form-group">
                                                         {{ Form::label('to', 'Destino')}}
-                                                        {{ Form::text('to', null, ['id' => 'travel_to' , 'class' => 'form-control', 'placeholder' => 'Insira o destino da viagem']) }}
+                                                        {{ Form::text('travel_to', null, ['id' => 'to' , 'class' => 'form-control', 'placeholder' => 'Insira o destino da viagem']) }}
                                                         {{ $errors->first('to', '<p class="text-red">:message</p>') }}
                                                     </div>
                                                     <div class="form-group">
@@ -77,12 +77,12 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('seal_number_from', 'Lacre de saída')}}
-                                                                {{ Form::text('seal_number_from', null, ['id' => 'seal_number_from' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'yyyy-mm-dd']) }}
+                                                                {{ Form::text('seal_number_from', null, ['id' => 'seal_number_from' , 'class' => 'form-control number-mask', 'placeholder' => 'Insira o número do lacre de saída']) }}
                                                                 {{ $errors->first('seal_number_from', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('seal_number_to', 'Lacre de chegada')}}
-                                                                {{ Form::text('seal_number_to', null, ['id' => 'seal_number_to' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'yyyy-mm-dd']) }}
+                                                                {{ Form::text('seal_number_to', null, ['id' => 'seal_number_to' , 'class' => 'form-control number-mask', 'placeholder' => 'Insira o número do lacre de chegada.']) }}
                                                                 {{ $errors->first('seal_number_to', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -91,12 +91,12 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('out_suply_liters', 'Abastecimento de saída')}}
-                                                                {{ Form::text('out_suply_liters', null, ['id' => 'out_suply_liters' , 'class' => 'form-control', 'placeholder' => 'Abastecimento em litros']) }}
+                                                                {{ Form::text('out_suply_liters', null, ['id' => 'out_suply_liters' , 'class' => 'form-control double-mask', 'placeholder' => 'Abastecimento em litros']) }}
                                                                 {{ $errors->first('out_suply_liters', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('arrival_suply_liters', 'Abastecimento de chegada')}}
-                                                                {{ Form::text('arrival_suply_liters', null, ['id' => 'arrival_suply_liters' , 'class' => 'form-control', 'placeholder' => 'Abastecimento em litros']) }}
+                                                                {{ Form::text('arrival_suply_liters', null, ['id' => 'arrival_suply_liters' , 'class' => 'form-control double-mask', 'placeholder' => 'Abastecimento em litros']) }}
                                                                 {{ $errors->first('arrival_suply_liters', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -327,7 +327,7 @@
                                                         <div class="col-xs-4">
                                                             <div class="form-group">
                                                                 {{ Form::label('liters', 'Litros')}}
-                                                                {{ Form::text('liters', null, ['id' => 'liters' , 'class' => 'form-control', 'placeholder' => '##']) }}
+                                                                {{ Form::text('liters', null, ['id' => 'liters' , 'class' => 'form-control number-mask', 'placeholder' => '']) }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-4">

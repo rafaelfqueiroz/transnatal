@@ -8,7 +8,7 @@ class TravelValidator extends Validator {
 		$this->rules = [
 		 'manifest_number' => 'required',
 		 'issue_date' => 'required',
-		 'to' => 'required',
+		 'travel_to' => 'required',
 		 'control_ordinance_from_mileage' => 'required',
 		 'control_ordinance_from_date' => 'required',
 		 'control_ordinance_to_mileage' => 'required',
@@ -24,7 +24,7 @@ class TravelValidator extends Validator {
 		$this->messages = [
 		 'manifest_number.required' => 'O campo manifesto é necessário',
 		 'issue_date.required' => 'O campo data de emissão é necessário',
-		 'to.required' => 'O campo destino é necessário',
+		 'travel_to.required' => 'O campo destino é necessário',
 		 'control_ordinance_from_mileage.required' => 'O campo quilometragem de saída do controle de portaria é necessário',
 		 'control_ordinance_from_date.required' => 'O campo data de saída do controle de portaria é necessário',
 		 'control_ordinance_to_mileage.required' => 'O campo quilometragem de chegada do controle de portaria é necessário',

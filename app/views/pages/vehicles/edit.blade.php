@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="col-xs-6">
                                             {{ Form::label('license_plate', 'Data de Emplacamento')}}
-                                            {{ Form::text('license_plate', $vehicle->license_plate, ['id' => 'license_plate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                            {{ Form::text('license_plate', $vehicle->license_plate, ['id' => 'license_plate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                             {{ $errors->first('license_plate', '<p class="text-red">:message</p>') }}
                                         </div>
                                     </div>

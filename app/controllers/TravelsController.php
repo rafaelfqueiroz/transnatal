@@ -56,7 +56,6 @@ class TravelsController extends BaseController {
 		$bd_travel = $this->travelRepository->find($id);
 		$vehicles_bd = $this->vehicleRepository->allOwner();
 		$employees_bd = $this->employeeRepository->all();
-
 		$vehicles = array();
 		$employees = array();
 
@@ -77,21 +76,21 @@ class TravelsController extends BaseController {
 	public function store()
 	{
 		$this->validator->validate(Input::all());
-		$this->travelRouteValidator->validate(Input::all());
-		$this->travelAdvanceValidator->validate(Input::all());
-		$this->travelCostValidator->validate(Input::all());
+		// $this->travelRouteValidator->validate(Input::all());
+		// $this->travelAdvanceValidator->validate(Input::all());
+		// $this->travelCostValidator->validate(Input::all());
 
 		$validation = $this->validator->getErrors();
-		$routeValidation = $this->travelRouteValidator->getErrors();
-		$advanceValidation = $this->travelAdvanceValidator->getErrors();
-		$costsValidation = $this->travelCostValidator->getErrors();
+		// $routeValidation = $this->travelRouteValidator->getErrors();
+		// $advanceValidation = $this->travelAdvanceValidator->getErrors();
+		// $costsValidation = $this->travelCostValidator->getErrors();
 
 		$errors = array();
 
 		if(! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
-		if(! is_null($routeValidation)) $errors = array_merge_recursive($errors, $routeValidation->getMessages());
-		if(! is_null($advanceValidation)) $errors = array_merge_recursive($errors, $advanceValidation->getMessages());
-		if(! is_null($costsValidation)) $errors = array_merge_recursive($errors, $costsValidation->getMessages());
+		// if(! is_null($routeValidation)) $errors = array_merge_recursive($errors, $routeValidation->getMessages());
+		// if(! is_null($advanceValidation)) $errors = array_merge_recursive($errors, $advanceValidation->getMessages());
+		// if(! is_null($costsValidation)) $errors = array_merge_recursive($errors, $costsValidation->getMessages());
 
 		if ($errors)
 		{
@@ -140,5 +139,4 @@ class TravelsController extends BaseController {
 		$this->travelRepository->delete($id);
 		return Redirect::route('travels.index')->with('messages', 'Viagem removida com sucesso.');
 	}
-
 }

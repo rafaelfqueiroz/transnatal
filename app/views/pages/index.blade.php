@@ -28,23 +28,23 @@
                                 <h3 class="box-title"><i class="fa fa-list-alt"></i> Notícias</h3>
                             </div>
                             @if($news)
-                            @foreach ($news as $news_one)
-                                <div class="box-body chat" id="chat-box">
-                                    <!-- chat item -->
-                                    <div class="item">
-                                        {{HTML::image('http://www.gravatar.com/avatar/' . md5($news_one->user->email) . '.jpg', 'User Image', array('class' => 'img-circle'))}}
-                                        <p class="message">
-                                            <a href="#" class="name">
-                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{$news_one->news_date}}</small>
-                                                {{$news_one->user->username}}
-                                            </a>
-                                        </p>
-                                        <div class="attachment">
-                                            {{$news_one->news_message}}
-                                        </div><!-- /.attachment -->
-                                    </div><!-- /.item -->
-                                </div><!-- /.chat -->
-                            @endforeach
+                                @foreach ($news as $news_one)
+                                    <div class="box-body chat" id="chat-box">
+                                        <!-- chat item -->
+                                        <div class="item">
+                                            {{HTML::image('http://www.gravatar.com/avatar/' . md5($news_one->user->email) . '.jpg', 'User Image', array('class' => 'img-circle'))}}
+                                            <p class="message">
+                                                <a href="#" class="name">
+                                                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{$news_one->news_date}}</small>
+                                                    {{$news_one->user->username}}
+                                                </a>
+                                            </p>
+                                            <div class="attachment">
+                                                {{$news_one->news_message}}
+                                            </div><!-- /.attachment -->
+                                        </div><!-- /.item -->
+                                    </div><!-- /.chat -->
+                                @endforeach
                             @endif
                             <div class="box-footer">
                                 <div class="input-group">

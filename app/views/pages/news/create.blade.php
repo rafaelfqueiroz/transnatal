@@ -36,7 +36,7 @@
                                         <div class="row">
                                             <div class="col-xs-4">
                                                 {{ Form::label('news_date', 'Data')}}
-                                                {{ Form::text('news_date', null, ['id' => 'news_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                {{ Form::text('news_date', null, ['id' => 'news_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                                 {{ $errors->first('news_date', '<p class="text-red">:message</p>') }}
                                             </div>
                                         </div>
@@ -65,7 +65,11 @@
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
 
         <script type="text/javascript">
-            $('.datepicker').datepicker();
+            $(document).ready(function(){
+                $('.datepicker').datepicker();
+                $('#news_message').trigger('click');
+                $('#news_message').focus();
+            });
         </script>
     @stop
                                         </div> <!-- .col-xs-6 -->
