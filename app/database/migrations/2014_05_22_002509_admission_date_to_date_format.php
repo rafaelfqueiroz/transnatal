@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ResignationDateToDateFormat extends Migration {
+class AdmissionDateToDateFormat extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class ResignationDateToDateFormat extends Migration {
 	 */
 	public function up()
 	{
-		DB::statement('ALTER TABLE employees MODIFY resignation_date date');
+		DB::statement('ALTER TABLE employees MODIFY admission_date date');
 	}
 
 	/**
@@ -22,6 +22,7 @@ class ResignationDateToDateFormat extends Migration {
 	 */
 	public function down()
 	{
-		DB::statement('ALTER TABLE employees MODIFY resignation_date varchar(255)');
+		DB::statement('ALTER TABLE employees MODIFY admission_date varchar(255)');
 	}
+
 }

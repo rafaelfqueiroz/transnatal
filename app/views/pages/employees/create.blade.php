@@ -75,17 +75,17 @@
                                                                 <div class="row">
                                                                     <div class="col-xs-6">
                                                                         {{ Form::label('admissionDate', 'Data de admissão')}}
-                                                                        {{ Form::text('admission_date', null, ['id' => 'admissionDate' , 'class' => 'form-control datepicker','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                                        {{ Form::text('admission_date', null, ['id' => 'admissionDate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                                                         {{ $errors->first('admission_date', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-6">
                                                                         {{ Form::label('resignationDate', 'Data de demissão')}}
-                                                                        {{ Form::text('resignation_date', null, ['id' => 'resignationDate' , 'class' => 'form-control datepicker','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                                        {{ Form::text('resignation_date', null, ['id' => 'resignationDate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                                                         {{ $errors->first('resignation_date', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                     <div class="col-xs-12">
                                                                         {{ Form::label('birthday', 'Data de nascimento')}}
-                                                                        {{ Form::text('birthday', null, ['id' => 'birthday' , 'class' => 'form-control datepicker','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                                        {{ Form::text('birthday', null, ['id' => 'birthday' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                                                         {{ $errors->first('birthday', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                 </div>
@@ -249,6 +249,11 @@
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
         
         <script type="text/javascript">
-            $('.datepicker').datepicker();
+            $(document).ready(function() {
+                $('.datepicker').datepicker('hide');
+                $('#employeeName').trigger('click');
+                $('#employeeName').focus();
+            });
+
         </script>
     @stop

@@ -25,7 +25,8 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		return View::make('pages.index')->with('news', $this->newsRepository->allAvaliable());
+		$news = $this->newsRepository->allAvaliable();
+		return View::make('pages.index')->with('news', $news);
 	}
 
 }

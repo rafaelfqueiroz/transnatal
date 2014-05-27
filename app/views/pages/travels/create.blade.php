@@ -42,14 +42,14 @@
                                                 <div class="box-body">
                                                     <div class="form-group">
                                                         {{ Form::label('to', 'Destino')}}
-                                                        {{ Form::text('to', null, ['id' => 'to' , 'class' => 'form-control', 'placeholder' => 'Insira o destino da viagem']) }}
+                                                        {{ Form::text('travel_to', null, ['id' => 'to' , 'class' => 'form-control', 'placeholder' => 'Insira o destino da viagem']) }}
                                                         {{ $errors->first('to', '<p class="text-red">:message</p>') }}
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('issue_date', 'Data de emissão')}}
-                                                                {{ Form::text('issue_date', null, ['id' => 'issue_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::text('issue_date', null, ['id' => 'issue_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
                                                                 {{ $errors->first('issue_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
@@ -77,12 +77,12 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('seal_number_from', 'Lacre de saída')}}
-                                                                {{ Form::text('seal_number_from', null, ['id' => 'seal_number_from' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'yyyy-mm-dd']) }}
+                                                                {{ Form::text('seal_number_from', null, ['id' => 'seal_number_from' , 'class' => 'form-control number-mask', 'placeholder' => 'Insira o número do lacre de saída']) }}
                                                                 {{ $errors->first('seal_number_from', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('seal_number_to', 'Lacre de chegada')}}
-                                                                {{ Form::text('seal_number_to', null, ['id' => 'seal_number_to' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'yyyy-mm-dd']) }}
+                                                                {{ Form::text('seal_number_to', null, ['id' => 'seal_number_to' , 'class' => 'form-control number-mask', 'placeholder' => 'Insira o número do lacre de chegada.']) }}
                                                                 {{ $errors->first('seal_number_to', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -91,12 +91,12 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('out_suply_liters', 'Abastecimento de saída')}}
-                                                                {{ Form::text('out_suply_liters', null, ['id' => 'out_suply_liters' , 'class' => 'form-control', 'placeholder' => 'Abastecimento em litros']) }}
+                                                                {{ Form::text('out_suply_liters', null, ['id' => 'out_suply_liters' , 'class' => 'form-control double-mask', 'placeholder' => 'Abastecimento em litros']) }}
                                                                 {{ $errors->first('out_suply_liters', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('arrival_suply_liters', 'Abastecimento de chegada')}}
-                                                                {{ Form::text('arrival_suply_liters', null, ['id' => 'arrival_suply_liters' , 'class' => 'form-control', 'placeholder' => 'Abastecimento em litros']) }}
+                                                                {{ Form::text('arrival_suply_liters', null, ['id' => 'arrival_suply_liters' , 'class' => 'form-control double-mask', 'placeholder' => 'Abastecimento em litros']) }}
                                                                 {{ $errors->first('arrival_suply_liters', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -125,7 +125,7 @@
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('control_ordinance_from_date', 'Data de saída')}}
-                                                                {{ Form::text('control_ordinance_from_date', null, ['id' => 'control_ordinance_from_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::text('control_ordinance_from_date', null, ['id' => 'control_ordinance_from_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
                                                                 {{ $errors->first('control_ordinance_from_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -137,7 +137,7 @@
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('control_ordinance_to_date', 'Data de chegada')}}
-                                                                {{ Form::text('control_ordinance_to_date', null, ['id' => 'control_ordinance_to_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::text('control_ordinance_to_date', null, ['id' => 'control_ordinance_to_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
                                                                 {{ $errors->first('control_ordinance_to_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -194,24 +194,27 @@
                                                         </div>
                                                         {{Form::textarea('travel_performace_reason', null, ['class' => 'form-control', 'placeholder' => 'Motivo', 'rows' => '3'])}}
                                                     </div>
-                                                    <div class="form-group">
-                                                        <h3 class="box-title">Diário de bordo</h3>
-                                                        <div class="row">
-                                                            <div class="col-xs-1">
-                                                                {{ Form::label(null, 'Data')}}
-                                                            </div>
-                                                            <div class="col-xs-5 pull-right">
-                                                                {{ Form::text('general_informations_date', null, ['id' => 'general_informations_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => 'yyyy-mm-dd']) }}
-                                                                {{ $errors->first('general_informations_date', '<p class="text-red">:message</p>') }}
+                                                    <h3 class="box-title">Diário de bordo</h3>
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                    {{ Form::label(null, 'Data')}}
+                                                                    {{ Form::text('general_informations_date', null, ['id' => 'general_informations_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
+                                                                    {{ $errors->first('general_informations_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea id="general_informations" name="general_informations" class="form-control" rows="4" placeholder="Motivo" style="margin: 0px -1px 0px 0px; width: 455px; height: 98px;"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        {{ Form::label('observation', 'Observação Geral da Viagem')}}
-                                                        <textarea id="observation" name="observation" class="form-control" rows="4" placeholder="Insira uma observação para a viagem" style="margin: 0px -1px 0px 0px; width: 455px; height: 98px;"></textarea>
+                                                        <div class="col-xs-12">
+                                                            <div class="form-group">
+                                                                {{ Form::label(null, 'Informações gerais')}}
+                                                                <textarea id="general_informations" name="general_informations" class="form-control" rows="4" placeholder="Motivo"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <div class="form-group">
+                                                                {{ Form::label('observation', 'Observação Geral da Viagem')}}
+                                                                <textarea id="observation" name="observation" class="form-control" rows="4" placeholder="Insira uma observação para a viagem"></textarea>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -247,7 +250,7 @@
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
                                                                 {{ Form::label('from_date', 'Data de saída')}}
-                                                                {{ Form::text('from_date', null, ['id' => 'from_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::text('from_date', null, ['id' => 'from_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
                                                                 {{ $errors->first('from_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -261,7 +264,7 @@
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
                                                                 {{ Form::label('to_date', 'Data de chegada')}}
-                                                                {{ Form::text('to_date', null, ['id' => 'to_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::text('to_date', null, ['id' => 'to_date', 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
                                                                 {{ $errors->first('from_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -294,7 +297,7 @@
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
                                                                 {{ Form::label('cost_date', 'Data do Adiantamento')}}
-                                                                {{ Form::text('cost_date', null, ['id' => 'cost_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::text('cost_date', null, ['id' => 'cost_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
                                                                 {{ $errors->first('cost_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -324,7 +327,7 @@
                                                         <div class="col-xs-4">
                                                             <div class="form-group">
                                                                 {{ Form::label('liters', 'Litros')}}
-                                                                {{ Form::text('liters', null, ['id' => 'liters' , 'class' => 'form-control', 'placeholder' => '##']) }}
+                                                                {{ Form::text('liters', null, ['id' => 'liters' , 'class' => 'form-control number-mask', 'placeholder' => '']) }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-4">
@@ -368,7 +371,7 @@
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
                                                                 {{ Form::label('advance_date', 'Data do Adiantamento')}}
-                                                                {{ Form::text('advance_date', null, ['id' => 'advance_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'yyyy-mm-dd', 'placeholder' => '####-##-##']) }}
+                                                                {{ Form::text('advance_date', null, ['id' => 'advance_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
                                                                 {{ $errors->first('advance_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -455,8 +458,10 @@
                         }
                     });
                 });
-            });
 
-            $('.datepicker').datepicker();
+                $('.datepicker').datepicker();
+                $('#travel_to').trigger('click');
+                $('#travel_to').focus();
+            });
         </script>
     @stop

@@ -5,7 +5,19 @@ $.extend( true, $.fn.dataTable.defaults, {
 		"t"+
 		"<'row'<'col-xs-6'i><'col-xs-6'p>>",
 	"oLanguage": {
-		"sLengthMenu": "_MENU_ records per page"
+		"sLengthMenu": "_MENU_ registros por página",
+		"sSearch":"Buscar:",
+		"sEmptyTable" : "Não há dados disponíveis na tabela",
+		"sInfo" : "Mostrando _START_ até _END_ de _TOTAL_ entradas",
+		"sInfoEmpty" : "Mostrando 0 até 0 de 0 entradas",
+		"sInfoFiltered" : "(filtrados de _MAX_ total de entradas)",
+		"sLoadingRecords" : "Carregando...",
+		"sProcessing" : "Processando...",
+		"sZeroRecords" : "Nenhum registro encontrado",
+		"oPaginate": {
+			"sPrevious" : "Anterior",
+			"sNext" : "Próximo"
+		}
 	}
 } );
 

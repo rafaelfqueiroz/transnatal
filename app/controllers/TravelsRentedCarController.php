@@ -104,11 +104,11 @@ class TravelsRentedCarController extends BaseController {
 		{
 			if ($this->travelRentedCarRepository->update($id, Input::all()))
 			{
-				return Redirect::route('travels-rented-car.index')->with('messages', 'Informações da viagem alteradas com sucesso.');
+				return Response::json(['messages' => 'Informações da viagem alteradas com sucesso.']);
 			}
 			else
 			{
-				return Redirect::back()->with('errors', 'Erro ao tentar alterar informações da viagem, por favor tente novamente')->withInput();
+				return Response::json(['errors' => 'Erro ao tentar alterar informações da viagem, por favor tente novamente']);
 			}
 		}
 	}

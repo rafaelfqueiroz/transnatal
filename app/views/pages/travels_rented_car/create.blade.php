@@ -32,57 +32,63 @@
                                 <h3 class="box-title">Cadastro de Viagem com Veículo Alugado</h3>
                             </div>
                             <div class="box-body">
-                                <div class="form-group">
-                                    {{ Form::label('vehicle_id', 'Escolha um veículo')}}
-                                    {{ Form::select('vehicle_id', $vehicles, null, ['id' => 'vehicle_id', 'class' => 'form-control'])}}
-                                    {{ $errors->first('vehicle_id', '<p class="text-red">:message</p>') }}
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-6">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            {{ Form::label('vehicle_id', 'Escolha um veículo')}}
+                                            {{ Form::select('vehicle_id', $vehicles, null, ['id' => 'vehicle_id', 'class' => 'form-control'])}}
+                                            {{ $errors->first('vehicle_id', '<p class="text-red">:message</p>') }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
                                             {{ Form::label('travel_price', 'Valor Total do Frete')}}
                                             {{ Form::text('travel_price', null, ['id' => 'travel_price' , 'class' => 'form-control', 'placeholder' => 'Insira um valor em reais']) }}
                                             {{ $errors->first('travel_price', '<p class="text-red">:message</p>') }}
-                                        </div>
-                                        <div class="col-xs-6">
+                                        </div>    
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
                                             {{ Form::label('price_paid', 'Valor Pago')}}
                                             {{ Form::text('price_paid', null, ['id' => 'price_paid' , 'class' => 'form-control', 'placeholder' => 'Insira um valor em reais']) }}
                                             {{ $errors->first('price_paid', '<p class="text-red">:message</p>') }}
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    {{ Form::label('price_to_pay', 'Valor a Pagar')}}
-                                    {{ Form::text('price_to_pay', null, ['id' => 'price_to_pay' , 'class' => 'form-control', 'placeholder' => 'Insira um valor em reais']) }}
-                                    {{ $errors->first('price_to_pay', '<p class="text-red">:message</p>') }}
-                                </div>
-
-                                <div class="col-xs-12">
-                                    <div class="box">
-                                        <div class="box-header">
-                                            <h3 class="box-title">Ordens de Serviço</h3>
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            {{ Form::label('price_to_pay', 'Valor a Pagar')}}
+                                            {{ Form::text('price_to_pay', null, ['id' => 'price_to_pay' , 'class' => 'form-control', 'placeholder' => 'Insira um valor em reais']) }}
+                                            {{ $errors->first('price_to_pay', '<p class="text-red">:message</p>') }}
                                         </div>
-                                        <div class="box-body">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <div class="form-group">
-                                                        {{ Form::label('so_number', 'Ordem de Serviço')}}
-                                                        {{ Form::text('so_number', null, ['id' => 'so_number' , 'class' => 'form-control', 'placeholder' => 'Insira o número de uma OS']) }}
-                                                        {{ $errors->first('so_number', '<p class="text-red">:message</p>') }}
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Ordens de Serviço</h3>
+                                            </div>
+                                            <div class="box-body">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group">
+                                                            {{ Form::label('so_number', 'Ordem de Serviço')}}
+                                                            {{ Form::text('so_number', null, ['id' => 'so_number' , 'class' => 'form-control', 'placeholder' => 'Insira o número de uma OS']) }}
+                                                            {{ $errors->first('so_number', '<p class="text-red">:message</p>') }}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-xs-12">
-                                                    <div class="form-group">
-                                                        {{ Form::button('Adicionar adiantamento', ['class' => 'btn btn-info btn-lg btn-block add-more', 'value' => '_new_foward']) }}
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group">
+                                                            {{ Form::button('Adicionar adiantamento', ['class' => 'btn btn-info btn-lg btn-block add-more', 'value' => '_new_foward']) }}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="box-footer">
-                                            <!-- tabela -->
-                                        </div>
-                                    </div> <!-- .box -->
-                                </div> <!-- .col-xs-10 -->
+                                            <div class="box-footer">
+                                                <!-- tabela -->
+                                            </div>
+                                        </div> <!-- .box -->
+                                    </div> <!-- .col-xs-10 -->
+                                </div>
                             </div>
                             <div class="box-footer">
                                 <div class="form-group">
@@ -134,9 +140,8 @@
                         }
                     });
                 });
+                $('.datepicker').datepicker();
             });
-
-            $('.datepicker').datepicker();
         </script>
     @stop
-                                        </div> <!-- .col-xs-6 -->
+</div> <!-- .col-xs-6 -->

@@ -10,13 +10,13 @@
         <!-- Ionicons -->
         {{ HTML::style('assets/AdminLTE/css/ionicons.min.css') }}
         <!-- Morris chart -->
-        {{ HTML::style('assets/AdminLTE/css/morris/morris.css') }}
+        <!-- {{ HTML::style('assets/AdminLTE/css/morris/morris.css') }} -->
         <!-- jvectormap -->
-        {{ HTML::style('assets/AdminLTE/css/jvectormap/jquery-jvectormap-1.2.2.css') }}
+        <!-- {{ HTML::style('assets/AdminLTE/css/jvectormap/jquery-jvectormap-1.2.2.css') }} -->
         <!-- fullCalendar -->
-        {{ HTML::style('assets/AdminLTE/css/fullcalendar/fullcalendar.css') }}
+        <!-- {{ HTML::style('assets/AdminLTE/css/fullcalendar/fullcalendar.css') }} -->
         <!-- Daterange picker -->
-        {{ HTML::style('assets/AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}
+        <!-- {{ HTML::style('assets/AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }} -->
         <!-- bootstrap wysihtml5 - text editor -->
         <!-- Theme style -->
         {{ HTML::style('assets/AdminLTE/css/AdminLTE.css') }}
@@ -41,18 +41,18 @@
         {{ HTML::script('assets/js/form-mask.js') }}
 
         <!-- Sparkline -->
-        {{ HTML::script('assets/AdminLTE/js/plugins/sparkline/jquery.sparkline.min.js') }}
+        <!-- {{ HTML::script('assets/AdminLTE/js/plugins/sparkline/jquery.sparkline.min.js') }} -->
         <!-- jvectormap -->
-        {{ HTML::script('assets/AdminLTE/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}
-        {{ HTML::script('assets/AdminLTE/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}
+        <!-- {{ HTML::script('assets/AdminLTE/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }} -->
+        <!-- {{ HTML::script('assets/AdminLTE/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }} -->
         <!-- fullCalendar -->
-        {{ HTML::script('assets/AdminLTE/js/plugins/fullcalendar/fullcalendar.min.js') }}
+        <!-- {{ HTML::script('assets/AdminLTE/js/plugins/fullcalendar/fullcalendar.min.js') }} -->
         <!-- jQuery Knob Chart -->
-        {{ HTML::script('assets/AdminLTE/js/plugins/jqueryKnob/jquery.knob.js') }}
+        <!-- {{ HTML::script('assets/AdminLTE/js/plugins/jqueryKnob/jquery.knob.js') }} -->
         <!-- daterangepicker -->
-        {{ HTML::script('assets/AdminLTE/js/plugins/daterangepicker/daterangepicker.js') }}
+        <!-- {{ HTML::script('assets/AdminLTE/js/plugins/daterangepicker/daterangepicker.js') }} -->
         <!-- Bootstrap WYSIHTML5 -->
-        {{ HTML::script('assets/AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}
+        <!-- {{ HTML::script('assets/AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }} -->
         <!-- iCheck -->
         {{ HTML::script('assets/AdminLTE/js/plugins/iCheck/icheck.min.js') }}
         
@@ -60,7 +60,7 @@
         <!-- {{ HTML::script('assets/AdminLTE/js/AdminLTE/dashboard.js') }} -->
 
         <!-- Morris.js charts -->
-        {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js') }}
+        <!-- {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js') }} -->
         <!-- {{ HTML::script('assets/AdminLTE/js/plugins/morris/morris.min.js') }} -->
 
         <!-- AdminLTE App -->

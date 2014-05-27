@@ -180,6 +180,10 @@
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
 
         <script type="text/javascript">
-            $('.datepicker').datepicker();
+            $(document).ready(function(){
+                $('.datepicker').datepicker();
+                $('#clientName').trigger('click');
+                $('#clientName').focus();
+            });
         </script>
     @stop

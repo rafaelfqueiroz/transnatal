@@ -8,7 +8,7 @@ class DbTravelCostRepository implements DbTravelCostRepositoryInterface {
 
 	public function find($id)
 	{
-		return TravelCost::where('id', $id)->get();
+		return TravelCost::finrOrFail($id);
 	}
 
 	public function get_first()

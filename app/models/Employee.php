@@ -13,6 +13,11 @@
 			return $this->hasOne('User');
 		}
 
+		public function travels()
+		{
+			return $this->hasMany('Travel');
+		}
+
 		public function delete()
 		{
 			$this->address->delete();

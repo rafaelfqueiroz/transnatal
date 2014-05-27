@@ -62,7 +62,7 @@
                                                     <td>{{$vehicle->brand_model}}</td>
                                                     <td>{{$vehicle->color}}</td>
                                                     <td>
-                                                        <a href="{{route('vehicles.edit', [$vehicle->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar este veículo">Editar</a>
+                                                        <a href="{{route('vehicles.edit', [$vehicle->id])}}" class="btn btn-primary btn-xs table-button" data-toggle="tooltip" title data-original-title="Clique para editar este veículo">Editar</a>
                                                         <a href="{{route('vehicles.destroy', [$vehicle->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover este veículo">Remover</a>
                                                     </td>
                                                 </tr>

@@ -54,7 +54,7 @@
                                 <li><a href="{{route('travels-rented-car.index')}}"><i class="fa fa-angle-double-right"></i> Listar Viagem com Carro Alugado</a></li>
                             </ul>
                         </li>
-                        <li class="treeview">
+                        <!-- <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-th-large"></i>
                                 <span>Transportes</span>
@@ -64,7 +64,7 @@
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-truck"></i>

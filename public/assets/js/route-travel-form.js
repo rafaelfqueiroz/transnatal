@@ -55,6 +55,7 @@ function addRow(inputs, tbody, type) {
 	$.each(inputs, function (index, element) {
 		row += "<td>" + $(element).val() + "</td>";
 		obj[$(element).attr('name')] = $(element).val();
+		$(element).val("");
 	});
 	row+="<td><button type='button' class='btn btn-warning btn-sm' data-toggle='tooltip'"+
 	" data-original-title='Clique para remover' value='"+ type + "' onclick='removeRow(this)'>"+

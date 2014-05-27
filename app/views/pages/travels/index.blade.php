@@ -50,7 +50,7 @@
                                                     <td>{{$travel->vehicle->brand_model}}</td>
                                                     <td>{{$travel->to}}</td>
                                                     <td>
-                                                        <a href="{{route('travels.edit', [$travel->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar este veículo">Editar</a>
+                                                        <a href="{{route('travels.edit', [$travel->id])}}" class="btn btn-primary btn-xs table-button" data-toggle="tooltip" title data-original-title="Clique para editar este veículo">Editar</a>
                                                         <a href="{{route('travels.destroy', [$travel->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover este veículo">Remover</a>
                                                     </td>
                                                 </tr>
@@ -73,8 +73,8 @@
         {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
         {{ HTML::script('assets/js/deleterequest.js') }}
         <script type="text/javascript">
-            $(function() {
-                $('#example1').dataTable({});
+            $(document).ready(function() {
+                $('#example1').dataTable();
 
                 alertify.set({
                     labels: {

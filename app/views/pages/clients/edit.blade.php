@@ -181,5 +181,7 @@
 
         <script type="text/javascript">
             $('.datepicker').datepicker();
+                $('#clientName').trigger('click');
+                $('#clientName').focus();
         </script>
     @stop

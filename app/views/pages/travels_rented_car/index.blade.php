@@ -56,7 +56,7 @@
                                                         @endforeach
                                                     </td>
                                                     <td>
-                                                        <a href="{{route('travels-rented-car.edit', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs" data-toggle="tooltip" title data-original-title="Clique para editar esta viagem">Editar</a>
+                                                        <a href="{{route('travels-rented-car.edit', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs table-button" data-toggle="tooltip" title data-original-title="Clique para editar esta viagem">Editar</a>
                                                         <a href="{{route('travels-rented-car.destroy', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover esta viagem">Remover</a>
                                                     </td>
                                                 </tr>
