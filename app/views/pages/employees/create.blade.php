@@ -97,17 +97,17 @@
                                                         <div class="box-body">
                                                             <div class="form-group">
                                                                 <div class="row">
-                                                                    <div class="col-xs-5">
+                                                                    <div class="col-xs-8">
                                                                         {{ Form::label('employeeLicenseNumber', 'Número da carteira')}}
                                                                         {{ Form::text('license_number', null, ['id' => 'employeeLicenseNumber' , 'class' => 'form-control']) }}
                                                                         {{ $errors->first('license_number', '<p class="text-red">:message</p>') }}
                                                                     </div>
-                                                                    <div class="col-xs-2">
+                                                                    <div class="col-xs-4">
                                                                         {{ Form::label('employeeLicenseCategory', 'Categoria')}}
                                                                         {{ Form::text('license_category', null, ['id' => 'employeeLicenseCategory' , 'class' => 'form-control']) }}
                                                                         {{ $errors->first('license_category', '<p class="text-red">:message</p>') }}
                                                                     </div>
-                                                                    <div class="col-xs-5">
+                                                                    <div class="col-xs-8">
                                                                         {{ Form::label('employeeLicensePamcard', 'Número PAMCARD')}}
                                                                         {{ Form::text('license_pamcard', null, ['id' => 'employeeLicensePamcard' , 'class' => 'form-control']) }}
                                                                         {{ $errors->first('license_pamcard', '<p class="text-red">:message</p>') }}
@@ -126,12 +126,12 @@
                                                                         {{ Form::text('bank_account', null, ['id' => 'employeeBankAccount' , 'class' => 'form-control']) }}
                                                                         {{ $errors->first('bank_account', '<p class="text-red">:message</p>') }}
                                                                     </div>
-                                                                    <div class="col-xs-5">
+                                                                    <div class="col-xs-4">
                                                                         {{ Form::label('employeeBankAgency', 'Agência')}}
                                                                         {{ Form::text('bank_agency', null, ['id' => 'employeeBankAgency' , 'class' => 'form-control']) }}
                                                                         {{ $errors->first('bank_agency', '<p class="text-red">:message</p>') }}
                                                                     </div>
-                                                                    <div class="col-xs-2">
+                                                                    <div class="col-xs-3">
                                                                         {{ Form::label('employeeBankOp', 'Operação')}}
                                                                         {{ Form::text('bank_op', null, ['id' => 'employeeBankOp' , 'class' => 'form-control']) }}
                                                                         {{ $errors->first('bank_op', '<p class="text-red">:message</p>') }}
@@ -160,17 +160,17 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
-                                                                <div class="col-xs-3">
+                                                                <div class="col-xs-6">
                                                                     {{ Form::label('employeeAddressNumber', 'Número')}}
                                                                     {{ Form::text('number', null, ['id' => 'employeeAddressNumber' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial']) }}
                                                                     {{ $errors->first('number', '<p class="text-red">:message</p>') }}
                                                                 </div>
-                                                                <div class="col-xs-3">
+                                                                <div class="col-xs-6">
                                                                     {{ Form::label('employeeAddressCep', 'CEP')}}
                                                                     {{ Form::text('zip_code', null, ['id' => 'employeeAddressCep' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###']) }}
                                                                     {{ $errors->first('zip_code', '<p class="text-red">:message</p>') }}
                                                                 </div>
-                                                                <div class="col-xs-6">
+                                                                <div class="col-xs-12">
                                                                     {{ Form::label('employeeAddressNeighborhood', 'Bairro')}}
                                                                     {{ Form::text('neighborhood', null, ['id' => 'employeeAddressNeighborhood' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora']) }}
                                                                     {{ $errors->first('neighborhood', '<p class="text-red">:message</p>') }}
@@ -179,12 +179,12 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
-                                                                <div class="col-xs-9">
+                                                                <div class="col-xs-7">
                                                                     {{ Form::label('employeeAddressCity', 'Cidade')}}
                                                                     {{ Form::text('city', null, ['id' => 'EmployeeAddressCity' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora']) }}
                                                                     {{ $errors->first('city', '<p class="text-red">:message</p>') }}
                                                                 </div>
-                                                                <div class="col-xs-3">
+                                                                <div class="col-xs-5">
                                                                     {{ Form::label('employeeAddressState', 'Estado')}}
                                                                     {{ Form::select('state', [
                                                                         'AC' => 'AC',

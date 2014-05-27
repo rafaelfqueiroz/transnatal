@@ -91,17 +91,17 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
-                                                                <div class="col-xs-3">
+                                                                <div class="col-xs-6">
                                                                     {{ Form::label('clientAddressNumber', 'Número')}}
                                                                     {{ Form::text('number', $client->address->number, ['id' => 'clientAddressNumber' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial', 'required' => 'required']) }}
                                                                     {{ $errors->first('number', '<p class="text-red">:message</p>') }}
                                                                 </div>
-                                                                <div class="col-xs-3">
+                                                                <div class="col-xs-6">
                                                                     {{ Form::label('clientAddressCep', 'CEP')}}
                                                                     {{ Form::text('zip_code', $client->address->zip_code, ['id' => 'clientAddressCep' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###', 'required' => 'required']) }}
                                                                     {{ $errors->first('zip_code', '<p class="text-red">:message</p>') }}
                                                                 </div>
-                                                                <div class="col-xs-6">
+                                                                <div class="col-xs-12">
                                                                     {{ Form::label('clientAddressNeighborhood', 'Bairro')}}
                                                                     {{ Form::text('neighborhood', $client->address->neighborhood, ['id' => 'clientAddressNeighborhood' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora', 'required' => 'required']) }}
                                                                     {{ $errors->first('neighborhood', '<p class="text-red">:message</p>') }}
@@ -110,12 +110,12 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="row">
-                                                                <div class="col-xs-9">
+                                                                <div class="col-xs-7">
                                                                     {{ Form::label('clientAddressCity', 'Cidade')}}
                                                                     {{ Form::text('city', $client->address->city, ['id' => 'clientAddressCity' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora', 'required' => 'required']) }}
                                                                     {{ $errors->first('city', '<p class="text-red">:message</p>') }}
                                                                 </div>
-                                                                <div class="col-xs-3">
+                                                                <div class="col-xs-5">
                                                                     {{ Form::label('clientAddressState', 'Estado')}}
                                                                     {{ Form::select('state', [
                                                                         'AC' => 'AC',

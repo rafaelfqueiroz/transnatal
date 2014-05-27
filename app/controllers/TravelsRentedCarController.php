@@ -31,7 +31,7 @@ class TravelsRentedCarController extends BaseController {
 		$vehicles = array();
 
 		foreach ($vehicles_bd as $key => $vehicle) {
-			$vehicles[$vehicle->id] = $vehicle->brand_model;
+			$vehicles[$vehicle->id] = $vehicle->vehicle_plate;
 		}
 		return View::make('pages.travels_rented_car.create')->with('vehicles', $vehicles);
 	}
@@ -43,7 +43,7 @@ class TravelsRentedCarController extends BaseController {
 		$vehicles = array();
 
 		foreach ($vehicles_bd as $key => $vehicle) {
-			$vehicles[$vehicle->id] = $vehicle->brand_model;
+			$vehicles[$vehicle->id] = $vehicle->vehicle_plate;
 		}
 		return View::make('pages.travels_rented_car.edit')->with('travel_rented_car', $bd_travel_rented_car)->with('vehicles', $vehicles);
 	}
