@@ -46,7 +46,7 @@
                                         @if ($travels_rented_car)
                                             @foreach($travels_rented_car as $travel_rented_car)
                                                  <tr>
-                                                    <td>{{$travel_rented_car->vehicle->brand_model}}</td>
+                                                    <td>{{$travel_rented_car->vehicle->vehicle_plate}}</td>
                                                     <td>{{$travel_rented_car->travel_price}}</td>
                                                     <td>{{$travel_rented_car->price_paid}}</td>
                                                     <td>{{$travel_rented_car->price_to_pay}}</td>

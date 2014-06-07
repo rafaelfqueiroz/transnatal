@@ -46,7 +46,7 @@ class TravelsController extends BaseController {
 			$employees[$employee->id] = $employee->name;
 		}
 		foreach ($vehicles_bd as $key => $vehicle) {
-			$vehicles[$vehicle->id] = $vehicle->brand_model;
+			$vehicles[$vehicle->id] = $vehicle->vehicle_plate;
 		}
 		return View::make('pages.travels.create')->with('employees', $employees)->with('vehicles', $vehicles);
 	}
@@ -63,7 +63,7 @@ class TravelsController extends BaseController {
 			$employees[$employee->id] = $employee->name;
 		}
 		foreach ($vehicles_bd as $key => $vehicle) {
-			$vehicles[$vehicle->id] = $vehicle->brand_model;
+			$vehicles[$vehicle->id] = $vehicle->vehicle_plate;
 		}
 		return View::make('pages.travels.edit')->with('travel', $bd_travel)->with('employees', $employees)->with('vehicles', $vehicles);
 	}

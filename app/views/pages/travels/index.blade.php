@@ -47,7 +47,7 @@
                                                  <tr>
                                                     <td>{{$travel->id}}</td>
                                                     <td>{{$travel->issue_date}}</td>
-                                                    <td>{{$travel->vehicle->brand_model}}</td>
+                                                    <td>{{$travel->vehicle->vehicle_plate}}</td>
                                                     <td>{{$travel->to}}</td>
                                                     <td>
                                                         <a href="{{route('travels.edit', [$travel->id])}}" class="btn btn-primary btn-xs table-button" data-toggle="tooltip" title data-original-title="Clique para editar este veículo">Editar</a>
