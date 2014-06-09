@@ -37,7 +37,6 @@
                                             <th>Proprietário</th>
                                             <th>Chassi</th>
                                             <th>Placa</th>
-                                            <th>Emplacamento</th>
                                             <th>RENAVAM</th>
                                             <th>Ano Modelo</th>
                                             <th>Ano Fabricação</th>
@@ -54,7 +53,6 @@
                                                     <td>{{$vehicle->owner}}</td>
                                                     <td>{{$vehicle->vehicle_chassis}}</td>
                                                     <td>{{$vehicle->vehicle_plate}}</td>
-                                                    <td>{{$vehicle->license_plate}}</td>
                                                     <td>{{$vehicle->renavam}}</td>
                                                     <td>{{$vehicle->model_year}}</td>
                                                     <td>{{$vehicle->manufacture_year}}</td>

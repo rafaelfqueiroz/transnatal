@@ -31,8 +31,13 @@
                             <div class="box-body">
                                 <div class="form-group">
                                     {{ Form::label('owner', 'Proprietário')}}
-                                    {{ Form::text('owner', null, ['id' => 'owner' , 'class' => 'form-control', 'placeholder' => 'Insira o seu nome do proprietário do veículo']) }}
+                                    {{ Form::text('owner', null, ['id' => 'owner' , 'class' => 'form-control', 'placeholder' => 'Insira o nome do proprietário do veículo']) }}
                                     {{ $errors->first('owner', '<p class="text-red">:message</p>') }}
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::label('vehicleOwnerAddress', 'Endereço do proprietário') }}
+                                    {{Form::textarea('owner_address', null, ['id' => 'vehicleOwnerAddress', 'class' => 'form-control', 'placeholder' => 'Informe endereço do proprietário do veículo', 'rows' => '4'])}}
+                                    {{$errors->first('owner_address', '<p class="text-red">:message</p>')}}
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('driver', 'Escolha um motorista')}}
@@ -45,15 +50,47 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-xs-6">
+                                        <div class="col-xs-3">
                                             {{ Form::label('vehicle_plate', 'Placa')}}
                                             {{ Form::text('vehicle_plate', null, ['id' => 'vehicle_plate' , 'class' => 'form-control plate-mask', 'placeholder' => 'ZZZ-9999'])}}
                                             {{ $errors->first('vehicle_plate', '<p class="text-red">:message</p>') }}
                                         </div>
+                                        <div class="col-xs-3">
+                                            {{ Form::label('vehiclePlateUF', 'UF da placa')}}
+                                            {{ Form::select('plate_uf', [
+                                                'AC' => 'AC',
+                                                'AL' => 'AL',
+                                                'AP' => 'AP',
+                                                'AM' => 'AM',
+                                                'BA' => 'BA',
+                                                'CE' => 'CE',
+                                                'DF' => 'DF',
+                                                'ES' => 'ES',
+                                                'GO' => 'GO',
+                                                'MA' => 'MA',
+                                                'MT' => 'MT',
+                                                'MS' => 'MS',
+                                                'MG' => 'MG',
+                                                'PA' => 'PA',
+                                                'PB' => 'PB',
+                                                'PR' => 'PR',
+                                                'PE' => 'PE',
+                                                'PI' => 'PI',
+                                                'RJ' => 'RJ',
+                                                'RN' => 'RN',
+                                                'RS' => 'RS',
+                                                'RO' => 'RO',
+                                                'RR' => 'RR',
+                                                'SC' => 'SC',
+                                                'SP' => 'SP',
+                                                'SE' => 'SE',
+                                                'TO' => 'TO'
+                                            ] , null, ['id' => 'vehiclePlateUF', 'class' => 'form-control']) }}
+                                        </div>
                                         <div class="col-xs-6">
-                                            {{ Form::label('license_plate', 'Data de Emplacamento')}}
-                                            {{ Form::text('license_plate', null, ['id' => 'license_plate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
-                                            {{ $errors->first('license_plate', '<p class="text-red">:message</p>') }}
+                                            {{ Form::label('vehicleDocumentNumber', 'Nº do documento')}}
+                                            {{ Form::text('document_number', null, ['id' => 'vehicleDocumentNumber' , 'class' => 'form-control', 'placeholder' => 'Informe o número do documento']) }}
+                                            {{ $errors->first('document_number', '<p class="text-red">:message</p>') }}
                                         </div>
                                     </div>
                                 </div>
