@@ -6,5 +6,5 @@ $(document).ready(function(){
 	$('.date-mask').mask('00/00/0000');
 	$('.number-mask').mask('00000000000');
 	$('.double-mask').mask('0000000.00', {'reverse' : true});
-	$('.plate-mask').mask('aaa-0000');
+	$('.plate-mask').mask('SSS-0000');
 });

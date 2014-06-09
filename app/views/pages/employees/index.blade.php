@@ -38,7 +38,6 @@
                                             <th>RG</th>
                                             <th>CPF</th>
                                             <th>Data de admissão</th>
-                                            <th>Data de demissão</th>
                                             <th>Telefone fixo</th>
                                             <th>Telefone celular</th>
                                             <th></th>
@@ -52,7 +51,6 @@
                                                     <td>{{$employee->rg}}</td>
                                                     <td>{{$employee->cpf}}</td>
                                                     <td>{{format_date($employee->admission_date, false)}}</td>
-                                                    <td>{{format_date($employee->resignation_date)}}</td>
                                                     <td>{{$employee->home_phone}}</td>
                                                     <td>{{$employee->cel_phone}}</td>
                                                     <td>

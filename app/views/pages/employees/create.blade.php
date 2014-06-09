@@ -78,11 +78,6 @@
                                                                         {{ Form::text('admission_date', null, ['id' => 'admissionDate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                                                         {{ $errors->first('admission_date', '<p class="text-red">:message</p>') }}
                                                                     </div>
-                                                                    <div class="col-xs-6">
-                                                                        {{ Form::label('resignationDate', 'Data de demissão')}}
-                                                                        {{ Form::text('resignation_date', null, ['id' => 'resignationDate' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
-                                                                        {{ $errors->first('resignation_date', '<p class="text-red">:message</p>') }}
-                                                                    </div>
                                                                     <div class="col-xs-12">
                                                                         {{ Form::label('birthday', 'Data de nascimento')}}
                                                                         {{ Form::text('birthday', null, ['id' => 'birthday' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
@@ -111,6 +106,11 @@
                                                                         {{ Form::label('employeeLicensePamcard', 'Número PAMCARD')}}
                                                                         {{ Form::text('license_pamcard', null, ['id' => 'employeeLicensePamcard' , 'class' => 'form-control']) }}
                                                                         {{ $errors->first('license_pamcard', '<p class="text-red">:message</p>') }}
+                                                                    </div>
+                                                                    <div class="col-xs-6">
+                                                                        {{ Form::label('employeeLicenseValidity', 'Validade da carteira')}}
+                                                                        {{ Form::text('license_validity', null, ['id' => 'employeeLicenseValidity' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
+                                                                        {{ $errors->first('license_validity', '<p class="text-red">:message</p>') }}
                                                                     </div>
                                                                 </div>
                                                             </div>

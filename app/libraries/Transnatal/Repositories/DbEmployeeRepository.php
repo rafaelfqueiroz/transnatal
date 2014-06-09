@@ -14,7 +14,7 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 		{
 			$employee->birthday = format_date($employee->birthday);
 			$employee->admission_date = format_date($employee->admission_date);
-			$employee->resignation_date = format_date($employee->resignation_date);
+			$employee->license_validity = format_date($employee->license_validity);
 		}
 		return $employee;
 	}
@@ -26,7 +26,7 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 		{
 			$employee->birthday = format_date($employee->birthday);
 			$employee->admission_date = format_date($employee->admission_date);
-			$employee->resignation_date = format_date($employee->resignation_date);
+			$employee->license_validity = format_date($employee->license_validity);
 		}
 		return $employee;
 	}
@@ -41,7 +41,6 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 		$employee = new Employee();
 		$employee->name = $input['name'];
 		$employee->admission_date = format_date($input['admission_date'], true);
-		$employee->resignation_date = format_date($input['resignation_date'], true);
 		$employee->rg = $input['rg'];
 		$employee->cpf = $input['cpf'];
 		$employee->birthday = format_date($input['birthday'], true);
@@ -54,6 +53,7 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 		$employee->license_number = $input['license_number'];
 		$employee->license_category = $input['license_category'];
 		$employee->license_pamcard = $input['license_pamcard'];
+		$employee->license_validity = format_date($input['license_validity'], true);
 
 		$address = new Address();
 		$address->street = $input['street'];
@@ -79,7 +79,6 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 
 		$bd_employee->name = $input['name'];
 		$bd_employee->admission_date = format_date($input['admission_date'], true);
-		$bd_employee->resignation_date = format_date($input['resignation_date'], true);
 		$bd_employee->rg = $input['rg'];
 		$bd_employee->cpf = $input['cpf'];
 		$bd_employee->birthday = format_date($input['birthday'], true);
@@ -92,6 +91,7 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 		$bd_employee->license_number = $input['license_number'];
 		$bd_employee->license_category = $input['license_category'];
 		$bd_employee->license_pamcard = $input['license_pamcard'];
+		$bd_employee->license_validity = format_date($input['license_validity'], true);
 
 		$bd_employee->address->street = $input['street'];
 		$bd_employee->address->number = $input['number'];
