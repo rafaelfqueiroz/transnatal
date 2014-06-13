@@ -24,7 +24,7 @@ class UsersController extends BaseController {
 
 	public function create() 
 	{
-		$employees_bd = $this->employeeRepository->all();
+		$employees_bd = $this->employeeRepository->all_not_linked_with_users();
 
 		$employees = array();
 

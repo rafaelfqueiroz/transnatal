@@ -419,7 +419,6 @@
         {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
         {{ HTML::script('assets/vendor/jquery.form/jquery.form.js') }}
 
-        {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
         {{ HTML::script('assets/vendor/jquery.form/jquery.form.js') }}
         {{ HTML::script('assets/js/route-travel-form.js') }}
