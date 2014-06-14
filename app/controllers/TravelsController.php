@@ -59,6 +59,9 @@ class TravelsController extends BaseController {
 		$vehicles = array();
 		$employees = array();
 
+		// var_dump($bd_travel->documents[0]);
+		// die();
+
 		foreach ($employees_bd as $key => $employee) {
 			$employees[$employee->id] = $employee->name;
 		}
@@ -75,63 +78,67 @@ class TravelsController extends BaseController {
 
 	public function store()
 	{
-		$this->validator->validate(Input::all());
+		//$this->validator->validate(Input::all());
 		// $this->travelRouteValidator->validate(Input::all());
 		// $this->travelAdvanceValidator->validate(Input::all());
 		// $this->travelCostValidator->validate(Input::all());
 
-		$validation = $this->validator->getErrors();
+		//$validation = $this->validator->getErrors();
 		// $routeValidation = $this->travelRouteValidator->getErrors();
 		// $advanceValidation = $this->travelAdvanceValidator->getErrors();
 		// $costsValidation = $this->travelCostValidator->getErrors();
 
-		$errors = array();
+		//$errors = array();
 
-		if(! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
+		//if(! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
 		// if(! is_null($routeValidation)) $errors = array_merge_recursive($errors, $routeValidation->getMessages());
 		// if(! is_null($advanceValidation)) $errors = array_merge_recursive($errors, $advanceValidation->getMessages());
 		// if(! is_null($costsValidation)) $errors = array_merge_recursive($errors, $costsValidation->getMessages());
 
-		if ($errors)
-		{
-			return Response::json(['errors' => $errors]);
-		}
-		else
-		{
-			if ($this->travelRepository->save(Input::all()))
-			{
+		// if ($errors)
+		// {
+		// 	return Response::json(['errors' => $errors]);
+		// }
+		// else
+		// {
+			//if ($this->travelRepository->save(Input::all()))
+			//{
+				$this->travelRepository->save(Input::all());
 				return Response::json(['messages' => 'Viagem registrada com sucesso.']);
-			}
-			else
-			{
-				return Response::json(['errors' => 'Erro ao tentar inserir viagem.']);
-			}
-		}
+			// }
+			// else
+			// {
+			// 	return Response::json(['errors' => 'Erro ao tentar inserir viagem.']);
+			// }
+		//}
 	}
 
 	public function update($id)
 	{
-		$this->validator->validate(Input::all());
-		$validation = $this->validator->getErrors();
+		// var_dump(Input::all());
+		// die();
+		// $this->validator->validate(Input::all());
+		// $validation = $this->validator->getErrors();
 
-		$errors = array();
-		if(! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
+		// $errors = array();
+		// if(! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
 		
-		if ($errors)
-		{
-			return Response::json(['errors' => $errors]);
-		}
-		else
-		{
-			if ($this->travelRepository->update($id, Input::all()))
-			{
+		// if ($errors)
+		// {
+		// 	return Response::json(['errors' => $errors]);
+		// }
+		// else
+		// {
+			//if ($this->travelRepository->update($id, Input::all()))
+			// {
+				$this->travelRepository->update($id, Input::all());
 				return Response::json(['messages' => 'Informações da viagem alteradas com sucesso.']);
-			}
-			else
-			{
-				return Response::json(['errors' => 'Erro ao tentar alterar informações da viagem, por favor tente novamente']);
-			}
-		}
+		// 	}
+		// 	else
+		// 	{
+		// 		return Response::json(['errors' => 'Erro ao tentar alterar informações da viagem, por favor tente novamente']);
+		// 	}
+		// }
 	}
 
 	public function destroy($id)

@@ -11,14 +11,12 @@ class TravelValidator extends Validator {
 		 'travel_to' => 'required',
 		 'control_ordinance_from_mileage' => 'required',
 		 'control_ordinance_from_date' => 'required',
-		 'control_ordinance_to_mileage' => 'required',
-		 'control_ordinance_to_date' => 'required',
-		 'out_suply_liters' => 'required',
+		 // 'control_ordinance_to_mileage' => 'required',
+		 // 'control_ordinance_to_date' => 'required',
 		 'out_km' => 'required',
-		 'arrival_suply_liters' => 'required',
-		 'arrival_km' => 'required',
-		 'travel_performace' => 'required',
-		 'travel_performace_reason' => 'required'
+		 'arrival_km' => 'required'
+		 // 'travel_performace' => 'required',
+		 // 'travel_performace_reason' => 'required'
 		];
 
 		$this->messages = [
@@ -27,14 +25,12 @@ class TravelValidator extends Validator {
 		 'travel_to.required' => 'O campo destino é necessário',
 		 'control_ordinance_from_mileage.required' => 'O campo quilometragem de saída do controle de portaria é necessário',
 		 'control_ordinance_from_date.required' => 'O campo data de saída do controle de portaria é necessário',
-		 'control_ordinance_to_mileage.required' => 'O campo quilometragem de chegada do controle de portaria é necessário',
-		 'control_ordinance_to_date.required' => 'O campo data de chegada do controle de portaria é necessário',
-		 'out_suply_liters.required' => 'O campo abastecimento de saída é necessário',
+		 // 'control_ordinance_to_mileage.required' => 'O campo quilometragem de chegada do controle de portaria é necessário',
+		 // 'control_ordinance_to_date.required' => 'O campo data de chegada do controle de portaria é necessário',
 		 'out_km.required' => 'O campo quilometragem de saída é necessário',
-		 'arrival_suply_liters.required' => 'O campo abastecimento de chegada é necessário',
-		 'arrival_km.required' => 'O campo quilometragem de chegada é necessário',
-		 'travel_performace.required' => 'O campo desempenho global é necessário',
-		 'travel_performace_reason.required' => 'O campo motivo do desempenho global é necessário'
+		 'arrival_km.required' => 'O campo quilometragem de chegada é necessário'
+		 // 'travel_performace.required' => 'O campo desempenho global é necessário',
+		 // 'travel_performace_reason.required' => 'O campo motivo do desempenho global é necessário'
 		];
 	}
 }

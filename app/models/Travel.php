@@ -27,11 +27,17 @@
 			return $this->hasMany('TravelRoute');
 		}
 
+		public function documents()
+		{
+			return $this->hasMany('TravelDocument');
+		}
+
 		public function delete()
 		{
 			$this->costs()->delete();
 			$this->advances()->delete();
 			$this->routes()->delete();
+			$this->documents()->delete();
 			return parent::delete();
 		}
 	}

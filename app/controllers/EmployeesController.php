@@ -43,46 +43,48 @@ use Transnatal\Services\Validation\AddressValidator;
 
 		public function store()
 		{
-			if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
-			{
-				$errors = $this->validator->getErrors();
-				$addressErrors = $this->addressValidator->getErrors();
-				$errors->merge($addressErrors);
-				return Redirect::back()->with('errors', $errors)->withInput();
-			}
-			else
-			{
-				if ($this->employeeRepository->save(Input::all()))
-				{
+			// if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
+			// {
+			// 	$errors = $this->validator->getErrors();
+			// 	$addressErrors = $this->addressValidator->getErrors();
+			// 	$errors->merge($addressErrors);
+			// 	return Redirect::back()->with('errors', $errors)->withInput();
+			// }
+			// else
+			// {
+				//if ($this->employeeRepository->save(Input::all()))
+				//{
+					$this->employeeRepository->save(Input::all());
 					return Redirect::route('employees.create')->with('messages', 'Funcionário cadastrado com sucesso.');
-				}
-				else
-				{
-					return Redirect::back()->with('errors', 'Erro ao tentar cadastrar funcionário, por favor tente novamente.')->withInput();
-				}
+				// }
+				// else
+				// {
+				// 	return Redirect::back()->with('errors', 'Erro ao tentar cadastrar funcionário, por favor tente novamente.')->withInput();
+				// }
 			}
 		}
 		
 
 		public function update($id)
 		{
-			if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
-			{
-				$errors = $this->validator->getErrors();
-				$addressErrors = $this->addressValidator->getErrors();
-				$errors->merge($addressErrors);
-				return Redirect::back()->with('errors', $errors)->withInput();
-			}
-			else
-			{
-				if ($this->employeeRepository->update($id, Input::all()))
-				{
+			// if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
+			// {
+			// 	$errors = $this->validator->getErrors();
+			// 	$addressErrors = $this->addressValidator->getErrors();
+			// 	$errors->merge($addressErrors);
+			// 	return Redirect::back()->with('errors', $errors)->withInput();
+			// }
+			// else
+			// {
+				// if ($this->employeeRepository->update($id, Input::all()))
+				//{
+					$this->employeeRepository->update($id, Input::all());
 					return Redirect::route('employees.index')->with('messages', 'Informações do funcionários alteradas com sucesso.');
-				}
-				else
-				{
-					return Redirect::back()->with('errors', 'Erro ao tentar alterar as informações do funcionário, por favor tente novamente.')->withInput();
-				}
+				// }
+				// else
+				// {
+				// 	return Redirect::back()->with('errors', 'Erro ao tentar alterar as informações do funcionário, por favor tente novamente.')->withInput();
+				// }
 			}
 		}
 
