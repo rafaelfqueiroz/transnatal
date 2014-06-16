@@ -30,5 +30,4 @@ Route::group(['before' => 'auth'], function()
 	Route::resource('travels', 'TravelsController');
 	Route::resource('travels-rented-car', 'TravelsRentedCarController');
 	Route::resource('news', 'NewsController');
-	Route::resource('service-order', 'ServiceOrdersController');
 });
