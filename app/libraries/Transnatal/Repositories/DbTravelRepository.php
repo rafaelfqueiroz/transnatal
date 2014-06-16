@@ -92,11 +92,16 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		$travel = $this->find($id);
 		$travel = $this->set_travel_with_input_data($input, $travel);
 		$travel->save();
+		
+		TravelCost::where('travel_id', $travel->id)->delete();
+		TravelAdvance::where('travel_id', $travel->id)->delete();
+		TravelRoute::where('travel_id', $travel->id)->delete();
+		TravelDocument::where('travel_id', $travel->id)->delete();
 
 		if (isset($input['costs']))
 		{
 			$travelCosts = array();
-			TravelCost::where('travel_id', $travel->id)->delete();
+			
 			$travelCosts = $this->set_travel_costs_with_input_data($input['costs'], $travelCosts, $travel);
 			TravelCost::insert($travelCosts);
 		}
@@ -104,7 +109,7 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		if (isset($input['advances']))
 		{
 			$travelAdvances = array();
-			TravelAdvance::where('travel_id', $travel->id)->delete();
+			
 			$travelAdvances = $this->set_travel_advances_with_input_data($input['advances'], $travelAdvances, $travel);
 			TravelAdvance::insert($travelAdvances);
 		}
@@ -112,7 +117,7 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		if (isset($input['routes']))
 		{
 			$travelRoutes = array();
-			TravelRoute::where('travel_id', $travel->id)->delete();
+			
 			$travelRoutes = $this->set_travel_routes_with_input_data($input['routes'], $travelRoutes, $travel);
 			TravelRoute::insert($travelRoutes);
 		}
@@ -120,7 +125,7 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		if (isset($input['documents']))
 		{
 			$travelDocuments = array();
-			TravelDocument::where('travel_id', $travel->id)->delete();
+			
 			$travelDocuments = $this->set_travel_documents_with_input_data($input['documents'], $travelDocuments, $travel);
 			TravelDocument::insert($travelDocuments);
 		}

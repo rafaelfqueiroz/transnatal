@@ -93,6 +93,7 @@ class DbNewsRepository implements NewsRepositoryInterface {
 
 	public function delete($id)
 	{
+		DB::table('news_users')->where('news_id', $id)->delete();
 		News::destroy($id);
 	}
 

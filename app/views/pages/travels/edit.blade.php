@@ -338,7 +338,7 @@
                                                 <div class="box-footer">
                                                     <!-- tabela -->
                                                     
-                                                    @if ($travel->documents)
+                                                    @if ($travel->documents && count($travel->routes) > 0)
                                                         <table class="table table-striped">
                                                             <tbody>
                                                                 <tr>

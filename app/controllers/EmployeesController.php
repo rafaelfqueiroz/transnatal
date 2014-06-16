@@ -61,7 +61,7 @@ use Transnatal\Services\Validation\AddressValidator;
 				// {
 				// 	return Redirect::back()->with('errors', 'Erro ao tentar cadastrar funcionário, por favor tente novamente.')->withInput();
 				// }
-			}
+			//}
 		}
 		
 
@@ -85,7 +85,7 @@ use Transnatal\Services\Validation\AddressValidator;
 				// {
 				// 	return Redirect::back()->with('errors', 'Erro ao tentar alterar as informações do funcionário, por favor tente novamente.')->withInput();
 				// }
-			}
+			//}
 		}
 
 		public function destroy($id)
