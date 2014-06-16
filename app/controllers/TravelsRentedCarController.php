@@ -112,7 +112,7 @@ class TravelsRentedCarController extends BaseController {
 			// {
 			// 	return Response::json(['errors' => 'Erro ao tentar alterar informações da viagem, por favor tente novamente']);
 			// }
-		}
+		//}
 	}
 
 	public function destroy($id)
