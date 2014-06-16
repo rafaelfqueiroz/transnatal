@@ -36,7 +36,7 @@ class TravelsController extends BaseController {
 
 	public function create() 
 	{
-		$vehicles_bd = $this->vehicleRepository->allOwner();
+		$vehicles_bd = $this->vehicleRepository->all();
 		$employees_bd = $this->employeeRepository->all();
 
 		$vehicles = array();
