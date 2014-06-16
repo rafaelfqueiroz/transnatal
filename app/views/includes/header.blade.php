@@ -15,6 +15,12 @@
                 </a>
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
+                        <li class="messages-menu">
+                            <a href="{{URL::to('/')}}">
+                                <i class="fa fa-envelope"></i>
+                                <span id="qtdUnreadMessages" class="label label-success"></span>
+                            </a>
+                        </li>
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -45,4 +51,5 @@
                     </ul>
                 </div>
             </nav>
+            
         </header>

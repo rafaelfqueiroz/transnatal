@@ -39,48 +39,50 @@ class ClientsController extends BaseController {
 
 	public function store()
 	{
-		if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
-		{
-			$errors = $this->validator->getErrors();
-			$addressErrors = $this->addressValidator->getErrors();
+		// if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
+		// {
+		// 	$errors = $this->validator->getErrors();
+		// 	$addressErrors = $this->addressValidator->getErrors();
 			
-			$errors->merge($addressErrors);
-			return Redirect::back()->with('errors', $errors)->withInput();
-		}
-		else
-		{
-			if ($this->clientRepository->save(Input::all()))
-			{
+		// 	$errors->merge($addressErrors);
+		// 	return Redirect::back()->with('errors', $errors)->withInput();
+		// }
+		// else
+		// {
+			//if ($this->clientRepository->save(Input::all()))
+			// {
+				$this->clientRepository->save(Input::all());
 				return Redirect::route('clients.create')->with('messages', 'Cliente cadastrado com sucesso.');
-			}
-			else
-			{
-				return Redirect::back()->with('errors', 'Erro ao tentar cadastrar cliente, por favor tente novamente.')->withInput();
-			}
-		}
+			// }
+			// else
+			// {
+			// 	return Redirect::back()->with('errors', 'Erro ao tentar cadastrar cliente, por favor tente novamente.')->withInput();
+			// }
+		//}
 	}
 
 	public function update($id)
 	{
-		if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
-		{
-			$errors = $this->validator->getErrors();
-			$addressErrors = $this->addressValidator->getErrors();
+		// if (!$this->validator->validate(Input::all()) && !$this->addressValidator->validate(Input::all()))
+		// {
+		// 	$errors = $this->validator->getErrors();
+		// 	$addressErrors = $this->addressValidator->getErrors();
 			
-			$errors->merge($addressErrors);
-			return Redirect::back()->with('errors', $errors)->withInput();
-		}
-		else
-		{
-			if ($this->clientRepository->update($id, Input::all()))
-			{
+		// 	$errors->merge($addressErrors);
+		// 	return Redirect::back()->with('errors', $errors)->withInput();
+		// }
+		// else
+		// {
+			//if ($this->clientRepository->update($id, Input::all()))
+			//{
+				$this->clientRepository->update($id, Input::all());
 				return Redirect::route('clients.index')->with('messages', 'Informações do cliente alteradas com sucesso.');
-			}
-			else
-			{
-				return Redirect::back()->with('errors', 'Erro ao tentar alterar informações do cliente, por favor tente novamente')->withInput();
-			}
-		}
+			// }
+			// else
+			// {
+			// 	return Redirect::back()->with('errors', 'Erro ao tentar alterar informações do cliente, por favor tente novamente')->withInput();
+			// }
+		//}
 	}
 
 	public function destroy($id)

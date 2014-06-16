@@ -13,6 +13,10 @@
 
 Route::get('login', ['as' => 'sessions.login', 'uses' => 'SessionsController@create', 'before' => 'guest']);
 Route::get('logout', ['as' => 'sessions.logout', 'uses' => 'SessionsController@destroy']);
+Route::get('news/unread', ['as' => 'news.unread', 'uses' => 'NewsController@unread', 'before' => 'auth']);
+Route::get('news/notified', ['as' => 'news.notified', 'uses' => 'NewsController@notified', 'before' => 'auth']);
+Route::get('news/news_viewed', ['as' => 'news.news_viewed', 'uses' => 'NewsController@news_viewed', 'before' => 'auth']);
+Route::get('news/all_avaiable', ['as' => 'news.all_avaiable', 'uses' => 'NewsController@all_avaiable', 'before' => 'auth']);
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
 
 Route::group(['before' => 'auth'], function()

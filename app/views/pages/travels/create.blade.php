@@ -90,20 +90,6 @@
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('out_suply_liters', 'Abastecimento de saída')}}
-                                                                {{ Form::text('out_suply_liters', null, ['id' => 'out_suply_liters' , 'class' => 'form-control double-mask', 'placeholder' => 'Abastecimento em litros']) }}
-                                                                {{ $errors->first('out_suply_liters', '<p class="text-red">:message</p>') }}
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                {{ Form::label('arrival_suply_liters', 'Abastecimento de chegada')}}
-                                                                {{ Form::text('arrival_suply_liters', null, ['id' => 'arrival_suply_liters' , 'class' => 'form-control double-mask', 'placeholder' => 'Abastecimento em litros']) }}
-                                                                {{ $errors->first('arrival_suply_liters', '<p class="text-red">:message</p>') }}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-xs-6">
                                                                 {{ Form::label('out_km', 'Quilometragem de saída')}}
                                                                 {{ Form::text('out_km', null, ['id' => 'out_km' , 'class' => 'form-control', 'placeholder' => 'Quilometragem']) }}
                                                                 {{ $errors->first('out_km', '<p class="text-red">:message</p>') }}
@@ -112,6 +98,37 @@
                                                                 {{ Form::label('arrival_km', 'Quilometragem de chegada')}}
                                                                 {{ Form::text('arrival_km', null, ['id' => 'arrival_km' , 'class' => 'form-control', 'placeholder' => 'Quilometragem']) }}
                                                                 {{ $errors->first('arrival_km', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <h3 class="box-title">Dados de cheque</h3>
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                {{ Form::label('check_number', 'Número do cheque')}}
+                                                                {{ Form::text('check_number', null, ['id' => 'check_number', 'class' => 'form-control', 'placeholder' => 'Insira o número do cheque']) }}
+                                                                {{ $errors->first('check_number', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                {{ Form::label('check_value', 'Valor do cheque')}}
+                                                                {{ Form::text('check_value', null, ['id' => 'check_value', 'class' => 'form-control', 'placeholder' => 'Insira o valor do cheque']) }}
+                                                                {{ $errors->first('check_value', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                {{ Form::label('bank', 'Banco do cheque')}}
+                                                                {{ Form::text('bank', null, ['id' => 'bank', 'class' => 'form-control', 'placeholder' => 'Insira o nome do banco do cheque']) }}
+                                                                {{ $errors->first('bank', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                {{ Form::label('bank_conference', 'Conferência com banco')}}
+                                                                <div id="travel_performace" class="radio">
+                                                                    {{Form::radio('bank_conference', true, true, ['id' => 'bankConferenceYes'])}}
+                                                                    {{Form::label('bankConferenceYes', 'Sim')}}
+                                                                    {{Form::radio('bank_conference', false, false, ['id' => 'bankConferenceNo'])}}
+                                                                    {{Form::label('bankConferenceNo', 'Não')}}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -219,6 +236,75 @@
                                                 </div>
                                             </div>
                                         </div> <!-- .col-xs-10 -->
+                                        <div class="col-xs-10">
+                                            <div class="box">
+                                                <div class="box-header">
+                                                    <h3 class="box-title">Documentos relacionados</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('document_number', 'Nº do documento')}}
+                                                                {{ Form::text('document_number', null, ['id' => 'document_number' , 'class' => 'form-control', 'placeholder' => 'Insira o número do documento']) }}
+                                                                {{ $errors->first('document_number', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('document_type', 'Tipo do documento')}}
+                                                                {{ Form::text('document_type', null, ['id' => 'document_type' , 'class' => 'form-control', 'placeholder' => 'Insira o tipo do documento']) }}
+                                                                {{ $errors->first('document_type', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <div class="form-group">
+                                                                {{ Form::label('document_client_name', 'Nome do cliente')}}
+                                                                {{ Form::text('document_client_name', null, ['id' => 'document_client_name', 'class' => 'form-control', 'placeholder' => 'Insira o nome do cliente do documento']) }}
+                                                                {{ $errors->first('document_client_name', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('document_origin', 'Origem')}}
+                                                                {{ Form::text('document_origin', null, ['id' => 'document_origin', 'class' => 'form-control', 'placeholder' => 'Insira a origem contida no documento']) }}
+                                                                {{ $errors->first('document_origin', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('document_destination', 'Destino')}}
+                                                                {{ Form::text('document_destination', null, ['id' => 'document_destination', 'class' => 'form-control', 'placeholder' => 'Insira o destino contido no documento']) }}
+                                                                {{ $errors->first('document_destination', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('document_service_value', 'Valor do serviço')}}
+                                                                {{ Form::text('document_service_value', null, ['id' => 'document_service_value', 'class' => 'form-control', 'placeholder' => 'Insira o valor do serviço no documento']) }}
+                                                                {{ $errors->first('document_service_value', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('document_cubic_meters', 'Metros cúbicos')}}
+                                                                {{ Form::text('document_cubic_meters', null, ['id' => 'document_cubic_meters', 'class' => 'form-control', 'placeholder' => 'Insira a quantidade de metros cúbicos']) }}
+                                                                {{ $errors->first('document_cubic_meters', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <div class="form-group">
+                                                                {{ Form::button('Adicionar documento relacionado', ['class' => 'btn btn-info btn-lg btn-block add-more', 'value' => '_new_document']) }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> <!-- box-body -->
+                                                <div class="box-footer">
+                                                    <!-- tabela -->
+                                                </div>
+                                            </div> <!-- box -->
+                                        </div> <!-- col-xs-10 -->
                                         <div class="col-xs-10">
                                             <div class="box">
                                                 <div class="box-header">
@@ -332,7 +418,7 @@
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <div class="form-group">
-                                                                {{ Form::label('km_point_to_point', 'Km Ponto a Ponto')}}
+                                                                {{ Form::label('km_point_to_point', 'Média de km')}}
                                                                 {{ Form::text('km_point_to_point', null, ['id' => 'km_point_to_point' , 'class' => 'form-control', 'placeholder' => '##']) }}
                                                             </div>
                                                         </div>
@@ -377,9 +463,9 @@
                                                         </div>
                                                         <div class="col-xs-6">
                                                             <div class="form-group">
-                                                                {{ Form::label('voucher_number', 'Número do vale')}}
-                                                                {{ Form::text('voucher_number', null, ['id' => 'voucher_number' , 'class' => 'form-control', 'placeholder' => '##']) }}
-                                                                {{ $errors->first('voucher_number', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('advance_description', 'Descrição do vale')}}
+                                                                {{ Form::text('advance_description', null, ['id' => 'advance_description' , 'class' => 'form-control', 'placeholder' => 'Insira a descrição do vale']) }}
+                                                                {{ $errors->first('advance_description', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-6">
@@ -419,7 +505,6 @@
         {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
         {{ HTML::script('assets/vendor/jquery.form/jquery.form.js') }}
 
-        {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
         {{ HTML::script('assets/vendor/jquery.form/jquery.form.js') }}
         {{ HTML::script('assets/js/route-travel-form.js') }}
@@ -429,7 +514,7 @@
                     e.preventDefault(); // prevent native submit
                     $(this).ajaxSubmit({
                         type : 'POST',
-                        data : {'routes': routes, 'advances': advances, 'costs': costs},
+                        data : {'routes': routes, 'advances': advances, 'costs': costs, 'documents': documents},
                         success : function(data) {
                             if(data.errors) {
                                 var message = "";
