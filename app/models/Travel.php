@@ -32,12 +32,18 @@
 			return $this->hasMany('TravelDocument');
 		}
 
+		public function checks()
+		{
+			return $this->hasMany('TravelCheck');
+		}
+
 		public function delete()
 		{
 			$this->costs()->delete();
 			$this->advances()->delete();
 			$this->routes()->delete();
 			$this->documents()->delete();
+			$this->checks()->delete();
 			return parent::delete();
 		}
 	}

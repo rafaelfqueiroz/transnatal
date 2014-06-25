@@ -41,9 +41,9 @@
                                                 </div>                                           
                                                 <div class="box-body">
                                                     <div class="form-group">
-                                                        {{ Form::label('to', 'Destino')}}
-                                                        {{ Form::text('travel_to', $travel->to, ['id' => 'to' , 'class' => 'form-control', 'placeholder' => 'Insira o destino da viagem']) }}
-                                                        {{ $errors->first('to', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('travel_to', 'Destino')}}
+                                                        {{ Form::text('travel_to', $travel->to, ['id' => 'travel_to' , 'class' => 'form-control', 'placeholder' => 'Insira o destino da viagem']) }}
+                                                        {{ $errors->first('travel_to', '<p class="text-red">:message</p>') }}
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="row">
@@ -102,44 +102,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <h3 class="box-title">Dados de cheque</h3>
-                                                        <div class="row">
-                                                            <div class="col-xs-6">
-                                                                {{ Form::label('check_number', 'Número do cheque')}}
-                                                                {{ Form::text('check_number', $travel->check_number, ['id' => 'check_number', 'class' => 'form-control', 'placeholder' => 'Insira o número do cheque']) }}
-                                                                {{ $errors->first('check_number', '<p class="text-red">:message</p>') }}
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                {{ Form::label('check_value', 'Valor do cheque')}}
-                                                                {{ Form::text('check_value', $travel->check_value, ['id' => 'check_value', 'class' => 'form-control', 'placeholder' => 'Insira o valor do cheque']) }}
-                                                                {{ $errors->first('check_value', '<p class="text-red">:message</p>') }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-xs-6">
-                                                                {{ Form::label('bank', 'Banco do cheque')}}
-                                                                {{ Form::text('bank', $travel->bank, ['id' => 'bank', 'class' => 'form-control', 'placeholder' => 'Insira o nome do banco do cheque']) }}
-                                                                {{ $errors->first('bank', '<p class="text-red">:message</p>') }}
-                                                            </div>
-                                                            <div class="col-xs-6">
-                                                                {{ Form::label('bank_conference', 'Conferência com banco')}}
-                                                                <div id="travel_performace" class="radio">
-                                                                    @if ($travel->bank_conference == 1)
-                                                                        {{Form::radio('bank_conference', true, true, ['id' => 'bankConferenceYes'])}}
-                                                                        {{Form::label('bankConferenceYes', 'Sim')}}
-                                                                        {{Form::radio('bank_conference', false, false, ['id' => 'bankConferenceNo'])}}
-                                                                        {{Form::label('bankConferenceNo', 'Não')}}
-                                                                    @else
-                                                                        {{Form::radio('bank_conference', true, false, ['id' => 'bankConferenceYes'])}}
-                                                                        {{Form::label('bankConferenceYes', 'Sim')}}
-                                                                        {{Form::radio('bank_conference', false, true, ['id' => 'bankConferenceNo'])}}
-                                                                        {{Form::label('bankConferenceNo', 'Não')}}
-                                                                    @endif
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
                                                         <h3 class="box-title">Controle de portaria</h3>
                                                         <div class="row">
                                                             <div class="col-xs-6">
@@ -177,12 +139,12 @@
                                                                     @if ($travel->document_receipt_arrive == 1)
                                                                         {{Form::radio('document_receipt_arrive', true, true, ['id' => 'receiptStateYes'])}}
                                                                         {{Form::label('receiptStateYes', 'Sim')}}
-                                                                        {{Form::radio('document_receipt_arrive', false, false, ['id' => 'receiptStateNo'])}}
+                                                                        {{Form::radio('document_receipt_arrive', 0, false, ['id' => 'receiptStateNo'])}}
                                                                         {{Form::label('receiptStateNo', 'Não')}}
                                                                     @else
                                                                         {{Form::radio('document_receipt_arrive', true, false, ['id' => 'receiptStateYes'])}}
                                                                         {{Form::label('receiptStateYes', 'Sim')}}
-                                                                        {{Form::radio('document_receipt_arrive', false, true, ['id' => 'receiptStateNo'])}}
+                                                                        {{Form::radio('document_receipt_arrive', 0, true, ['id' => 'receiptStateNo'])}}
                                                                         {{Form::label('receiptStateNo', 'Não')}}
                                                                     @endif
                                                                 </div>
@@ -197,12 +159,12 @@
                                                                     @if ($travel->all_documents_right == 1)
                                                                         {{Form::radio('all_documents_right', true, true, ['id' => 'othersDocsYes'])}}
                                                                         {{Form::label('othersDocsYes', 'Sim')}}
-                                                                        {{Form::radio('all_documents_right', false, false, ['id' => 'othersDocsNo'])}}
+                                                                        {{Form::radio('all_documents_right', 0, false, ['id' => 'othersDocsNo'])}}
                                                                         {{Form::label('othersDocsNo', 'Não')}}
                                                                     @else
                                                                         {{Form::radio('all_documents_right', true, false, ['id' => 'othersDocsYes'])}}
                                                                         {{Form::label('othersDocsYes', 'Sim')}}
-                                                                        {{Form::radio('all_documents_right', false, true, ['id' => 'othersDocsNo'])}}
+                                                                        {{Form::radio('all_documents_right', 0, true, ['id' => 'othersDocsNo'])}}
                                                                         {{Form::label('othersDocsNo', 'Não')}}
                                                                     @endif
                                                                 </div>
@@ -217,12 +179,12 @@
                                                                     @if ($travel->tachograph_right == 1)
                                                                         {{Form::radio('tachograph_right', true, true, ['id' => 'tacographSequenceYes'])}}
                                                                         {{Form::label('tacographSequenceYes', 'Sim')}}
-                                                                        {{Form::radio('tachograph_right', false, false, ['id' => 'tacographSequenceNo'])}}
+                                                                        {{Form::radio('tachograph_right', 0, false, ['id' => 'tacographSequenceNo'])}}
                                                                         {{Form::label('tacographSequenceNo', 'Não')}}
                                                                     @else
                                                                         {{Form::radio('tachograph_right', true, false, ['id' => 'tacographSequenceYes'])}}
                                                                         {{Form::label('tacographSequenceYes', 'Sim')}}
-                                                                        {{Form::radio('tachograph_right', false, true, ['id' => 'tacographSequenceNo'])}}
+                                                                        {{Form::radio('tachograph_right', 0, true, ['id' => 'tacographSequenceNo'])}}
                                                                         {{Form::label('tacographSequenceNo', 'Não')}}
                                                                     @endif
                                                                 </div>
@@ -235,12 +197,12 @@
                                                             @if ($travel->travel_performace == 1)
                                                                 {{Form::radio('travel_performace', true, true, ['id' => 'travelPerformanceYes'])}}
                                                                 {{Form::label('travelPerformanceYes', 'Bom')}}
-                                                                {{Form::radio('travel_performace', false, false, ['id' => 'travelPerformanceNo'])}}
+                                                                {{Form::radio('travel_performace', 0, false, ['id' => 'travelPerformanceNo'])}}
                                                                 {{Form::label('travelPerformanceNo', 'Ruim')}}
                                                             @else
                                                                 {{Form::radio('travel_performace', true, false, ['id' => 'travelPerformanceYes'])}}
                                                                 {{Form::label('travelPerformanceYes', 'Bom')}}
-                                                                {{Form::radio('travel_performace', false, true, ['id' => 'travelPerformanceNo'])}}
+                                                                {{Form::radio('travel_performace', 0, true, ['id' => 'travelPerformanceNo'])}}
                                                                 {{Form::label('travelPerformanceNo', 'Ruim')}}
                                                             @endif
                                                         </div>
@@ -270,6 +232,92 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div> <!-- .col-xs-10 -->
+                                        <div class="col-xs-10">
+                                            <div class="box">
+                                                <div class="box-header">
+                                                    <h3 class="box-title">Cheques</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('check_number', 'Número do cheque')}}
+                                                                {{ Form::text('check_number', null, ['id' => 'check_number', 'class' => 'form-control', 'placeholder' => 'Insira o número do cheque']) }}
+                                                                {{ $errors->first('check_number', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('check_value', 'Valor do cheque')}}
+                                                                {{ Form::text('check_value', null, ['id' => 'check_value', 'class' => 'form-control', 'placeholder' => 'Insira o valor do cheque']) }}
+                                                                {{ $errors->first('check_value', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('check_bank', 'Banco do cheque')}}
+                                                                {{ Form::text('check_bank', null, ['id' => 'check_bank', 'class' => 'form-control', 'placeholder' => 'Insira o nome do banco do cheque']) }}
+                                                                {{ $errors->first('check_bank', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                {{ Form::label('check_bank_conference', 'Conferência com banco')}}
+                                                                <div id="travel_performace" class="radio">
+                                                                    {{Form::radio('check_bank_conference', true, true, ['id' => 'bankConferenceYes'])}}
+                                                                    {{Form::label('bankConferenceYes', 'Sim')}}
+                                                                    {{Form::radio('check_bank_conference', 0, false, ['id' => 'bankConferenceNo'])}}
+                                                                    {{Form::label('bankConferenceNo', 'Não')}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <div class="form-group">
+                                                                {{ Form::button('Adicionar cheque', ['class' => 'btn btn-info btn-lg btn-block add-more', 'value' => '_new_check']) }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box-footer">
+                                                    <!-- tabela -->
+                                                    @if ($travel->checks && count($travel->checks) > 0)
+                                                        <table class="table table-striped">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><b>#</b></td>
+                                                                    <td><b>Número do cheque</b></td>
+                                                                    <td><b>Valor do cheque</b></td>
+                                                                    <td><b>Banco do cheque</b></td>
+                                                                    <td><b>Conferência com banco</b></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                {{--*/ $i = 0 /*--}}
+                                                                
+                                                                @foreach ($travel->checks as $check)
+                                                                    <tr>
+                                                                        <td>{{++$i}}</td>
+                                                                        <td>{{$check->check_number}}</td>
+                                                                        <td>{{$check->check_value}}</td>
+                                                                        <td>{{$check->bank}}</td>
+                                                                        @if ($check->bank_conference == 1)
+                                                                            <td>Sim</td>
+                                                                        @elseif ($check->bank_conference == 0)
+                                                                            <td>Não</td>
+                                                                        @endif
+                                                                        <td>
+                                                                            <button type='button' class='btn btn-warning btn-sm' 
+                                                                            data-toggle='tooltip' data-original-title='Clique para remover' 
+                                                                            value='_new_document' onclick='removeRow(this)'>
+                                                                            <i class='fa fa-fw fa-trash-o'></i></button>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    @endif
+                                                </div>
+                                            </div> <!-- .box -->
                                         </div> <!-- .col-xs-10 -->
                                         <div class="col-xs-10">
                                             <div class="box">
@@ -338,7 +386,7 @@
                                                 <div class="box-footer">
                                                     <!-- tabela -->
                                                     
-                                                    @if ($travel->documents && count($travel->routes) > 0)
+                                                    @if ($travel->documents && count($travel->documents) > 0)
                                                         <table class="table table-striped">
                                                             <tbody>
                                                                 <tr>
@@ -690,11 +738,13 @@
                 costs = {{$travel->costs->toJson()}};
                 advances = {{$travel->advances->toJson()}};
                 documents = {{$travel->documents->toJson()}};
+                checks = {{$travel->checks->toJson()}};
+
                 $('form').on('submit', function(e) {
                     e.preventDefault(); // prevent native submit
                     $(this).ajaxSubmit({
                         type : 'POST',
-                        data : {'routes': routes, 'advances': advances, 'costs': costs, 'documents': documents},
+                        data : {'routes': routes, 'advances': advances, 'costs': costs, 'documents': documents, 'checks': checks},
                         success : function(data) {
                             if(data.errors) {
                                 var message = "";
@@ -724,10 +774,9 @@
 
                     });
                 });
+                $('.datepicker').datepicker();
+                $('#travel_to').trigger('click');
+                $('#travel_to').focus();
             });
-
-            $('.datepicker').datepicker();
-            $('#travel_to').trigger('click');
-            $('#travel_to').focus();
         </script>
     @stop

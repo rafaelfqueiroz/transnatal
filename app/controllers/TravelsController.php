@@ -78,6 +78,8 @@ class TravelsController extends BaseController {
 
 	public function store()
 	{
+		// var_dump(Input::all());
+		// die();
 		//$this->validator->validate(Input::all());
 		// $this->travelRouteValidator->validate(Input::all());
 		// $this->travelAdvanceValidator->validate(Input::all());

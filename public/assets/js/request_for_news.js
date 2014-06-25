@@ -3,7 +3,8 @@ var notified = false;
 var news_read = false;
 var not_shown = false;
 $(document).ready(function() {
-	setInterval(function() {
+	setTimeout(function (){
+		setInterval(function() {
 		$.get('/news/unread', function(data) {
 				unread_news = data.news;
 				notified = data.notified;
@@ -15,4 +16,5 @@ $(document).ready(function() {
 
 		});
 	}, 15000);
+	}, 5000);
 });

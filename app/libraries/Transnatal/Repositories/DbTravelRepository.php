@@ -8,6 +8,7 @@ use TravelAdvance;
 use TravelCost;
 use TravelRoute;
 use TravelDocument;
+use TravelCheck;
 
 class DbTravelRepository implements TravelRepositoryInterface {
 
@@ -63,28 +64,7 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		$travel = $this->set_travel_with_input_data($input, $travel);
 		$travel->save();
 
-		if (isset($input['costs']))
-		{
-			$travelCosts = array();
-			$travelCosts = $this->set_travel_costs_with_input_data($input['costs'], $travelCosts, $travel);
-			TravelCost::insert($travelCosts);
-		}
-
-		if (isset($input['advances']))
-		{
-			$travelAdvances = array();
-			$travelAdvances = $this->set_travel_advances_with_input_data($input['advances'], $travelAdvances, $travel);
-			TravelAdvance::insert($travelAdvances);
-		}
-
-		if (isset($input['routes']))
-		{
-			$travelRoutes = array();
-			$travelRoutes = $this->set_travel_routes_with_input_data($input['routes'], $travelRoutes, $travel);
-			TravelRoute::insert($travelRoutes);
-		}
-
-		return $travel;
+		return $this->save_data_from_inputs($input, $travel);
 	}
 
 	public function update($id, $input)
@@ -97,11 +77,21 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		TravelAdvance::where('travel_id', $travel->id)->delete();
 		TravelRoute::where('travel_id', $travel->id)->delete();
 		TravelDocument::where('travel_id', $travel->id)->delete();
+		TravelCheck::where('travel_id', $travel->id)->delete();
 
+		return $this->save_data_from_inputs($input, $travel);
+	}
+
+	public function delete($id)
+	{
+		Travel::destroy($id);
+	}
+
+	private function save_data_from_inputs($input, $travel)
+	{
 		if (isset($input['costs']))
 		{
 			$travelCosts = array();
-			
 			$travelCosts = $this->set_travel_costs_with_input_data($input['costs'], $travelCosts, $travel);
 			TravelCost::insert($travelCosts);
 		}
@@ -109,7 +99,6 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		if (isset($input['advances']))
 		{
 			$travelAdvances = array();
-			
 			$travelAdvances = $this->set_travel_advances_with_input_data($input['advances'], $travelAdvances, $travel);
 			TravelAdvance::insert($travelAdvances);
 		}
@@ -117,7 +106,6 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		if (isset($input['routes']))
 		{
 			$travelRoutes = array();
-			
 			$travelRoutes = $this->set_travel_routes_with_input_data($input['routes'], $travelRoutes, $travel);
 			TravelRoute::insert($travelRoutes);
 		}
@@ -125,16 +113,17 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		if (isset($input['documents']))
 		{
 			$travelDocuments = array();
-			
 			$travelDocuments = $this->set_travel_documents_with_input_data($input['documents'], $travelDocuments, $travel);
 			TravelDocument::insert($travelDocuments);
 		}
-		return $travel;
-	}
 
-	public function delete($id)
-	{
-		Travel::destroy($id);
+		if (isset($input['checks']))
+		{
+			$travelChecks = array();
+			$travelChecks = $this->set_travel_checks_with_input_data($input['checks'], $travelChecks, $travel);
+			TravelCheck::insert($travelChecks);
+		}
+		return $travel;
 	}
 
 	private function set_travel_with_input_data($input, $travel)
@@ -158,10 +147,6 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		$travel->document_receipt_arrive = $input['document_receipt_arrive'];
 		$travel->all_documents_right = $input['all_documents_right'];
 		$travel->tachograph_right = $input['tachograph_right'];
-		$travel->check_number = $input['check_number'];
-		$travel->check_value = $input['check_value'];
-		$travel->bank = $input['bank'];
-		$travel->bank_conference = $input['bank_conference'];
 		$travel->vehicle_id = $input['vehicle_id'];
 		$travel->employee_id = $input['employee_id'];
 
@@ -235,5 +220,20 @@ class DbTravelRepository implements TravelRepositoryInterface {
 			array_push($travelDocuments, $documentArray);
 		}
 		return $travelDocuments;
+	}
+
+	private function set_travel_checks_with_input_data($checks, $travelChecks, $travel)
+	{
+		foreach ($checks as $key => $value) {
+			$checkArray = array(
+				'check_number' => $value['check_number'],
+				'check_value' =>  $value['check_value'],
+				'bank' =>  $value['check_bank'],
+				'bank_conference' =>  $value['check_bank_conference'],
+				'travel_id' =>  $travel->id
+			);
+			array_push($travelChecks, $checkArray);
+		}
+		return $travelChecks;
 	}
 }

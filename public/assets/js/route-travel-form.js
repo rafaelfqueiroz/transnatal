@@ -3,12 +3,13 @@ var advances = [];
 var routes = [];
 var costs = [];
 var documents = [];
+var checks = [];
 
 $('.add-more').each(function() {
 	var button = $(this);
 	button.click(function(event){
 		var parentBox = $(this).parents('.box').get(0);
-		var inputs = $(parentBox).find(':input[type="text"], textarea');
+		var inputs = $(parentBox).find(':input[type="text"], textarea, div.iradio_minimal.checked>input[type="radio"]');
 		var type = $(button).val();
 		//if (validateInputs(inputs)) {
 		var obj;
@@ -54,9 +55,11 @@ function addRow(inputs, tbody, type) {
 	}
 	row += "<tr><td>" + nextIndex + "</td>";
 	$.each(inputs, function (index, element) {
-		row += "<td>" + $(element).val() + "</td>";
+		row += "<td>" + newRowValue(element) + "</td>";
 		obj[$(element).attr('name')] = $(element).val();
-		$(element).val("");
+		if ($(element).attr('type') != 'radio') {
+			$(element).val("");
+		}
 	});
 	row+="<td><button type='button' class='btn btn-warning btn-sm' data-toggle='tooltip'"+
 	" data-original-title='Clique para remover' value='"+ type + "' onclick='removeRow(this)'>"+
@@ -64,6 +67,18 @@ function addRow(inputs, tbody, type) {
 	$(tbody).append(row);
 	$('button').tooltip();//inicia o tooltip do botão
 	return obj;
+}
+
+function newRowValue(element) {
+	if ($(element).attr('type') == 'radio') {
+		if ($(element).val() == 1) {
+			return "Sim";
+		} else {
+			return "Não";
+		}
+	} else {
+		return $(element).val();
+	}
 }
 
 function addTableAndRow(inputs, boxFooter, parentBox, type) {
@@ -106,6 +121,8 @@ function removeRow(button) {
 		costs.splice(tdValue-1,1);
 	} else if (type == '_new_document') {
 		documents.splice(tdValue-1,1);
+	} else if (type == '_new_check') {
+		checks.splice(tdValue-1,1);
 	}
 }
 
@@ -118,5 +135,7 @@ function addObjectInArray(obj, type) {
 		costs.push(obj);
 	} else if (type == '_new_document') {
 		documents.push(obj);
+	} else if (type == '_new_check') {
+		checks.push(obj);
 	}
 }

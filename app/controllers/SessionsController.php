@@ -28,7 +28,7 @@ class SessionsController extends BaseController {
 
         if ($attempt)
         {
-            return Redirect::intended('/index')->with('flash_message', 'Você efetuou login com sucesso!');  
+            return Redirect::to('/index')->with('flash_message', 'Você efetuou login com sucesso!');  
         }
         else
         {
@@ -44,6 +44,7 @@ class SessionsController extends BaseController {
     public function destroy()
     {
         Auth::logout();
+        Session::flush();
         return Redirect::to('/login');
     }
 
