@@ -48,16 +48,15 @@
                                                         {{ $errors->first('client_id', '<p class="text-red">:message</p>') }}
                                                     </div>
                                                     <div class="form-group">
-                                                        <div id="document_receipt_arrive" class="radio">
+                                                        <div id="service_type" class="radio">
                                                             <div class="row">
                                                                 <div class="col-xs-6">
                                                                     Tipo de Transporte
                                                                 </div>
                                                                 <div class="col-xs-6">
-                                                                    {{Form::radio('service_type', true, true, ['id' => 'service_type_local'])}}
-                                                                    {{Form::label('receiptStateYes', 'Local')}}
-                                                                    {{Form::radio('service_type', false, false, ['id' => 'service_type_intermunicipal'])}}
-                                                                    {{Form::label('receiptStateNo', 'Intermunicipal')}}
+                                                                    <input type="radio" name="service_type" class="local" value="local" id="local" checked> Local
+                                                                    <input type="radio" name="service_type" class="intermunicipal" value="intermunicipal" id="intermunicipal"> Intermunicipal
+                                                        
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -93,7 +92,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         {{ Form::label('payament_method', 'Forma de Pagamento')}}
-                                                        {{ Form::select('state', [
+                                                        {{ Form::select('payament_method', [
                                                             'À vista' => 'À vista',
                                                             'Cartão' => 'Cartão',
                                                             'Cheque' => 'Cheque'
@@ -147,7 +146,6 @@
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('survey_date', 'Data de Vistoria')}}
                                                                 {{ Form::text('survey_date', null, ['id' => 'survey_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
-                                                                {{ $errors->first('survey_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('survey_hour', 'Hora de Vistoria')}}
@@ -205,39 +203,34 @@
                                                 </div>
                                                 <div class="box-body">
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressStreet', 'Logradouro')}}
-                                                        {{ Form::text('street_from', null, ['id' => 'clientAddressStreetFrom' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida']) }}
-                                                        {{ $errors->first('street', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('clientAddressStreetFrom', 'Logradouro')}}
+                                                        {{ Form::text('clientAddressStreetFrom', null, ['id' => 'clientAddressStreetFrom' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida']) }}
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('clientAddressNumber', 'Número')}}
-                                                                {{ Form::text('number_from', null, ['id' => 'clientAddressNumberFrom' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial']) }}
-                                                                {{ $errors->first('number', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientAddressNumberFrom', 'Número')}}
+                                                                {{ Form::text('clientAddressNumberFrom', null, ['id' => 'clientAddressNumberFrom' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial']) }}
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('clientAddressCep', 'CEP')}}
-                                                                {{ Form::text('zip_code_from', null, ['id' => 'clientAddressCepFrom' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###']) }}
-                                                                {{ $errors->first('zip_code', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientAddressZipCodeFrom', 'CEP')}}
+                                                                {{ Form::text('clientAddressZipCodeFrom', null, ['id' => 'clientAddressZipCodeFrom' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###']) }}
                                                             </div>
                                                             <div class="col-xs-12">
-                                                                {{ Form::label('clientAddressNeighborhood', 'Bairro')}}
-                                                                {{ Form::text('neighborhood_from', null, ['id' => 'clientAddressNeighborhoodFrom' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora']) }}
-                                                                {{ $errors->first('neighborhood', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientAddressNeighborhoodFrom', 'Bairro')}}
+                                                                {{ Form::text('clientAddressNeighborhoodFrom', null, ['id' => 'clientAddressNeighborhoodFrom' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora']) }}
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-xs-7">
-                                                                {{ Form::label('clientAddressCity', 'Cidade')}}
-                                                                {{ Form::text('city_from', null, ['id' => 'clientAddressCityFrom' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora']) }}
-                                                                {{ $errors->first('city', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientAddressCityFrom', 'Cidade')}}
+                                                                {{ Form::text('clientAddressCityFrom', null, ['id' => 'clientAddressCityFrom' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora']) }}
                                                             </div>
                                                             <div class="col-xs-5">
-                                                                {{ Form::label('clientAddressState', 'Estado')}}
-                                                                {{ Form::select('state_from', [
+                                                                {{ Form::label('clientAddressStateFrom', 'Estado')}}
+                                                                {{ Form::select('clientAddressStateFrom', [
                                                                     'AC' => 'AC',
                                                                     'AL' => 'AL',
                                                                     'AP' => 'AP',
@@ -270,14 +263,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressComplement', 'Complemento')}}
-                                                        {{ Form::text('complement_from', null, ['id' => 'clientAddressComplementFrom' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
-                                                        {{ $errors->first('complement', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('clientAddressComplementFrom', 'Complemento')}}
+                                                        {{ Form::text('clientAddressComplementFrom', null, ['id' => 'clientAddressComplementFrom' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
                                                     </div>
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressReference', 'Referência')}}
-                                                        {{ Form::text('reference_from', null, ['id' => 'clientAddressReferenceFrom' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
-                                                        {{ $errors->first('reference', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('clientAddressReferenceFrom', 'Referência')}}
+                                                        {{ Form::text('clientAddressReferenceFrom', null, ['id' => 'clientAddressReferenceFrom' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
                                                     </div>
                                                 </div> <!-- box-body -->
                                             </div> <!-- box -->
@@ -289,39 +280,34 @@
                                                 </div>
                                                 <div class="box-body">
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressStreet', 'Logradouro')}}
-                                                        {{ Form::text('street_to', null, ['id' => 'clientAddressStreetTo' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida']) }}
-                                                        {{ $errors->first('street', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('clientAddressStreetTo', 'Logradouro')}}
+                                                        {{ Form::text('clientAddressStreetTo', null, ['id' => 'clientAddressStreetTo' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida']) }}
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('clientAddressNumber', 'Número')}}
-                                                                {{ Form::text('number_to', null, ['id' => 'clientAddressNumberTo' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial']) }}
-                                                                {{ $errors->first('number', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientAddressNumberTo', 'Número')}}
+                                                                {{ Form::text('clientAddressNumberTo', null, ['id' => 'clientAddressNumberTo' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial']) }}
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('clientAddressCep', 'CEP')}}
-                                                                {{ Form::text('zip_code_to', null, ['id' => 'clientAddressCepTo' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###']) }}
-                                                                {{ $errors->first('zip_code', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientAddressZipCodeTo', 'CEP')}}
+                                                                {{ Form::text('clientAddressZipCodeTo', null, ['id' => 'clientAddressZipCodeTo' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###']) }}
                                                             </div>
                                                             <div class="col-xs-12">
-                                                                {{ Form::label('clientAddressNeighborhood', 'Bairro')}}
-                                                                {{ Form::text('neighborhood_to', null, ['id' => 'clientAddressNeighborhoodTo' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora']) }}
-                                                                {{ $errors->first('neighborhood', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientAddressNeighborhoodTo', 'Bairro')}}
+                                                                {{ Form::text('clientAddressNeighborhoodTo', null, ['id' => 'clientAddressNeighborhoodTo' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora']) }}
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-xs-7">
-                                                                {{ Form::label('clientAddressCity', 'Cidade')}}
-                                                                {{ Form::text('city_to', null, ['id' => 'clientAddressCityTo' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora']) }}
-                                                                {{ $errors->first('city', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientAddressCityTo', 'Cidade')}}
+                                                                {{ Form::text('clientAddressCityTo', null, ['id' => 'clientAddressCityTo' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora']) }}
                                                             </div>
                                                             <div class="col-xs-5">
-                                                                {{ Form::label('clientAddressState', 'Estado')}}
-                                                                {{ Form::select('state_to', [
+                                                                {{ Form::label('clientAddressStateTo', 'Estado')}}
+                                                                {{ Form::select('clientAddressStateTo', [
                                                                     'AC' => 'AC',
                                                                     'AL' => 'AL',
                                                                     'AP' => 'AP',
@@ -354,14 +340,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressComplement', 'Complemento')}}
-                                                        {{ Form::text('complement_to', null, ['id' => 'clientAddressComplementTo' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
-                                                        {{ $errors->first('complement', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('clientAddressComplementTo', 'Complemento')}}
+                                                        {{ Form::text('clientAddressComplementTo', null, ['id' => 'clientAddressComplementTo' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
                                                     </div>
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressReference', 'Referência')}}
-                                                        {{ Form::text('reference_to', null, ['id' => 'clientAddressReferenceTo' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
-                                                        {{ $errors->first('reference', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('clientAddressReferenceTo', 'Referência')}}
+                                                        {{ Form::text('clientAddressReferenceTo', null, ['id' => 'clientAddressReferenceTo' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
                                                     </div>
                                                 </div> <!-- box-body -->
                                             </div> <!-- box -->
@@ -373,38 +357,33 @@
                                                 </div>
                                                 <div class="box-body">
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressStreet', 'Logradouro')}}
-                                                        {{ Form::text('street', null, ['id' => 'clientAddressStreet' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida']) }}
-                                                        {{ $errors->first('street', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('street', 'Logradouro')}}
+                                                        {{ Form::text('street', null, ['id' => 'street' , 'class' => 'form-control', 'placeholder' => 'Insira o nome da rua/avenida']) }}
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('clientAddressNumber', 'Número')}}
-                                                                {{ Form::text('number', null, ['id' => 'clientAddressNumber' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial']) }}
-                                                                {{ $errors->first('number', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('number', 'Número')}}
+                                                                {{ Form::text('number', null, ['id' => 'number' , 'class' => 'form-control', 'placeholder' => 'Insira o número residencial']) }}
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                {{ Form::label('clientAddressCep', 'CEP')}}
-                                                                {{ Form::text('zip_code', null, ['id' => 'clientAddressCep' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###']) }}
-                                                                {{ $errors->first('zip_code', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('zip_code', 'CEP')}}
+                                                                {{ Form::text('zip_code', null, ['id' => 'zip_code' , 'class' => 'form-control zip-code-mask', 'placeholder' => '#####-###']) }}
                                                             </div>
                                                             <div class="col-xs-12">
-                                                                {{ Form::label('clientAddressNeighborhood', 'Bairro')}}
-                                                                {{ Form::text('neighborhood', null, ['id' => 'clientAddressNeighborhood' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora']) }}
-                                                                {{ $errors->first('neighborhood', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('neighborhood', 'Bairro')}}
+                                                                {{ Form::text('neighborhood', null, ['id' => 'neighborhood' , 'class' => 'form-control', 'placeholder' =>'Insira o nome do bairo em que mora']) }}
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-xs-7">
-                                                                {{ Form::label('clientAddressCity', 'Cidade')}}
-                                                                {{ Form::text('city', null, ['id' => 'clientAddressCity' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora']) }}
-                                                                {{ $errors->first('city', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('city', 'Cidade')}}
+                                                                {{ Form::text('city', null, ['id' => 'city' , 'class' => 'form-control', 'placeholder' =>'Insira o nome da cidade em que mora']) }}
                                                             </div>
                                                             <div class="col-xs-5">
-                                                                {{ Form::label('clientAddressState', 'Estado')}}
+                                                                {{ Form::label('state', 'Estado')}}
                                                                 {{ Form::select('state', [
                                                                     'AC' => 'AC',
                                                                     'AL' => 'AL',
@@ -433,19 +412,17 @@
                                                                     'SP' => 'SP',
                                                                     'SE' => 'SE',
                                                                     'TO' => 'TO'
-                                                                ] , null, ['id' => 'clientAddressState', 'class' => 'form-control']) }}
+                                                                ] , null, ['id' => 'state', 'class' => 'form-control']) }}
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressComplement', 'Complemento')}}
-                                                        {{ Form::text('complement', null, ['id' => 'clientAddressComplement' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
-                                                        {{ $errors->first('complement', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('complement', 'Complemento')}}
+                                                        {{ Form::text('complement', null, ['id' => 'complement' , 'class' => 'form-control', 'placeholder' =>'Insira um complemento para seu endereço'])}}
                                                     </div>
                                                     <div class="form-group">
-                                                        {{ Form::label('clientAddressReference', 'Referência')}}
-                                                        {{ Form::text('reference', null, ['id' => 'clientAddressReference' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
-                                                        {{ $errors->first('reference', '<p class="text-red">:message</p>') }}
+                                                        {{ Form::label('reference', 'Referência')}}
+                                                        {{ Form::text('reference', null, ['id' => 'reference' , 'class' => 'form-control', 'placeholder' =>'Insira uma referência para seu endereço'])}}
                                                     </div>
                                                 </div> <!-- box-body -->
                                             </div> <!-- box -->
@@ -478,11 +455,27 @@
             });
         </script>
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('service_type_local').on('click', function(e) {
-                    alertify.alert("fodeu");
-                });
+            $(document).ready(function() {
+                disableIntermunicipalEntity();
             });
+            $('#local').on('ifChecked', function (event) {
+                disableIntermunicipalEntity();
+            });
+            $('#intermunicipal').on('ifChecked', function (event) {
+                disableLocalEntity();
+            });
+            function disableLocalEntity() {
+                $('.service_order').hide();
+                //$('#service_order').removeAttr('readonly');
+                $('.transport').show();
+                //$('#transport').attr('readonly','readonly');
+            }
+            function disableIntermunicipalEntity() {
+                $('.service_order').show();
+                //$('#service_order').attr('readonly','readonly');
+                $('.transport').hide();
+                //$('#transport').removeAttr('readonly');
+            }
         </script>
         <script type="text/javascript">
             $(document).ready(function() {
@@ -514,7 +507,7 @@
                     var fax = $('[name=fax]').val();
                     var clientAddressStreetFrom = $('[name=clientAddressStreetFrom]').val();
                     var clientAddressNumberFrom = $('[name=clientAddressNumberFrom]').val();
-                    var clientAddressCepFrom = $('[name=clientAddressCepFrom]').val();
+                    var clientAddressZipCodeFrom = $('[name=clientAddressZipCodeFrom]').val();
                     var clientAddressNeighborhoodFrom = $('[name=clientAddressNeighborhoodFrom]').val();
                     var clientAddressCityFrom = $('[name=clientAddressCityFrom]').val();
                     var clientAddressStateFrom = $('[name=clientAddressStateFrom]').val();
@@ -522,20 +515,20 @@
                     var clientAddressReferenceFrom = $('[name=clientAddressReferenceFrom]').val();
                     var clientAddressStreetTo = $('[name=clientAddressStreetTo]').val();
                     var clientAddressNumberTo = $('[name=clientAddressNumberTo]').val();
-                    var clientAddressCepTo = $('[name=clientAddressCepTo]').val();
+                    var clientAddressZipCodeTo = $('[name=clientAddressZipCodeTo]').val();
                     var clientAddressNeighborhoodTo = $('[name=clientAddressNeighborhoodTo]').val();
                     var clientAddressCityTo = $('[name=clientAddressCityTo]').val();
                     var clientAddressStateTo = $('[name=clientAddressStateTo]').val();
                     var clientAddressComplementTo = $('[name=clientAddressComplementTo]').val();
                     var clientAddressReferenceTo = $('[name=clientAddressReferenceTo]').val();
-                    var clientAddressStreet = $('[name=clientAddressStreet]').val();
-                    var clientAddressNumber = $('[name=clientAddressNumber]').val();
-                    var clientAddressCep = $('[name=clientAddressCep]').val();
-                    var clientAddressNeighborhood = $('[name=clientAddressNeighborhood]').val();
-                    var clientAddressCity = $('[name=clientAddressCity]').val();
-                    var clientAddressState = $('[name=clientAddressState]').val();
-                    var clientAddressComplement = $('[name=clientAddressComplement]').val();
-                    var clientAddressReference = $('[name=clientAddressReference]').val();
+                    var street = $('[name=street]').val();
+                    var number = $('[name=number]').val();
+                    var zip_code = $('[name=zip_code]').val();
+                    var neighborhood = $('[name=neighborhood]').val();
+                    var city = $('[name=city]').val();
+                    var state = $('[name=state]').val();
+                    var complement = $('[name=complement]').val();
+                    var reference = $('[name=reference]').val();
 
                     var post = $.post(url, {
                         client_id: client_id,
@@ -563,7 +556,7 @@
                         fax: fax,
                         clientAddressStreetFrom: clientAddressStreetFrom,
                         clientAddressNumberFrom: clientAddressNumberFrom,
-                        clientAddressCepFrom: clientAddressCepFrom,
+                        clientAddressZipCodeFrom: clientAddressZipCodeFrom,
                         clientAddressNeighborhoodFrom: clientAddressNeighborhoodFrom,
                         clientAddressCityFrom: clientAddressCityFrom,
                         clientAddressStateFrom: clientAddressStateFrom,
@@ -571,20 +564,20 @@
                         clientAddressReferenceFrom: clientAddressReferenceFrom,
                         clientAddressStreetTo: clientAddressStreetTo,
                         clientAddressNumberTo: clientAddressNumberTo,
-                        clientAddressCepTo: clientAddressCepTo,
+                        clientAddressZipCodeTo: clientAddressZipCodeTo,
                         clientAddressNeighborhoodTo: clientAddressNeighborhoodTo,
                         clientAddressCityTo: clientAddressCityTo,
                         clientAddressStateTo: clientAddressStateTo,
                         clientAddressComplementTo: clientAddressComplementTo,
                         clientAddressReferenceTo: clientAddressReferenceTo,
-                        clientAddressStreet: clientAddressStreet,
-                        clientAddressNumber: clientAddressNumber,
-                        clientAddressCep: clientAddressCep,
-                        clientAddressNeighborhood: clientAddressNeighborhood,
-                        clientAddressCity: clientAddressCity,
-                        clientAddressState: clientAddressState,
-                        clientAddressComplement: clientAddressComplement,
-                        clientAddressReference: clientAddressReference
+                        street: street,
+                        number: number,
+                        zip_code: zip_code,
+                        neighborhood: neighborhood,
+                        city: city,
+                        state: state,
+                        complement: complement,
+                        reference: reference
                     });
                     post.done(function(data) {
                         console.log(data);
@@ -606,4 +599,4 @@
             });
         </script>
     @stop
-                                        </div> <!-- .col-xs-6 -->
+</div> <!-- .col-xs-6 -->

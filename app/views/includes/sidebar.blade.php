@@ -108,10 +108,12 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-user"></i> <span>Teste :D</span>
+                                <i class="fa fa-user"></i> <span>Ordem de Serviço</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Cadastrar Rotas</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Listar Rotas</a></li>
                                 <li><a href="{{route('service-order.create')}}"><i class="fa fa-angle-double-right"></i> Cadastrar</a></li>
                                 <li><a href="{{route('service-order.index')}}"><i class="fa fa-angle-double-right"></i> Listar</a></li>
                             </ul>

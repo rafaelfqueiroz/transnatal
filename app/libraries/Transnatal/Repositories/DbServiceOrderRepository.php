@@ -3,6 +3,7 @@ namespace Transnatal\Repositories;
 
 use Transnatal\Interfaces\ServiceOrderRepositoryInterface;
 use ServiceOrder;
+use Address;
 use ServiceOrderTravelRentedCar;
 
 class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
@@ -24,62 +25,62 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
 
 	public function save($input)
 	{
-		$order_service = new OrderService();
-		$order_service->so_number = $input['so_number'];
-                $order_service->so_date = $input['so_date'];
-                $order_service->so_hour = $input['so_hour'];
-                $order_service->service_type = $input['service_type'];
-                $order_service->start_at = $input['start_at'];
-                $order_service->interval = $input['interval'];
-                $order_service->restart_at = $input['restart_at'];
-                $order_service->ends_at = $input['ends_at'];
-                $order_service->total_price = $input['total_price'];
-                $order_service->box_number_held = $input['box_number_held'];
-                $order_service->box_number_delivered = $input['box_number_delivered'];
-                $order_service->payament_method = $input['payament_method'];
-                $order_service->seller_id = $input['seller_id'];
-                $order_service->employee_id = $input['employee_id'];
-
+                $service_order = new ServiceOrder();
+		$service_order->so_number = 12;
+                $service_order->so_date = $input['so_date'];
+                $service_order->so_hour = $input['so_hour'];
+                $service_order->service_type = $input['service_type'];
+                $service_order->start_at = $input['start_at'];
+                $service_order->interval = $input['interval'];
+                $service_order->restart_at = $input['restart_at'];
+                $service_order->ends_at = $input['ends_at'];
+                $service_order->total_price = $input['total_price'];
+                //$service_order->box_number_held = $input['box_number_held'];
+                //$service_order->box_number_delivered = $input['box_number_delivered'];
+                $service_order->payament_method = $input['payament_method'];
+                $service_order->seller_id = $input['seller_id'];
+                $service_order->employee_id = $input['employee_id'];
+                
                 $address = new Address();
-                $address->street = $input['street_from'];
-                $address->number = $input['number_from'];
-                $address->zip_code = $input['zip_code_from'];
-                $address->neighborhood = $input['neighborhood_from'];
-                $address->city = $input['city_from'];
-                $address->state = $input['state_from'];
-                $address->complement = $input['complement_from'];
-                $address->reference = $input['reference_from'];
+                $address->street = $input['clientAddressStreetFrom'];
+                $address->number = $input['clientAddressNumberFrom'];
+                $address->zip_code = $input['clientAddressZipCodeFrom'];
+                $address->neighborhood = $input['clientAddressNeighborhoodFrom'];
+                $address->city = $input['clientAddressCityFrom'];
+                $address->state = $input['clientAddressStateFrom'];
+                $address->complement = $input['clientAddressComplementFrom'];
+                $address->reference = $input['clientAddressReferenceFrom'];
 
                 $address->save();
 
-                $order_service->address_id_from = $address->id;
+                $service_order->address_id_from = $address->id;
 
                 $address = new Address();
-                $address->street = $input['street_to'];
-                $address->number = $input['number_to'];
-                $address->zip_code = $input['zip_code_to'];
-                $address->neighborhood = $input['neighborhood_to'];
-                $address->city = $input['city_to'];
-                $address->state = $input['state_to'];
-                $address->complement = $input['complement_to'];
-                $address->reference = $input['reference_to'];
-
+                $address->street = $input['clientAddressStreetTo'];
+                $address->number = $input['clientAddressNumberTo'];
+                $address->zip_code = $input['clientAddressZipCodeTo'];
+                $address->neighborhood = $input['clientAddressNeighborhoodTo'];
+                $address->city = $input['clientAddressCityTo'];
+                $address->state = $input['clientAddressStateTo'];
+                $address->complement = $input['clientAddressComplementTo'];
+                $address->reference = $input['clientAddressReferenceTo'];
+                
                 $address->save();
 
-                $order_service->address_id_to = $address->id;
+                $service_order->address_id_to = $address->id;
 
-                $order_service->local = $input['local'];
-                $order_service->arrival_date = $input['arrival_date'];
-                $order_service->survey_date = $input['survey_date'];
-                $order_service->survey_hour = $input['survey_hour'];
-                $order_service->length = $input['length'];
-                $order_service->cic = $input['cic'];
-                $order_service->phone_number = $input['phone_number'];
-                $order_service->fax = $input['fax'];
-                $order_service->client_id = $input['client_id'];
-                $order_service->driver_id = $input['driver_id'];
-                $order_service->vehicle_id = $input['vehicle_id'];
-                $order_service->fax = $input['fax'];
+                $service_order->local = $input['local'];
+                $service_order->arrive_date = $input['arrive_date'];
+                $service_order->survey_date = $input['survey_date'];
+                $service_order->survey_hour = $input['survey_hour'];
+                $service_order->length = $input['length'];
+                $service_order->cic = $input['cic'];
+                $service_order->phone_number = $input['phone_number'];
+                $service_order->fax = $input['fax'];
+                $service_order->client_id = $input['client_id'];
+                $service_order->driver_id = $input['driver_id'];
+                $service_order->vehicle_id = $input['vehicle_id'];
+                $service_order->fax = $input['fax'];
 
                 $address = new Address();
                 $address->street = $input['street'];
@@ -93,11 +94,11 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
 
                 $address->save();
 
-                $order_service->payament_local = $address->id;
+                $service_order->payament_local = $address->id;
 
-		$order_service->save();
-
-		return $order_service;
+		$service_order->save();
+                
+		return $service_order;
 	}
 
 	public function update($id, $input)

@@ -71,7 +71,7 @@ class ServiceOrdersController extends BaseController {
 		//$this->validator->validate(Input::all());
 		//$this->addressValidator->validate(Input::all());
 		//$this->employeeValidator->validate(Input::all());
-
+		
 		$validation = $this->validator->getErrors();
 		$addressErrors = $this->addressValidator->getErrors();
 		$employeeErrors = $this->employeeValidator->getErrors();
