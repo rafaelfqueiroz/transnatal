@@ -7,6 +7,7 @@ use Travel;
 use TravelAdvance;
 use TravelCost;
 use TravelRoute;
+use TravelDocument;
 
 class DbTravelRepository implements TravelRepositoryInterface {
 
@@ -43,8 +44,6 @@ class DbTravelRepository implements TravelRepositoryInterface {
 
 			if ($advances_ended && $costs_ended && $routes_ended) {break;}
 		}
-		$travel->out_suply_liters = number_format($travel->out_suply_liters, 2);
-		$travel->arrival_suply_liters = number_format($travel->arrival_suply_liters, 2);
 		return $travel;
 	}
 
@@ -93,11 +92,16 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		$travel = $this->find($id);
 		$travel = $this->set_travel_with_input_data($input, $travel);
 		$travel->save();
+		
+		TravelCost::where('travel_id', $travel->id)->delete();
+		TravelAdvance::where('travel_id', $travel->id)->delete();
+		TravelRoute::where('travel_id', $travel->id)->delete();
+		TravelDocument::where('travel_id', $travel->id)->delete();
 
 		if (isset($input['costs']))
 		{
 			$travelCosts = array();
-			TravelCost::where('travel_id', $travel->id)->delete();
+			
 			$travelCosts = $this->set_travel_costs_with_input_data($input['costs'], $travelCosts, $travel);
 			TravelCost::insert($travelCosts);
 		}
@@ -105,7 +109,7 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		if (isset($input['advances']))
 		{
 			$travelAdvances = array();
-			TravelAdvance::where('travel_id', $travel->id)->delete();
+			
 			$travelAdvances = $this->set_travel_advances_with_input_data($input['advances'], $travelAdvances, $travel);
 			TravelAdvance::insert($travelAdvances);
 		}
@@ -113,9 +117,17 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		if (isset($input['routes']))
 		{
 			$travelRoutes = array();
-			TravelRoute::where('travel_id', $travel->id)->delete();
+			
 			$travelRoutes = $this->set_travel_routes_with_input_data($input['routes'], $travelRoutes, $travel);
 			TravelRoute::insert($travelRoutes);
+		}
+
+		if (isset($input['documents']))
+		{
+			$travelDocuments = array();
+			
+			$travelDocuments = $this->set_travel_documents_with_input_data($input['documents'], $travelDocuments, $travel);
+			TravelDocument::insert($travelDocuments);
 		}
 		return $travel;
 	}
@@ -139,15 +151,17 @@ class DbTravelRepository implements TravelRepositoryInterface {
 		$travel->observation = $input['observation'];
 		$travel->general_informations = $input['general_informations'];
 		$travel->general_informations_date = format_date($input['general_informations_date'], true);
-		$travel->out_suply_liters = $input['out_suply_liters'];
 		$travel->out_km = $input['out_km'];
-		$travel->arrival_suply_liters = $input['arrival_suply_liters'];
 		$travel->arrival_km = $input['arrival_km'];
 		$travel->travel_performace = $input['travel_performace'];
 		$travel->travel_performace_reason = $input['travel_performace_reason'];
 		$travel->document_receipt_arrive = $input['document_receipt_arrive'];
 		$travel->all_documents_right = $input['all_documents_right'];
 		$travel->tachograph_right = $input['tachograph_right'];
+		$travel->check_number = $input['check_number'];
+		$travel->check_value = $input['check_value'];
+		$travel->bank = $input['bank'];
+		$travel->bank_conference = $input['bank_conference'];
 		$travel->vehicle_id = $input['vehicle_id'];
 		$travel->employee_id = $input['employee_id'];
 
@@ -160,7 +174,7 @@ class DbTravelRepository implements TravelRepositoryInterface {
 			$advanceArray = array(
 			 'advance_local' => $value['advance_local'],
 			 'advance_date' => format_date($value['advance_date'], true),
-			 'voucher_number' => $value['voucher_number'],
+			 'advance_description' => $value['advance_description'],
 			 'advance_value' => $value['advance_value'],
 			 'travel_id' => $travel->id
 			);
@@ -203,5 +217,23 @@ class DbTravelRepository implements TravelRepositoryInterface {
 			array_push($travelCosts, $costArray);
 		}
 		return $travelCosts;
+	}
+
+	private function set_travel_documents_with_input_data($documents, $travelDocuments, $travel)
+	{
+		foreach ($documents as $key => $value) {
+			$documentArray = array(
+				'document_number' => $value['document_number'],
+				'document_type' =>  $value['document_type'],
+				'document_client_name' =>  $value['document_client_name'],
+				'document_origin' =>  $value['document_origin'],
+				'document_destination' =>  $value['document_destination'],
+				'document_service_value' =>  $value['document_service_value'],
+				'document_cubic_meters' =>  $value['document_cubic_meters'],
+				'travel_id' =>  $travel->id
+			);
+			array_push($travelDocuments, $documentArray);
+		}
+		return $travelDocuments;
 	}
 }

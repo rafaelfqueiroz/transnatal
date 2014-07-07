@@ -76,7 +76,6 @@
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('so_date', 'Data')}}
                                                                 {{ Form::text('so_date', null, ['id' => 'so_date' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'dd/mm/yyyy']) }}
-                                                                {{ $errors->first('so_date', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('so_hour', 'Hora')}}

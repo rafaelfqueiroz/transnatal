@@ -4,6 +4,7 @@ namespace Transnatal\Repositories;
 use Transnatal\Interfaces\EmployeeRepositoryInterface;
 use Employee;
 use Address;
+use DB;
 
 class DbEmployeeRepository implements EmployeeRepositoryInterface {
 
@@ -34,6 +35,16 @@ class DbEmployeeRepository implements EmployeeRepositoryInterface {
 	public function all()
 	{
 		return Employee::all();
+	}
+
+
+	/**
+		Busca todos os funcionários que não possuem um usuário vinculado a eles
+	**/
+	public function all_not_linked_with_users()
+	{
+		$employees = DB::select('select * from employees e where not exists (select * from users u where e.id = u.employee_id)');
+		return $employees;
 	}
 
 	public function save($input)

@@ -7,9 +7,9 @@
 			return $this->belongsTo('User');
 		}
 
-		public function delete()
-		{
-			return parent::delete();
-		}
+		// public function delete()
+		// {
+		// 	return parent::delete();
+		// }
 	}	
 ?>

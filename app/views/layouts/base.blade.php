@@ -24,10 +24,15 @@
         {{ HTML::style('assets/css/app.css') }}
 
         {{ HTML::style('assets/AdminLTE/css/dataTables/dataTables.bootstrap.css') }}
+
+        {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.core.css') }}
+        {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.default.css') }}
+
         @yield('stylesheets')
 
         <!-- jQuery 2.0.2 -->
-        {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js') }}
+        {{ HTML::script('assets/vendor/jquery/jquery-2.1.1.min.js') }}
+        <!-- {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js') }} -->
         <!-- jQuery UI 1.10.3 -->
         {{ HTML::script('assets/AdminLTE/js/jquery-ui-1.10.3.min.js') }}
 
@@ -37,8 +42,12 @@
         <!-- jquery.mask.js -->
         {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
 
+        {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
+
         <!-- form-mask.js -->
         {{ HTML::script('assets/js/form-mask.js') }}
+        {{ HTML::script('assets/vendor/jquery.md5/jquery.md5.js') }}
+        {{ HTML::script('assets/js/request_for_news.js') }}
 
         <!-- Sparkline -->
         <!-- {{ HTML::script('assets/AdminLTE/js/plugins/sparkline/jquery.sparkline.min.js') }} -->
@@ -65,6 +74,10 @@
 
         <!-- AdminLTE App -->
         {{ HTML::script('assets/AdminLTE/js/AdminLTE/app.js') }}
+
+
+        {{ HTML::script('assets/js/news_notifier.js') }}
+        
         
         @yield('scripts')
 

@@ -54,45 +54,47 @@ class VehiclesController extends BaseController {
 
 	public function store()
 	{
-		if (!$this->validator->validate(Input::all()))
-		{
-			$errors = $this->validator->getErrors();
+		// if (!$this->validator->validate(Input::all()))
+		// {
+		// 	$errors = $this->validator->getErrors();
 
-			return Redirect::back()->with('errors', $errors)->withInput();
-		}
-		else
-		{
-			if ($this->vehicleRepository->save(Input::all()))
-			{
+		// 	return Redirect::back()->with('errors', $errors)->withInput();
+		// }
+		// else
+		// {
+			//if ($this->vehicleRepository->save(Input::all()))
+			//{
+				$this->vehicleRepository->save(Input::all());
 				return Redirect::route('vehicles.create')->with('messages', 'Veículo cadastrado com sucesso.');
-			}
-			else
-			{
-				return Redirect::back()->with('errors', 'Erro ao tentar cadastrar o veículo, por favor tente novamente.')->withInput();
-			}
-		}
+		// 	}
+		// 	else
+		// 	{
+		// 		return Redirect::back()->with('errors', 'Erro ao tentar cadastrar o veículo, por favor tente novamente.')->withInput();
+		// 	}
+		// }
 	}
 
 
 	public function update($id)
 	{
-		if (!$this->validator->validate(Input::all()))
-		{
-			$errors = $this->validator->getErrors();
+		// if (!$this->validator->validate(Input::all()))
+		// {
+		// 	$errors = $this->validator->getErrors();
 			
-			return Redirect::back()->with('errors', $errors)->withInput();
-		}
-		else
-		{
-			if ($this->vehicleRepository->update($id, Input::all()))
-			{
+		// 	return Redirect::back()->with('errors', $errors)->withInput();
+		// }
+		// else
+		// {
+			//if ($this->vehicleRepository->update($id, Input::all()))
+			//{
+				$this->vehicleRepository->update($id, Input::all());
 				return Redirect::route('vehicles.index')->with('messages', 'Informações do veículo alteradas com sucesso.');
-			}
-			else
-			{
-				return Redirect::back()->with('errors', 'Erro ao tentar alterar informações do veículo, por favor tente novamente')->withInput();
-			}
-		}
+		// 	}
+		// 	else
+		// 	{
+		// 		return Redirect::back()->with('errors', 'Erro ao tentar alterar informações do veículo, por favor tente novamente')->withInput();
+		// 	}
+		// }
 	}
 
 	public function destroy($id)

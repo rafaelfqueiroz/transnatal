@@ -12,19 +12,19 @@
 			return $this->belongsTo('Employee');
 		}
 
-		public function address_from()
+		public function addressOrigin()
 		{
-			return $this->has_one('Address', 'address_id_from');
+			return $this->belongsTo('Address', 'address_id_from');
 		}
 
-		public function address_to()
+		public function addressDestiny()
 		{
-			return $this->belongsTo('Address', 'address_id_to', 'id');
+			return $this->belongsTo('Address', 'address_id_to');
 		}
 
-		public function payment_address()
+		public function addressPayment()
 		{
-			return $this->belongsTo('Address', 'payament_local', 'id');
+			return $this->belongsTo('Address', 'payament_local');
 		}
 
 		public function delete()

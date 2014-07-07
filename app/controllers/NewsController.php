@@ -86,4 +86,26 @@ class NewsController extends BaseController {
 		$this->newsRepository->delete($id);
 		return Redirect::route('news.index')->with('messages', 'Notícia removida com sucesso.');
 	}
+
+	public function unread()
+	{
+		$news = $this->newsRepository->all_unread_by_session_user();
+		return Response::json(['news' => $news, 'notified' => Session::get('notify_news')]);
+	}
+
+	public function notified()
+	{
+		Session::put('notify_news', false);
+	}
+
+	public function news_viewed()
+	{
+		$this->newsRepository->newsViewed();
+	}
+
+	public function all_avaiable()
+	{
+		$news = $this->newsRepository->allAvaliable();
+		return Response::json(['flash_news' => $news->toJson()]);
+	}
 }

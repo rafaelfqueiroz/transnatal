@@ -74,7 +74,7 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
                                 $service_order->so_number = '2'."".$val;
                         }
                 }
-                $service_order->so_date = $input['so_date'];
+                $service_order->so_date = format_date($input['so_date'], true);
                 $service_order->so_hour = $input['so_hour'];
                 $service_order->service_type = $input['service_type'];
                 $service_order->start_at = $input['start_at'];
@@ -117,8 +117,8 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
                 $service_order->address_id_to = $address->id;
 
                 $service_order->local = $input['local'];
-                $service_order->arrive_date = $input['arrive_date'];
-                $service_order->survey_date = $input['survey_date'];
+                $service_order->arrive_date = format_date($input['arrive_date'], true);
+                $service_order->survey_date = format_date($input['survey_date'], true);
                 $service_order->survey_hour = $input['survey_hour'];
                 $service_order->length = $input['length'];
                 $service_order->cic = $input['cic'];
@@ -179,7 +179,7 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
                                 $bd_order_service->so_number = '2'."".$val;
                         }
                 }
-                $bd_order_service->so_date = $input['so_date'];
+                $bd_order_service->so_date = format_date($input['so_date'], true);
                 $bd_order_service->so_hour = $input['so_hour'];
                 $bd_order_service->service_type = $input['service_type'];
                 $bd_order_service->start_at = $input['start_at'];
@@ -222,8 +222,8 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
                 $bd_order_service->address_id_to = $address->id;
 
                 $bd_order_service->local = $input['local'];
-                $bd_order_service->arrive_date = $input['arrive_date'];
-                $bd_order_service->survey_date = $input['survey_date'];
+                $bd_order_service->arrive_date = format_date($input['arrive_date'], true);
+                $bd_order_service->survey_date = format_date($input['survey_date'], true);
                 $bd_order_service->survey_hour = $input['survey_hour'];
                 $bd_order_service->length = $input['length'];
                 $bd_order_service->cic = $input['cic'];

@@ -48,8 +48,8 @@
                                             @foreach($service_orders as $service_order)
                                                  <tr>
                                                     <td>{{$service_order->so_number}}</td>
-                                                    <td>{{$service_order->address_from->city."/".$service_order->address_from->state}}</td>
-                                                    <td>{{$service_order->address_to->city."/".$service_order->address_to->state}}</td>
+                                                    <td>{{$service_order->addressOrigin->city."/".$service_order->addressOrigin->state}}</td>
+                                                    <td>{{$service_order->addressDestiny->city."/".$service_order->addressDestiny->state}}</td>
                                                     <td>{{$service_order->so_date}}</td>
                                                     <td>{{$service_order->so_hour}}</td>
                                                     <td>{{$service_order->total_price}}</td>

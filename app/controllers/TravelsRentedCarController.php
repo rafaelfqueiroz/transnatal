@@ -55,62 +55,64 @@ class TravelsRentedCarController extends BaseController {
 
 	public function store()
 	{
-		$this->validator->validate(Input::all());
-		$this->serviceOrderTravelRentedCarValidator->validate(Input::all());
+		// $this->validator->validate(Input::all());
+		// $this->serviceOrderTravelRentedCarValidator->validate(Input::all());
 
-		$validation = $this->validator->getErrors();
-		$serviceOrderTravelRentedCarErrors = $this->serviceOrderTravelRentedCarValidator->getErrors();
+		// $validation = $this->validator->getErrors();
+		// $serviceOrderTravelRentedCarErrors = $this->serviceOrderTravelRentedCarValidator->getErrors();
 
-		$errors = array();
+		// $errors = array();
 
-		if (! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
-		if (! is_null($serviceOrderTravelRentedCarErrors)) $errors = array_merge_recursive($errors, $serviceOrderTravelRentedCarErrors->getMessages());
+		// if (! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
+		// if (! is_null($serviceOrderTravelRentedCarErrors)) $errors = array_merge_recursive($errors, $serviceOrderTravelRentedCarErrors->getMessages());
 		
-		if ($errors)
-		{
-			return Response::json(['errors' => $errors]);
-		}
-		else
-		{
-			if ($this->travelRentedCarRepository->save(Input::all()))
-			{
+		// if ($errors)
+		// {
+		// 	return Response::json(['errors' => $errors]);
+		// }
+		// else
+		// {
+			// if ($this->travelRentedCarRepository->save(Input::all()))
+			// {
+				$this->travelRentedCarRepository->save(Input::all());
 				return Response::json(['messages' => 'Viagem cadastrada com sucesso.']);
-			}
-			else
-			{
-				return Response::json(['errors' => 'Erro ao tentar cadastrar a viagem, por favor tente novamente.']);
-			}
-		}
+		// 	}
+		// 	else
+		// 	{
+		// 		return Response::json(['errors' => 'Erro ao tentar cadastrar a viagem, por favor tente novamente.']);
+		// 	}
+		// }
 	}
 
 	public function update($id)
 	{
-		$this->validator->validate(Input::all());
-		$this->serviceOrderTravelRentedCarValidator->validate(Input::all());
+		// $this->validator->validate(Input::all());
+		// $this->serviceOrderTravelRentedCarValidator->validate(Input::all());
 
-		$validation = $this->validator->getErrors();
-		$serviceOrderTravelRentedCarErrors = $this->serviceOrderTravelRentedCarValidator->getErrors();
+		// $validation = $this->validator->getErrors();
+		// $serviceOrderTravelRentedCarErrors = $this->serviceOrderTravelRentedCarValidator->getErrors();
 
-		$errors = array();
+		// $errors = array();
 
-		if (! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
-		if (! is_null($serviceOrderTravelRentedCarErrors)) $errors = array_merge_recursive($errors, $serviceOrderTravelRentedCarErrors->getMessages());
+		// if (! is_null($validation)) $errors = array_merge_recursive($errors, $validation->getMessages());
+		// if (! is_null($serviceOrderTravelRentedCarErrors)) $errors = array_merge_recursive($errors, $serviceOrderTravelRentedCarErrors->getMessages());
 		
-		if ($errors)
-		{
-			return Response::json(['errors' => $errors]);
-		}
-		else
-		{
-			if ($this->travelRentedCarRepository->update($id, Input::all()))
-			{
+		// if ($errors)
+		// {
+		// 	return Response::json(['errors' => $errors]);
+		// }
+		// else
+		// {
+			//if ($this->travelRentedCarRepository->update($id, Input::all()))
+			//{
+				$this->travelRentedCarRepository->update($id, Input::all());
 				return Response::json(['messages' => 'Informações da viagem alteradas com sucesso.']);
-			}
-			else
-			{
-				return Response::json(['errors' => 'Erro ao tentar alterar informações da viagem, por favor tente novamente']);
-			}
-		}
+			// }
+			// else
+			// {
+			// 	return Response::json(['errors' => 'Erro ao tentar alterar informações da viagem, por favor tente novamente']);
+			// }
+		//}
 	}
 
 	public function destroy($id)

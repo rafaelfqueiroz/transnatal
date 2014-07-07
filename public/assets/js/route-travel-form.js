@@ -2,6 +2,7 @@ var tableCode = "<table class='table table-striped'><tbody></tbody></table>";
 var advances = [];
 var routes = [];
 var costs = [];
+var documents = [];
 
 $('.add-more').each(function() {
 	var button = $(this);
@@ -9,19 +10,19 @@ $('.add-more').each(function() {
 		var parentBox = $(this).parents('.box').get(0);
 		var inputs = $(parentBox).find(':input[type="text"], textarea');
 		var type = $(button).val();
-		if (validateInputs(inputs)) {
-			var obj;
-			var boxFooter = $(parentBox).find('.box-footer');
-			if ($(boxFooter).children('table').first().length > 0) {
-				var tbody = $(boxFooter).find('table tbody');
-				obj = addRow(inputs, tbody, type);
-			} else {
-				obj = addTableAndRow(inputs, boxFooter, parentBox, type);
-			}
-			addObjectInArray(obj, type);
+		//if (validateInputs(inputs)) {
+		var obj;
+		var boxFooter = $(parentBox).find('.box-footer');
+		if ($(boxFooter).children('table').first().length > 0) {
+			var tbody = $(boxFooter).find('table tbody');
+			obj = addRow(inputs, tbody, type);
 		} else {
-			alertify.alert("Preencha os campos para adicioná-los");
+			obj = addTableAndRow(inputs, boxFooter, parentBox, type);
 		}
+		addObjectInArray(obj, type);
+		//} else {
+		//	alertify.alert("Preencha os campos para adicioná-los");
+		//}
 	});
 });
 
@@ -103,6 +104,8 @@ function removeRow(button) {
 		advances.splice(tdValue-1,1);
 	} else if (type == '_new_cost') {
 		costs.splice(tdValue-1,1);
+	} else if (type == '_new_document') {
+		documents.splice(tdValue-1,1);
 	}
 }
 
@@ -113,5 +116,7 @@ function addObjectInArray(obj, type) {
 		advances.push(obj);
 	} else if (type == '_new_cost') {
 		costs.push(obj);
+	} else if (type == '_new_document') {
+		documents.push(obj);
 	}
 }
