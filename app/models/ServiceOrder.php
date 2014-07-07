@@ -14,17 +14,17 @@
 
 		public function address_from()
 		{
-			return $this->belongsTo('Address');
+			return $this->has_one('Address', 'address_id_from');
 		}
 
 		public function address_to()
 		{
-			return $this->belongsTo('Address');
+			return $this->belongsTo('Address', 'address_id_to', 'id');
 		}
 
 		public function payment_address()
 		{
-			return $this->belongsTo('Address');
+			return $this->belongsTo('Address', 'payament_local', 'id');
 		}
 
 		public function delete()

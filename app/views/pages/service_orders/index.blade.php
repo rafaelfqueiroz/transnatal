@@ -15,7 +15,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Viagem de Veículos Alugados
+                    Ordens de Serviço
                     <small>Tabela de listagem</small>
                 </h1>
                 <ol class="breadcrumb">
@@ -27,37 +27,34 @@
                 <div class="col-md-10">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Listagem de Viagem com Veículos Alugados</h3>
+                            <h3 class="box-title">Listagem de Ordens de Serviço</h3>
                         </div>
                         <div class="box-body table-responsive">
                             <div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
                                 <table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
                                     <thead>
                                         <tr>
-                                            <th>Veículo</th>
-                                            <th>Valor Total da viagem</th>
-                                            <th>Valor Pago</th>
-                                            <th>valor a Pagar</th>
-                                            <th>Ordem de Serviço</th>
+                                            <th>Número</th>
+                                            <th>Origem</th>
+                                            <th>Destino</th>
+                                            <th>Data</th>
+                                            <th>Hora</th>
+                                            <th>valor</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if ($travels_rented_car)
-                                            @foreach($travels_rented_car as $travel_rented_car)
+                                        @if ($service_orders)
+                                            @foreach($service_orders as $service_order)
                                                  <tr>
-                                                    <td>{{$travel_rented_car->vehicle->vehicle_plate}}</td>
-                                                    <td>{{$travel_rented_car->travel_price}}</td>
-                                                    <td>{{$travel_rented_car->price_paid}}</td>
-                                                    <td>{{$travel_rented_car->price_to_pay}}</td>
+                                                    <td>{{$service_order->so_number}}</td>
+                                                    <td>{{$service_order->address_from->city."/".$service_order->address_from->state}}</td>
+                                                    <td>{{$service_order->address_to->city."/".$service_order->address_to->state}}</td>
+                                                    <td>{{$service_order->so_date}}</td>
+                                                    <td>{{$service_order->so_hour}}</td>
+                                                    <td>{{$service_order->total_price}}</td>
                                                     <td>
-                                                        @foreach ($travel_rented_car->serviceOrder as $so)
-                                                            {{$so->so_number}}<br/>
-                                                        @endforeach
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{route('travels-rented-car.edit', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs table-button" data-toggle="tooltip" title data-original-title="Clique para editar esta viagem">Editar</a>
-                                                        <a href="{{route('travels-rented-car.destroy', [$travel_rented_car->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover esta viagem">Remover</a>
+                                                        <a href="{{route('service-order.destroy', [$service_order->id])}}" class="btn btn-primary btn-xs table-button deleterequest" data-toggle="tooltip" title data-original-title="Clique para remover esta OS">Remover</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

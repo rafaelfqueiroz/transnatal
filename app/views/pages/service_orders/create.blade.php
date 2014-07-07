@@ -4,6 +4,7 @@
     @stop
     @section('stylesheets')
         {{ HTML::style('assets/vendor/datepicker/css/datepicker.css') }}
+        {{ HTML::style('assets/AdminLTE/css/timepicker/bootstrap-timepicker.min.css') }}
         {{ HTML::style('assets/AdminLTE/css/dataTables/dataTables.bootstrap.css') }}
         {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.core.css') }}
         {{ HTML::style('assets/vendor/alertify.js-0.3.11/themes/alertify.default.css') }}
@@ -48,7 +49,7 @@
                                                         {{ $errors->first('client_id', '<p class="text-red">:message</p>') }}
                                                     </div>
                                                     <div class="form-group">
-                                                        <div id="service_type" class="radio">
+                                                        <div class="radio">
                                                             <div class="row">
                                                                 <div class="col-xs-6">
                                                                     Tipo de Transporte
@@ -56,7 +57,6 @@
                                                                 <div class="col-xs-6">
                                                                     <input type="radio" name="service_type" class="local" value="local" id="local" checked> Local
                                                                     <input type="radio" name="service_type" class="intermunicipal" value="intermunicipal" id="intermunicipal"> Intermunicipal
-                                                        
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -80,7 +80,7 @@
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('so_hour', 'Hora')}}
-                                                                {{ Form::text('so_hour', null, ['id' => 'so_hour', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('so_hour', null, ['id' => 'so_hour', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('so_hour', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -118,24 +118,24 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('start_at', 'Início')}}
-                                                                {{ Form::text('start_at', null, ['id' => 'start_at', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('start_at', null, ['id' => 'start_at', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('start_at', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('interval', 'Intervalo')}}
-                                                                {{ Form::text('interval', null, ['id' => 'interval', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('interval', null, ['id' => 'interval', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('interval', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('restart_at', 'Reinicio')}}
-                                                                {{ Form::text('restart_at', null, ['id' => 'restart_at', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('restart_at', null, ['id' => 'restart_at', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('restart_at', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('ends_at', 'Fim')}}
-                                                                {{ Form::text('ends_at', null, ['id' => 'ends_at', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('ends_at', null, ['id' => 'ends_at', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('ends_at', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -149,7 +149,7 @@
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('survey_hour', 'Hora de Vistoria')}}
-                                                                {{ Form::text('survey_hour', null, ['id' => 'survey_hour', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('survey_hour', null, ['id' => 'survey_hour', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('survey_hour', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -443,13 +443,16 @@
     </div><!-- ./wrapper -->
     @section('scripts')
         {{ HTML::script('assets/vendor/jquery.mask/jquery.mask.js') }}
-
         {{ HTML::script('assets/vendor/alertify.js-0.3.11/lib/alertify.js') }}
         {{ HTML::script('assets/vendor/datepicker/js/bootstrap-datepicker.js') }}
+        {{ HTML::script('assets/AdminLTE/js/plugins/timepicker/bootstrap-timepicker.min.js') }}
 
         <script type="text/javascript">
             $(document).ready(function(){
                 $('.datepicker').datepicker();
+                $('.timepicker').timepicker({
+                    showInputs: false
+                });
                 $('#news_message').trigger('click');
                 $('#news_message').focus();
             });
@@ -466,15 +469,19 @@
             });
             function disableLocalEntity() {
                 $('.service_order').hide();
-                //$('#service_order').removeAttr('readonly');
+                $('#start_at').val('');
+                $('#interval').val('');
+                $('#restart_at').val('');
+                $('#ends_at').val('');
                 $('.transport').show();
-                //$('#transport').attr('readonly','readonly');
             }
             function disableIntermunicipalEntity() {
-                $('.service_order').show();
-                //$('#service_order').attr('readonly','readonly');
                 $('.transport').hide();
-                //$('#transport').removeAttr('readonly');
+                $('#survey_date').val('');
+                $('#survey_hour').val('');
+                $('#arrive_date').val('');
+                $('#length').val('');
+                $('.service_order').show();
             }
         </script>
         <script type="text/javascript">
@@ -483,7 +490,7 @@
                     e.preventDefault(); // prevent native submit
                     var url = $(this).attr('action');
                     var client_id = $('[name=client_id]').val();
-                    var service_type = $('[name=service_type]').val();
+                    var service_type = $('.checked [name="service_type"]').val();
                     var local = $('[name=local]').val();
                     var seller_id = $('[name=seller_id]').val();
                     var so_date = $('[name=so_date]').val();
@@ -595,7 +602,6 @@
                         }
                     });
                 });
-                $('.datepicker').datepicker();
             });
         </script>
     @stop
