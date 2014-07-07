@@ -38,11 +38,16 @@ class DbClientRepository implements ClientRepositoryInterface {
 	{
 		$client = new Client();
 		$client->name = $input['name'];
+		$client->email = $input['email'];
 		$client->rg = $input['rg'];
-		$client->cic = $input['cic'];
+		$client->cpf = $input['cpf'];
 		$client->birthday = format_date($input['birthday'], true);
 		$client->home_phone = $input['home_phone'];
 		$client->cel_phone = $input['cel_phone'];
+		$client->type_entity = $input['type_entity'];
+		$client->corporate_name = $input['corporate_name'];
+		$client->state_registration = $input['state_registration'];
+		$client->cnpj = $input['cnpj'];
 
 		$address = new Address();
 		$address->street = $input['street'];
@@ -67,11 +72,16 @@ class DbClientRepository implements ClientRepositoryInterface {
 		$bd_client = $this->find($id);
 
 		$bd_client->name = $input['name'];
+		$bd_client->email = $input['email'];
 		$bd_client->rg = $input['rg'];
-		$bd_client->cic = $input['cic'];
+		$bd_client->cpf = $input['cpf'];
 		$bd_client->birthday = format_date($input['birthday'], true);
 		$bd_client->home_phone = $input['home_phone'];
 		$bd_client->cel_phone = $input['cel_phone'];
+		$bd_client->type_entity = $input['type_entity'];
+		$bd_client->corporate_name = $input['corporate_name'];
+		$bd_client->state_registration = $input['state_registration'];
+		$bd_client->cnpj = $input['cnpj'];
 
 		$bd_client->address->street = $input['street'];
 		$bd_client->address->number = $input['number'];

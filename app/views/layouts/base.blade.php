@@ -2,6 +2,7 @@
 <head>
     
     	<meta charset="UTF-8">
+        {{header('Content-Type: text/html; charset=UTF-8')}}
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         {{ HTML::style('assets/AdminLTE/css/bootstrap.min.css') }}

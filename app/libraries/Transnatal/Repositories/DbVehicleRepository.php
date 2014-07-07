@@ -50,6 +50,12 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
         $vehicle->renavam = $input['renavam'];
         $vehicle->vehicle_type = $input['vehicle_type'];
         $vehicle->brand_model = $input['brand_model'];
+        $vehicle->capacity = $input['capacity'];
+        $vehicle->truck_plate = $input['truck_plate'];
+        $vehicle->truck_plate_uf = $input['truck_plate_uf'];
+        $vehicle->container_number = $input['container_number'];
+        $vehicle->container_size = $input['container_size'];
+        $vehicle->container_type = $input['container_type'];
         $vehicle->color = $input['color'];
         if($input['driver'] > 0)
         	$vehicle->driver = $input['driver'];
@@ -74,6 +80,12 @@ class DbVehicleRepository implements VehicleRepositoryInterface {
         $bd_vehicle->renavam = $input['renavam'];
         $bd_vehicle->vehicle_type = $input['vehicle_type'];
         $bd_vehicle->brand_model = $input['brand_model'];
+        $bd_vehicle->capacity = $input['capacity'];
+        $bd_vehicle->truck_plate = $input['truck_plate'];
+        $bd_vehicle->truck_plate_uf = $input['truck_plate_uf'];
+        $bd_vehicle->container_number = $input['container_number'];
+        $bd_vehicle->container_size = $input['container_size'];
+        $bd_vehicle->container_type = $input['container_type'];
         $bd_vehicle->color = $input['color'];
         if($input['driver'] == 0)
         	$bd_vehicle->driver = null;

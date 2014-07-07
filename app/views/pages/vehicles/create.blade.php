@@ -96,6 +96,77 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
+                                        <div class="col-xs-3">
+                                            {{ Form::label('truck_plate', 'Placa do carreta')}}
+                                            {{ Form::text('truck_plate', null, ['id' => 'truck_plate' , 'class' => 'form-control plate-mask', 'placeholder' => 'ZZZ-9999'])}}
+                                            {{ $errors->first('truck_plate', '<p class="text-red">:message</p>') }}
+                                        </div>
+                                        <div class="col-xs-3">
+                                            {{ Form::label('truckPlateUF', 'UF placa da carreta')}}
+                                            {{ Form::select('truck_plate_uf', [
+                                                'AC' => 'AC',
+                                                'AL' => 'AL',
+                                                'AP' => 'AP',
+                                                'AM' => 'AM',
+                                                'BA' => 'BA',
+                                                'CE' => 'CE',
+                                                'DF' => 'DF',
+                                                'ES' => 'ES',
+                                                'GO' => 'GO',
+                                                'MA' => 'MA',
+                                                'MT' => 'MT',
+                                                'MS' => 'MS',
+                                                'MG' => 'MG',
+                                                'PA' => 'PA',
+                                                'PB' => 'PB',
+                                                'PR' => 'PR',
+                                                'PE' => 'PE',
+                                                'PI' => 'PI',
+                                                'RJ' => 'RJ',
+                                                'RN' => 'RN',
+                                                'RS' => 'RS',
+                                                'RO' => 'RO',
+                                                'RR' => 'RR',
+                                                'SC' => 'SC',
+                                                'SP' => 'SP',
+                                                'SE' => 'SE',
+                                                'TO' => 'TO'
+                                            ] , null, ['id' => 'truckPlateUF', 'class' => 'form-control']) }}
+                                        </div>
+                                        <div class="col-xs-6">
+                                            {{ Form::label('containerNumber', 'Nº do container')}}
+                                            {{ Form::text('container_number', null, ['id' => 'containerNumber' , 'class' => 'form-control', 'placeholder' => 'Informe o número do container']) }}
+                                            {{ $errors->first('container_number', '<p class="text-red">:message</p>') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            {{ Form::label('capacity', 'Capacidade de TON')}}
+                                            {{ Form::text('capacity', null, ['id' => 'capacity' , 'class' => 'form-control', 'placeholder' => 'Toneladas']) }}
+                                            {{ $errors->first('capacity', '<p class="text-red">:message</p>') }}
+                                        </div>
+                                        <div class="col-xs-4">
+                                            {{ Form::label('containerSize', 'Tamanho do container')}}
+                                            {{ Form::select('container_size', [
+                                                'Nenhum' => 'Nenhum',
+                                                '20 pes' => '20 pés',
+                                                '40 pes' => '40 pés'
+                                            ] , null, ['id' => 'containerSize', 'class' => 'form-control']) }}
+                                        </div>
+                                        <div class="col-xs-4">
+                                            {{ Form::label('containerType', 'Tipo do container')}}
+                                            {{ Form::select('container_type', [
+                                                'Nenhum' => 'Nenhum',
+                                                'Aberto' => 'Aberto',
+                                                'Fechado' => 'Fechado'
+                                            ] , null, ['id' => 'containerType', 'class' => 'form-control']) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
                                         <div class="col-xs-6">
                                             {{ Form::label('renavam', 'Código do RENAVAM')}}
                                             {{ Form::text('renavam', null, ['id' => 'renavam' , 'class' => 'form-control', 'placeholder' => 'Informe o código do RENAVAM']) }}
@@ -117,7 +188,16 @@
                                     <div class="row">
                                         <div class="col-xs-6">
                                             {{ Form::label('vehicle_type', 'Tipo do Veículo')}}
-                                            {{ Form::text('vehicle_type', null, ['id' => 'vehicle_type' , 'class' => 'form-control', 'placeholder' => 'Informe o tipo do veículo']) }}
+                                            {{ Form::select('vehicle_type', [
+                                                'VUC' => 'VUC',
+                                                'TOCO' => 'TOCO',
+                                                'TRUCK' => 'TRUCK',
+                                                'CAVALO MECÂNICO' => 'CAVALO MECÂNICO',
+                                                'CAVALO MECÂNICO TRUCADO' => 'CAVALO MECÂNICO TRUCADO',
+                                                'CARRETA 3 EIXOS' => 'CARRETA 3 EIXOS',
+                                                'CARRETA CAVALO TRUCADO' => 'CARRETA CAVALO TRUCADO',
+                                                'BITREM' => 'BITREM'
+                                            ] , null, ['id' => 'vehicle_type', 'class' => 'form-control']) }}
                                             {{ $errors->first('vehicle_type', '<p class="text-red">:message</p>') }}
                                         </div>
                                         <div class="col-xs-3">
@@ -157,4 +237,4 @@
             });
         </script>
     @stop
-                                        </div> <!-- .col-xs-6 -->
+</div> <!-- .col-xs-6 -->

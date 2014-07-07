@@ -37,16 +37,52 @@
                                                     <h3 class="box-title">Dados pessoais</h3>
                                                 </div>
                                                 <div class="box-body">
+                                                    <div class="form-group">
+                                                        <div id="document_receipt_arrive" class="radio">
+                                                            <div class="row">
+                                                                <div class="col-xs-6">
+                                                                    {{Form::radio('type_entity', true, true, ['id' => 'individualEntity'])}}
+                                                                    {{Form::label('individualEntity', 'Pessoa Física')}}
+                                                                    {{Form::radio('type_entity', 0, false, ['id' => 'corporateEntity'])}}
+                                                                    {{Form::label('corporateEntity', 'Pessoa Jurídica')}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                 					<div class="form-group">
-                                                        {{ Form::label('clientName', 'Nome')}}
-                                                        {{ Form::text('name', null, ['id' => 'clientName' , 'class' => 'form-control', 'placeholder' => 'Insira o nome completo do cliente']) }}
+                                                        {{ Form::label('clientName', 'Nome / Nome Fantasia')}}
+                                                        {{ Form::text('name', null, ['id' => 'clientName' , 'class' => 'form-control', 'placeholder' => 'Insira o nome ou nome fantasia do cliente']) }}
                                                         {{ $errors->first('name', '<p class="text-red">:message</p>') }}
                                 					</div>
-                                					<div class="form-group">
+                                                    <div class="form-group">
+                                                        {{ Form::label('email', 'E-mail')}}
+                                                        {{ Form::text('email', null, ['id' => 'email' , 'class' => 'form-control', 'placeholder' => 'Insira o email do cliente']) }}
+                                                        {{ $errors->first('email', '<p class="text-red">:message</p>') }}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        {{ Form::label('corporateName', 'Razão Social')}}
+                                                        {{ Form::text('corporate_name', null, ['id' => 'corporateName' , 'class' => 'form-control', 'placeholder' => 'Insira razão social do cliente']) }}
+                                                        {{ $errors->first('corporateName', '<p class="text-red">:message</p>') }}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                {{ Form::label('stateRegistration', 'Inscrição Estadual')}}
+                                                                {{ Form::text('state_registration', null, ['id' => 'stateRegistration' , 'class' => 'form-control', 'placeholder' => 'Insira a inscrição estadual do crliente']) }}
+                                                                {{ $errors->first('state_registration', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                {{ Form::label('clientCnpj', 'CNPJ')}}
+                                                                {{ Form::text('cnpj', null, ['id' => 'clientCnpj' , 'class' => 'form-control', 'placeholder' => '##.###.###/####-##']) }}
+                                                                {{ $errors->first('cnpj', '<p class="text-red">:message</p>') }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
                                                         {{ Form::label('clientBirthday', 'Data de Nascimento')}}
                                                         {{ Form::text('birthday', null, ['id' => 'clientBirthday' , 'class' => 'form-control datepicker date-mask','data-date-format' => 'dd/mm/yyyy', 'placeholder' => 'Clique aqui para escolher uma data (dia/mes/ano)']) }}
                                                         {{ $errors->first('birthday', '<p class="text-red">:message</p>') }}
-                                					</div>
+                                                    </div>
                                 					<div class="form-group">
                                 						<div class="row">
                                 							<div class="col-xs-6">
@@ -55,9 +91,9 @@
                                                                 {{ $errors->first('rg', '<p class="text-red">:message</p>') }}
                                 							</div>
                                 							<div class="col-xs-6">
-                                                                {{ Form::label('clientCic', 'CIC')}}
-                                                                {{ Form::text('cic', null, ['id' => 'clientCic' , 'class' => 'form-control', 'placeholder' => '###.###.###-##']) }}
-                                                                {{ $errors->first('cic', '<p class="text-red">:message</p>') }}
+                                                                {{ Form::label('clientCpf', 'CPF')}}
+                                                                {{ Form::text('cpf', null, ['id' => 'clientCpf' , 'class' => 'form-control', 'placeholder' => '###.###.###-##']) }}
+                                                                {{ $errors->first('CPF', '<p class="text-red">:message</p>') }}
                                 							</div>
                                 						</div>
                                 					</div>
@@ -184,6 +220,36 @@
                 $('.datepicker').datepicker();
                 $('#clientName').trigger('click');
                 $('#clientName').focus();
+                
+                disableCorporateEntity();
+
+                $('#individualEntity').on('ifChecked', function (event) {
+                    disableCorporateEntity();
+                });
+
+                $('#corporateEntity').on('ifChecked', function (event) {
+                    disableIndividualEntity();
+                });
             });
+
+            function disableIndividualEntity() {
+                $('#clientBirthday').attr('readonly','readonly');
+                $('#clientRg').attr('readonly','readonly');
+                $('#clientCpf').attr('readonly','readonly');
+
+                $('#clientCnpj').removeAttr('readonly');
+                $('#corporateName').removeAttr('readonly');
+                $('#stateRegistration').removeAttr('readonly');
+            }
+
+            function disableCorporateEntity() {
+                $('#clientCnpj').attr('readonly','readonly');
+                $('#corporateName').attr('readonly','readonly');
+                $('#stateRegistration').attr('readonly','readonly');
+
+                $('#clientBirthday').removeAttr('readonly');
+                $('#clientRg').removeAttr('readonly');
+                $('#clientCpf').removeAttr('readonly');
+            }
         </script>
     @stop

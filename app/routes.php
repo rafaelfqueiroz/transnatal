@@ -19,6 +19,15 @@ Route::get('news/news_viewed', ['as' => 'news.news_viewed', 'uses' => 'NewsContr
 Route::get('news/all_avaiable', ['as' => 'news.all_avaiable', 'uses' => 'NewsController@all_avaiable', 'before' => 'auth']);
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
 
+Route::get('/pdf', function()
+{
+    $html = '<html><body>'
+            . '<p>Put your html here, or generate it with your favourite '
+            . 'templating system.</p>'
+            . '</body></html>';
+    return PDF::load('Transnatal', 'A4', 'portrait')->show();
+});
+
 Route::group(['before' => 'auth'], function()
 {
 	Route::get('/index', 'HomeController@index');
