@@ -29,6 +29,9 @@
 
 		public function delete()
 		{
+			$this->addressOrigin->delete();
+			$this->addressDestiny->delete();
+			$this->addressPayment->delete();
 			return parent::delete();
 		}
 	}

@@ -135,6 +135,6 @@ class ServiceOrdersController extends BaseController {
 	public function destroy($id)
 	{
 		$this->serviceOrdersRepository->delete($id);
-		return Redirect::route('service_orders.index')->with('messages', 'Ordem de Serviço removida com sucesso.');
+		return Redirect::route('service-order.index')->with('messages', 'Ordem de Serviço removida com sucesso.');
 	}
 }

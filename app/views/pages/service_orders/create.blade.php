@@ -79,7 +79,7 @@
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('so_hour', 'Hora')}}
-                                                                {{ Form::text('so_hour', null, ['id' => 'so_hour', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('so_hour', null, ['id' => 'so_hour', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('so_hour', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -117,24 +117,24 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('start_at', 'Início')}}
-                                                                {{ Form::text('start_at', null, ['id' => 'start_at', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('start_at', null, ['id' => 'start_at', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('start_at', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('interval', 'Intervalo')}}
-                                                                {{ Form::text('interval', null, ['id' => 'interval', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('interval', null, ['id' => 'interval', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('interval', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('restart_at', 'Reinicio')}}
-                                                                {{ Form::text('restart_at', null, ['id' => 'restart_at', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('restart_at', null, ['id' => 'restart_at', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('restart_at', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('ends_at', 'Fim')}}
-                                                                {{ Form::text('ends_at', null, ['id' => 'ends_at', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('ends_at', null, ['id' => 'ends_at', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('ends_at', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>
@@ -148,7 +148,7 @@
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 {{ Form::label('survey_hour', 'Hora de Vistoria')}}
-                                                                {{ Form::text('survey_hour', null, ['id' => 'survey_hour', 'class' => 'form-control timepicker', 'placeholder' => 'hh:mm']) }}
+                                                                {{ Form::text('survey_hour', null, ['id' => 'survey_hour', 'class' => 'form-control', 'placeholder' => 'hh:mm']) }}
                                                                 {{ $errors->first('survey_hour', '<p class="text-red">:message</p>') }}
                                                             </div>
                                                         </div>

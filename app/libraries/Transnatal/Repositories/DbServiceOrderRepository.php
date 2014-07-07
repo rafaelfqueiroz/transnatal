@@ -57,7 +57,7 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
                         }
                         if($val == 1)
                         {
-                                $service_order->so_number = '1'."".$val;
+                                $service_order->so_number = '1000'."".$val;
                         }
                 }
                 if($input['service_type'] == 'intermunicipal')
@@ -71,7 +71,7 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
                         }
                         if($val == 1)
                         {
-                                $service_order->so_number = '2'."".$val;
+                                $service_order->so_number = '2000'."".$val;
                         }
                 }
                 $service_order->so_date = format_date($input['so_date'], true);
@@ -151,34 +151,6 @@ class DbServiceOrderRepository implements ServiceOrderRepositoryInterface {
 	public function update($id, $input)
 	{
 		$bd_order_service = $this->find($id);
-		if($input['service_type'] == 'local')
-                {
-                        $val = 1;
-                        if($this->get_last('local'))
-                        {
-                                $val = $this->get_last('local')->so_number;
-                                $val++;
-                                $bd_order_service->so_number = $val;
-                        }
-                        if($val == 1)
-                        {
-                                $bd_order_service->so_number = '1'."".$val;
-                        }
-                }
-                if($input['service_type'] == 'intermunicipal')
-                {
-                        $val = 1;
-                        if($this->get_last('intermunicipal'))
-                        {
-                                $val = $this->get_last('intermunicipal')->so_number;
-                                $val++;
-                                $bd_order_service->so_number = $val;
-                        }
-                        if($val == 1)
-                        {
-                                $bd_order_service->so_number = '2'."".$val;
-                        }
-                }
                 $bd_order_service->so_date = format_date($input['so_date'], true);
                 $bd_order_service->so_hour = $input['so_hour'];
                 $bd_order_service->service_type = $input['service_type'];
