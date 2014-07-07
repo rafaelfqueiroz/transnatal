@@ -10,6 +10,7 @@
         {{ HTML::style('assets/AdminLTE/css/font-awesome.min.css') }}
         <!-- Ionicons -->
         {{ HTML::style('assets/AdminLTE/css/ionicons.min.css') }}
+
         <!-- Morris chart -->
         <!-- {{ HTML::style('assets/AdminLTE/css/morris/morris.css') }} -->
         <!-- jvectormap -->
@@ -35,7 +36,7 @@
         {{ HTML::script('assets/vendor/jquery/jquery-2.1.1.min.js') }}
         <!-- {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js') }} -->
         <!-- jQuery UI 1.10.3 -->
-        {{ HTML::script('assets/AdminLTE/js/jquery-ui-1.10.3.min.js') }}
+        <!-- {{ HTML::script('assets/AdminLTE/js/jquery-ui-1.10.3.min.js') }} -->
 
         <!-- Bootstrap -->
         {{ HTML::script('assets/AdminLTE/js/bootstrap.min.js') }}
@@ -72,7 +73,6 @@
         <!-- Morris.js charts -->
         <!-- {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js') }} -->
         <!-- {{ HTML::script('assets/AdminLTE/js/plugins/morris/morris.min.js') }} -->
-
         <!-- AdminLTE App -->
         {{ HTML::script('assets/AdminLTE/js/AdminLTE/app.js') }}
 
