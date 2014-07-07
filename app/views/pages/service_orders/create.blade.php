@@ -174,7 +174,7 @@
                                                         {{ $errors->first('payament_responsible', '<p class="text-red">:message</p>') }}
                                                     </div>
                                                     <div class="form-group">
-                                                        {{ Form::label('cic', 'CIC')}}
+                                                        {{ Form::label('cic', 'CPF/CNPJ')}}
                                                         {{ Form::text('cic', null, ['id' => 'cic' , 'class' => 'form-control', 'placeholder' => '###.###.###-##']) }}
                                                         {{ $errors->first('cic', '<p class="text-red">:message</p>') }}
                                                     </div>
