@@ -23,9 +23,6 @@ class ClientsController extends BaseController {
 
 	public function create()
 	{
-		$view = (string)View::make('pages.clients.create'); 
-		var_dump($view);
-		die();
 		return View::make('pages.clients.create');
 	}
 
