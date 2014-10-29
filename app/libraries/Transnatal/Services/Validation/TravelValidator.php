@@ -22,8 +22,9 @@ class TravelValidator extends Validator {
 			return true;
 		}
 
-		$this->errors = $this->errors->toArray();
-		$this->errors = array_merge($this->errors, $this->validator->get_errors());
+		$this->errors = [];
+		if (!$result) $this->errors = $this->errors->toArray();
+		$this->errors = array_merge_recursive($this->errors, $this->validator->errors);
 		return false;
 	}
 }
