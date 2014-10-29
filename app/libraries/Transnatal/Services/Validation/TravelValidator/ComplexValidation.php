@@ -1,6 +1,8 @@
 <?php
 namespace Transnatal\Services\Validation\TravelValidator;
 
+use Config;
+
 class ComplexValidation extends BaseValidation {
 
   public function __construct()
@@ -35,7 +37,7 @@ class ComplexValidation extends BaseValidation {
 
     $por_km = $valor / $distancia;
 
-    if ($por_km < 1) {
+    if ($por_km < Config::get('validation.travel_minimum_value')) {
       $this->errors[] = 'O preço por km foi: R$' . number_format($por_km, 2) . '. O mínimo é R$1.00.';
       return false;
     }

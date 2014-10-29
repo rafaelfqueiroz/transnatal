@@ -22,9 +22,11 @@ class TravelValidator extends Validator {
 			return true;
 		}
 
-		$this->errors = [];
-		if (!$result) $this->errors = $this->errors->toArray();
-		$this->errors = array_merge_recursive($this->errors, $this->validator->errors);
+		$errors = [];
+		if (!$result) $errors = $this->errors->toArray();
+		$errors = array_merge_recursive($errors, $this->validator->errors);
+
+		$this->errors = $errors;
 		return false;
 	}
 }
