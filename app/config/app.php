@@ -121,7 +121,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Thujohn\Pdf\PdfServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Transnatal\Providers\RepositoryServiceProvider'
+		'Transnatal\Providers\RepositoryServiceProvider',
+		'Transnatal\Providers\ValidatorServiceProvider'
 	),
 
 	/*

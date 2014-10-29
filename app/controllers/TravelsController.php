@@ -80,7 +80,12 @@ class TravelsController extends BaseController {
 	{
 		// var_dump(Input::all());
 		// die();
-		//$this->validator->validate(Input::all());
+		if($this->validator->validate(Input::all())) {
+			$this->travelRepository->save(Input::all());
+			return Response::json(['messages' => 'Viagem registrada com sucesso.']);
+		} else {
+			return Response::json(['errors' => $this->validator->getErrors()]);
+		}
 		// $this->travelRouteValidator->validate(Input::all());
 		// $this->travelAdvanceValidator->validate(Input::all());
 		// $this->travelCostValidator->validate(Input::all());
@@ -105,8 +110,7 @@ class TravelsController extends BaseController {
 		// {
 			//if ($this->travelRepository->save(Input::all()))
 			//{
-				$this->travelRepository->save(Input::all());
-				return Response::json(['messages' => 'Viagem registrada com sucesso.']);
+				
 			// }
 			// else
 			// {

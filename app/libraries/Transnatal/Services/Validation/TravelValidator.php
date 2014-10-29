@@ -1,36 +1,29 @@
 <?php
 namespace Transnatal\Services\Validation;
 
+use Transnatal\Services\Validation\TravelValidator\BaseValidation;
+
 class TravelValidator extends Validator {
 
-	public function __construct()
+	public function __construct(BaseValidation $validator)
 	{
-		$this->rules = [
-		 'manifest_number' => 'required',
-		 'issue_date' => 'required',
-		 'travel_to' => 'required',
-		 'control_ordinance_from_mileage' => 'required',
-		 'control_ordinance_from_date' => 'required',
-		 // 'control_ordinance_to_mileage' => 'required',
-		 // 'control_ordinance_to_date' => 'required',
-		 'out_km' => 'required',
-		 'arrival_km' => 'required'
-		 // 'travel_performace' => 'required',
-		 // 'travel_performace_reason' => 'required'
-		];
+		$this->validator = $validator;
+	}
 
-		$this->messages = [
-		 'manifest_number.required' => 'O campo manifesto é necessário',
-		 'issue_date.required' => 'O campo data de emissão é necessário',
-		 'travel_to.required' => 'O campo destino é necessário',
-		 'control_ordinance_from_mileage.required' => 'O campo quilometragem de saída do controle de portaria é necessário',
-		 'control_ordinance_from_date.required' => 'O campo data de saída do controle de portaria é necessário',
-		 // 'control_ordinance_to_mileage.required' => 'O campo quilometragem de chegada do controle de portaria é necessário',
-		 // 'control_ordinance_to_date.required' => 'O campo data de chegada do controle de portaria é necessário',
-		 'out_km.required' => 'O campo quilometragem de saída é necessário',
-		 'arrival_km.required' => 'O campo quilometragem de chegada é necessário'
-		 // 'travel_performace.required' => 'O campo desempenho global é necessário',
-		 // 'travel_performace_reason.required' => 'O campo motivo do desempenho global é necessário'
-		];
+	public function validate($input)
+	{
+		$this->rules = $this->validator->get_rules();
+		$this->messages = $this->validator->get_messages();
+
+		$result 	= parent::validate($input);
+		$specific	= $this->validator->validate($input);
+
+		if ($result && $specific) {
+			return true;
+		}
+
+		$this->errors = $this->errors->toArray();
+		$this->errors = array_merge($this->errors, $this->validator->get_errors());
+		return false;
 	}
 }
