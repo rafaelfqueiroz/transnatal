@@ -9,7 +9,7 @@ class NewsServiceProvider extends ServiceProvider {
 
   public function register() {
 
-    $observers = Config::get('alerts.types');
+    $observers = Config::get('alerts.news_types');
     foreach ($observers as $observer) {
       Event::listen('eloquent.saved: News', 'Transnatal\\Services\\NewsService\\Observers\\' . $observer);
     }
