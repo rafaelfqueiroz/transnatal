@@ -122,7 +122,8 @@ return array(
 		'Thujohn\Pdf\PdfServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Transnatal\Providers\RepositoryServiceProvider',
-		'Transnatal\Providers\ValidatorServiceProvider'
+		'Transnatal\Providers\ValidatorServiceProvider',
+		'Transnatal\Providers\NewsServiceProvider'
 	),
 
 	/*
