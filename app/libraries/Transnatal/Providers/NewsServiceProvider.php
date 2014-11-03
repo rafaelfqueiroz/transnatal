@@ -1,14 +1,18 @@
 <?php
 namespace Transnatal\Providers;
 
+use Config;
+use Event;
 use Illuminate\Support\ServiceProvider;
 
 class NewsServiceProvider extends ServiceProvider {
 
   public function register() {
 
-    $this->app->bind('Transnatal\Services\NewsService\Subjects\SubjectInterface', 
-      'Transnatal\Services\NewsService\Subjects\NewsSubject');
+    $observers = Config::get('alerts.types');
+    foreach ($observers as $observer) {
+      Event::listen('eloquent.saved: News', 'Transnatal\\Services\\NewsService\\Observers\\' . $observer);
+    }
 
   }
 }
