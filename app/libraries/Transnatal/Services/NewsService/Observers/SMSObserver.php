@@ -10,5 +10,4 @@ class SMSObserver implements ObserverInterface {
 	{
 
 	}
-
 }

@@ -4,10 +4,13 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>Password Reset</h2>
+		<h3>Nova notícia cadastrada:</h3>
 
 		<div>
-			To reset your password, complete this form: {{ URL::to('password/reset', array($token)) }}.
+			{{$news->news_date}}
+			<br>
+			<br>
+			{{$news->news_message}}
 		</div>
 	</body>
 </html>

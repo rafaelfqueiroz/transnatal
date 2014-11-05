@@ -3,7 +3,7 @@ namespace Transnatal\Services\NewsService\Observers;
 
 interface ObserverInterface {
 	
-	public function execute($id);
+	public function handle($news);
 
 }
 

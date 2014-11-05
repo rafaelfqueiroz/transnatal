@@ -5,7 +5,11 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"thujohn/pdf": "dev-master"
+		"thujohn/pdf": "dev-master",
+		"phpmailer/phpmailer": "dev-master",
+		"dollar/generators": "dev-master",
+		"phpunit/phpunit": "4.0.*",
+		"mockery/mockery": "~0.9"
 	},
 	"require-dev": {
 		"way/generators" : "2.*",
@@ -18,7 +22,8 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
+			"app/tests/TestCase.php",
+			"vendor/phpmailer/phpmailer"
 		],
 		"psr-0": {
 			"Transnatal":"app/libraries"
