@@ -9,7 +9,7 @@ class SMTPObserver implements ObserverInterface {
 
 	public function handle($news)
 	{
-		if (empty($news->news_message)) {
+		if (!empty($news->news_message)) {
 			Mail::send("emails.auth.reminder", array('news' => $news), function($message) {
 				$message->to('rfqueiroz.91@gmail.com')->subject("Noticia transnatal");
 			});

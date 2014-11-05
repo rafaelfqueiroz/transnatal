@@ -6,7 +6,7 @@ use Transnatal\Services\NewsService\Observers\ObserverInterface;
 
 class SMSObserver implements ObserverInterface {
 
-	public function execute($id)
+	public function handle($news)
 	{
 
 	}
